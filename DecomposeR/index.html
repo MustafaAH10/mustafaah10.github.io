@@ -28,7 +28,7 @@
           <a class="indent" href="#plan-repr"><span>-</span><span>Plan Representation</span></a>
           <a class="indent" href="#training"><span>-</span><span>Training</span></a>
           <a class="indent" href="#results"><span>-</span><span>Results</span></a>
-          <a class="indent" href="#figures"><span>-</span><span>Figures</span></a>
+          <a class="indent" href="#ablations"><span>-</span><span>Ablations</span></a>
         </nav>
       </aside>
 
@@ -36,7 +36,7 @@
         <div class="pathbar">
           <div class="pathText">~/Papers/DecomposeR</div>
           <span class="tag">Deep Research</span>
-          <span class="tag muted">arXiv 2025</span>
+          <span class="tag muted">arXiv 2026</span>
         </div>
 
         <section class="hero" id="abstract">
@@ -57,7 +57,7 @@
             <a class="tabButton" href="https://arxiv.org/abs/2605.30824" target="_blank" rel="noopener">arXiv Paper</a>
             <button type="button" onclick="document.getElementById('method').scrollIntoView({behavior:'smooth'})">Method</button>
             <button type="button" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">Results</button>
-            <button type="button" onclick="document.getElementById('figures').scrollIntoView({behavior:'smooth'})">Figures</button>
+            <button type="button" onclick="document.getElementById('ablations').scrollIntoView({behavior:'smooth'})">Ablations</button>
           </nav>
         </section>
 
@@ -88,7 +88,7 @@
 
         <section class="figureSection">
           <figure class="mainFigure">
-            <img src="assets/figures/system_overview.png" alt="DecomposeR system overview: rollout structure showing planner emitting typed DAG, search execution, plan revision, and answerer topological synthesis" loading="lazy" />
+            <img src="assets/figures/figure1_rollout.png" alt="DecomposeR rollout structure: Planner Phase Trajectory with Initial Graph, Search Results, and Revised Graph; Answerer Phase Trajectory with topological execution waves, Final Answer Report, and Citation Catalog" loading="lazy" />
             <figcaption><strong>Figure 1 — DecomposeR Rollout Structure.</strong> The planner emits an initial typed DAG from the query, the environment executes all search nodes and returns observations, the planner revises the graph and fetch set using retrieved evidence, and the answerer executes the revised graph in topological waves before writing the final citation-grounded report.</figcaption>
           </figure>
         </section>
@@ -194,7 +194,7 @@
           </p>
         </section>
 
-        <section class="figureSection twoCol">
+        <section class="figureSection twoCol compact">
           <figure class="subFigure">
             <img src="assets/figures/planner_overall_reward.png" alt="Planner RL overall reward curve over training" loading="lazy" />
             <figcaption><strong>Planner RL Reward.</strong> Smoothed planner reward (black) and raw rollout means (grey) over training. The planner shows strong gains in validity, search breadth, aggregate branching, and cross-branch structure.</figcaption>
@@ -205,7 +205,7 @@
           </figure>
         </section>
 
-        <section class="figureSection twoCol">
+        <section class="figureSection twoCol compact">
           <figure class="subFigure">
             <img src="assets/figures/answerer_reward_components.png" alt="Answerer RL reward and its execution and synthesis components over training" loading="lazy" />
             <figcaption><strong>Answerer RL Reward Components.</strong> Overall answerer reward together with its execution fidelity and synthesis quality contributions. The two components confirm that branch-level execution and final synthesis are separable learning objectives.</figcaption>
@@ -229,11 +229,12 @@
           </p>
 
           <div class="tableBlock">
-            <h3>DecomposeR-8B vs. Open Baselines</h3>
+            <h3>Table 1 — Main Results (DeepResearchBench · HealthBench · ResQA-Mini)</h3>
             <table>
               <thead>
                 <tr>
                   <th>Model</th>
+                  <th>Family</th>
                   <th>DRBench</th>
                   <th>HealthBench</th>
                   <th>ResQA-Mini</th>
@@ -241,40 +242,118 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="rank-1">
-                  <td><strong>DecomposeR-8B (SFT + RL)</strong></td>
-                  <td>41.8</td>
-                  <td>42.0</td>
-                  <td>71.4</td>
-                  <td><strong>51.7</strong></td>
+                <tr class="groupHeader">
+                  <td colspan="6" style="background:#f0f0ec;font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:7px 14px;color:var(--muted);font-weight:700;">Commercial Deep Research Systems</td>
                 </tr>
-                <tr class="rank-2">
-                  <td>DecomposeR-8B (SFT only)</td>
-                  <td>36.3</td>
-                  <td>39.1</td>
-                  <td>63.8</td>
-                  <td>46.4</td>
+                <tr>
+                  <td>GPT-5 + Search</td>
+                  <td>Commercial LLM+Search</td>
+                  <td>50.7</td>
+                  <td>—</td>
+                  <td>78.2</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td>Gemini Deep Research</td>
+                  <td>Commercial DR</td>
+                  <td>48.9</td>
+                  <td>52.5</td>
+                  <td>68.8</td>
+                  <td>56.7</td>
+                </tr>
+                <tr>
+                  <td>OpenAI Deep Research</td>
+                  <td>Commercial DR</td>
+                  <td>46.9</td>
+                  <td>54.0</td>
+                  <td>79.1</td>
+                  <td>60.0</td>
+                </tr>
+                <tr>
+                  <td>Perplexity Deep Research</td>
+                  <td>Commercial DR</td>
+                  <td>42.7</td>
+                  <td>—</td>
+                  <td>75.1</td>
+                  <td>—</td>
+                </tr>
+                <tr class="groupHeader">
+                  <td colspan="6" style="background:#f0f0ec;font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:7px 14px;color:var(--muted);font-weight:700;">Open Deep Research &amp; Search Agents</td>
+                </tr>
+                <tr>
+                  <td>WebThinker-32B-DPO</td>
+                  <td>Open DR</td>
+                  <td>40.6</td>
+                  <td>39.4</td>
+                  <td>74.1</td>
+                  <td>51.4</td>
+                </tr>
+                <tr>
+                  <td>Tongyi DeepResearch-30B-A3B</td>
+                  <td>Open DR</td>
+                  <td>40.6</td>
+                  <td>45.9</td>
+                  <td>66.7</td>
+                  <td>51.1</td>
+                </tr>
+                <tr>
+                  <td>WebThinker QwQ-32B</td>
+                  <td>Open DR</td>
+                  <td>37.9</td>
+                  <td>36.5</td>
+                  <td>72.3</td>
+                  <td>48.9</td>
+                </tr>
+                <tr>
+                  <td>WebExplorer-8B</td>
+                  <td>Open Search</td>
+                  <td>36.7</td>
+                  <td>34.0</td>
+                  <td>65.5</td>
+                  <td>45.4</td>
                 </tr>
                 <tr>
                   <td>Qwen3-8B + Search</td>
+                  <td>LLM+Search</td>
                   <td>34.4</td>
                   <td>19.8</td>
                   <td>57.0</td>
                   <td>37.1</td>
                 </tr>
                 <tr>
-                  <td>WebThinker-32B-DPO</td>
-                  <td>37.7</td>
-                  <td>38.5</td>
-                  <td>—</td>
-                  <td>—</td>
+                  <td>Search-R1-7B</td>
+                  <td>Open Search</td>
+                  <td>9.7</td>
+                  <td>1.1</td>
+                  <td>28.4</td>
+                  <td>13.1</td>
                 </tr>
                 <tr>
-                  <td>Tongyi DeepResearch-30B</td>
-                  <td>38.6</td>
-                  <td>—</td>
-                  <td>67.2</td>
-                  <td>—</td>
+                  <td>ASearcher-Web-7B</td>
+                  <td>Open Search</td>
+                  <td>10.0</td>
+                  <td>−13.0</td>
+                  <td>22.5</td>
+                  <td>6.5</td>
+                </tr>
+                <tr class="groupHeader">
+                  <td colspan="6" style="background:#f0f0ec;font-family:var(--mono);font-size:11px;text-transform:uppercase;padding:7px 14px;color:var(--muted);font-weight:700;">Ours (Qwen3-8B backbone)</td>
+                </tr>
+                <tr>
+                  <td>DecomposeR-8B (SFT only)</td>
+                  <td>Ours</td>
+                  <td>36.3</td>
+                  <td>39.1</td>
+                  <td>63.8</td>
+                  <td>46.4</td>
+                </tr>
+                <tr class="rank-1">
+                  <td><strong>DecomposeR-8B (SFT + RL)</strong></td>
+                  <td><strong>Ours</strong></td>
+                  <td><strong>41.8</strong></td>
+                  <td><strong>42.0</strong></td>
+                  <td><strong>71.4</strong></td>
+                  <td><strong>51.7</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -300,35 +379,47 @@
           </div>
         </section>
 
-        <section class="contentSection" id="figures">
+        <section class="contentSection" id="ablations">
           <div class="sectionHeader">
             <div>
-              <p class="sectionLabel">Conclusion</p>
-              <h2>Key Takeaways</h2>
+              <p class="sectionLabel">Ablations</p>
+              <h2>Ablation Studies</h2>
             </div>
+            <a href="https://arxiv.org/abs/2605.30824" class="outlineLink" target="_blank" rel="noopener">Full Numbers in Paper</a>
           </div>
-          <div class="takeawayGrid">
-            <div class="takeaway">
-              <div class="takeawayNum">01</div>
-              <h3>Structured plans are optimizable</h3>
-              <p>Representing research plans as typed DAGs creates addressable units that reward can target directly, confirming that explicit structure is a useful optimization target for deep research systems.</p>
-            </div>
-            <div class="takeaway">
-              <div class="takeawayNum">02</div>
-              <h3>Staged training isolates failure modes</h3>
-              <p>Separating planner RL and answerer RL prevents confounding: planner credit is never polluted by execution noise, and answerer credit is not confounded by drifting plan quality.</p>
-            </div>
-            <div class="takeaway">
-              <div class="takeawayNum">03</div>
-              <h3>Efficient at 8B scale</h3>
-              <p>DecomposeR-8B achieves competitive or superior performance to models 3–4× larger (WebThinker-32B, Tongyi DeepResearch-30B), demonstrating that improved training methodology can compensate for smaller model scale.</p>
-            </div>
-            <div class="takeaway">
-              <div class="takeawayNum">04</div>
-              <h3>Structure-aware reward reduces sparsity</h3>
-              <p>Distributing reward signals across plan components rather than relying on a single trajectory-end scalar reduces reward sparsity and stabilizes credit propagation across long deep-research trajectories.</p>
-            </div>
-          </div>
+          <p class="bodyText">
+            We conduct six ablation groups to isolate the contribution of each design decision in DecomposeR. Full numerical results for each ablation are reported in the paper; the descriptions below summarize the key findings.
+          </p>
+
+          <h3 class="subheading">B1 — Staged vs. Joint RL</h3>
+          <p class="bodyText">
+            We compare training both the planner and answerer jointly under a single end-to-end reward against the proposed two-stage approach of first running Planner RL with the answerer held fixed, then running Answerer RL with the planner held fixed. Joint RL produces weaker planning graphs and less stable answerer convergence; staged training consistently achieves higher scores on all three benchmarks, confirming that decoupling the two roles prevents non-stationarity from drifting plan quality confounding answerer credit.
+          </p>
+
+          <h3 class="subheading">B2 — Planner Quality with a Fixed External Answerer</h3>
+          <p class="bodyText">
+            To assess planner quality independently of the trained answerer, we evaluate several planner variants (SFT-only, after Planner RL) by pairing each with a single fixed strong external answerer. This isolates the quality of the plan structure from execution skill. Planner RL plans consistently produce better downstream answers even when executed by the same answerer, confirming that reward gains in Phase 2 reflect genuine plan quality improvements rather than answerer over-fitting to planner quirks.
+          </p>
+
+          <h3 class="subheading">C1 — Planner Reward Component Ablations</h3>
+          <p class="bodyText">
+            The planner reward combines three components: <strong>Rubric Coverage</strong> (R<sub>rub</sub> — plan nodes semantically anticipate query-specific rubric criteria), <strong>Search Quality</strong> (R<sub>search</sub> — search nodes target the right aspects with low redundancy), and <strong>Graph Expressiveness</strong> (R<sub>graph</sub> — aggregate branching, cross-branch integration, and search breadth). We ablate each component by removing it while keeping the other two. Removing any single component degrades downstream benchmark performance, with Rubric Coverage contributing the largest individual gain, indicating that anchoring plans to query-specific criteria is the most critical structural signal.
+          </p>
+
+          <h3 class="subheading">C2 — Answerer Reward Component Ablations</h3>
+          <p class="bodyText">
+            The answerer reward combines: <strong>Execution Reward</strong> (R<sub>exec</sub> — whether each aggregate node covers its declared key points), <strong>LLM Judge Reward</strong> (R<sub>jrub</sub> — overall synthesis quality as judged by a frontier LLM), and <strong>Branch Utilization</strong> (U<sub>branch</sub> — whether the final answer integrates evidence from all branches). Ablating each in turn shows that execution fidelity is the most critical for alignment with the plan, while the LLM judge reward drives overall answer quality. Removing branch utilization leads to answers that skip branches, reducing coverage on multi-faceted queries.
+          </p>
+
+          <h3 class="subheading">D1 — Plan Structure: Typed DAG vs. Tree vs. Linear</h3>
+          <p class="bodyText">
+            We compare three plan representation types: a <strong>Typed DAG</strong> (the proposed structure, which allows cross-branch evidence reuse via multiple parents), a <strong>Tree</strong> (each node has exactly one parent, preventing cross-branch edges), and a <strong>Linear</strong> list (a flat sequence of search and synthesis steps with no structure). The Typed DAG outperforms both alternatives, with the Tree outperforming Linear. The margin between DAG and Tree is most pronounced on queries requiring integration of evidence from multiple independent search branches, confirming that the ability to express cross-source dependencies is load-bearing.
+          </p>
+
+          <h3 class="subheading">D2 — Single-Turn vs. Two-Turn Planning</h3>
+          <p class="bodyText">
+            We compare a single-turn planning variant — where the planner emits the final graph G₁ directly from the query without seeing any search results — against the proposed two-turn design (Turn 1: initial graph G₀; environment executes search nodes; Turn 2: revised graph G₁ + fetch set). Two-turn planning consistently yields higher quality plans as measured by downstream benchmark scores and graph validity rate. The plan revision step allows the planner to ground its graph in actual retrieved evidence, leading to more targeted aggregate nodes and better fetch set selection.
+          </p>
         </section>
 
         <footer class="pageFooter">

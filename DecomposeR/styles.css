@@ -271,6 +271,11 @@ button:hover {
   gap: 24px;
 }
 
+.figureSection.compact {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
 .mainFigure,
 .subFigure {
   margin: 0;
@@ -599,12 +604,13 @@ tr.rank-2 {
     padding-right: 16px;
   }
 
-  .summaryBand {
-    grid-template-columns: repeat(2, 1fr);
+  .figureSection.compact {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .takeawayGrid {
-    grid-template-columns: 1fr;
+  .summaryBand {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .calloutGrid {
