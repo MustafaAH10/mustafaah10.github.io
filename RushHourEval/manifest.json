@@ -47300,7 +47300,7 @@
   "performance": {
     "3x3": [
       {
-        "model": "gpt5",
+        "model": "GPT-5",
         "total_puzzles": 150,
         "legal_optimal": 137,
         "legal_suboptimal": 12,
@@ -47313,7 +47313,7 @@
         "illegal_rate": 0.6666666666666667
       },
       {
-        "model": "gemini",
+        "model": "Gemini-2.5-Pro",
         "total_puzzles": 150,
         "legal_optimal": 134,
         "legal_suboptimal": 13,
@@ -47326,7 +47326,7 @@
         "illegal_rate": 2.0
       },
       {
-        "model": "deepseekv3",
+        "model": "DeepSeek-V3",
         "total_puzzles": 150,
         "legal_optimal": 130,
         "legal_suboptimal": 14,
@@ -47339,7 +47339,7 @@
         "illegal_rate": 2.0
       },
       {
-        "model": "qwen3-8b",
+        "model": "Qwen3-8B",
         "total_puzzles": 150,
         "legal_optimal": 108,
         "legal_suboptimal": 16,
@@ -47352,7 +47352,7 @@
         "illegal_rate": 17.333333333333336
       },
       {
-        "model": "qwen14b",
+        "model": "Qwen2.5-14B-Instruct",
         "total_puzzles": 150,
         "legal_optimal": 12,
         "legal_suboptimal": 9,
@@ -47365,7 +47365,7 @@
         "illegal_rate": 86.0
       },
       {
-        "model": "llama3.1-8b",
+        "model": "Llama-3.1-8B",
         "total_puzzles": 150,
         "legal_optimal": 2,
         "legal_suboptimal": 3,
@@ -47378,7 +47378,7 @@
         "illegal_rate": 93.33333333333333
       },
       {
-        "model": "qwen7b",
+        "model": "Qwen2.5-7B",
         "total_puzzles": 150,
         "legal_optimal": 3,
         "legal_suboptimal": 1,
@@ -47391,7 +47391,7 @@
         "illegal_rate": 97.33333333333334
       },
       {
-        "model": "olmo2-13b",
+        "model": "OLMo2-13B",
         "total_puzzles": 150,
         "legal_optimal": 0,
         "legal_suboptimal": 2,
@@ -47406,7 +47406,7 @@
     ],
     "4x4": [
       {
-        "model": "gpt5",
+        "model": "GPT-5",
         "total_puzzles": 150,
         "legal_optimal": 136,
         "legal_suboptimal": 13,
@@ -47419,7 +47419,7 @@
         "illegal_rate": 0.6666666666666667
       },
       {
-        "model": "gemini",
+        "model": "Gemini-2.5-Pro",
         "total_puzzles": 150,
         "legal_optimal": 109,
         "legal_suboptimal": 34,
@@ -47432,7 +47432,7 @@
         "illegal_rate": 4.666666666666667
       },
       {
-        "model": "deepseekv3",
+        "model": "DeepSeek-V3",
         "total_puzzles": 150,
         "legal_optimal": 109,
         "legal_suboptimal": 28,
@@ -47445,7 +47445,7 @@
         "illegal_rate": 8.0
       },
       {
-        "model": "qwen3-8b",
+        "model": "Qwen3-8B",
         "total_puzzles": 150,
         "legal_optimal": 91,
         "legal_suboptimal": 21,
@@ -47458,7 +47458,7 @@
         "illegal_rate": 25.333333333333336
       },
       {
-        "model": "qwen14b",
+        "model": "Qwen2.5-14B-Instruct",
         "total_puzzles": 150,
         "legal_optimal": 0,
         "legal_suboptimal": 13,
@@ -47471,7 +47471,7 @@
         "illegal_rate": 74.0
       },
       {
-        "model": "olmo2-13b",
+        "model": "OLMo2-13B",
         "total_puzzles": 150,
         "legal_optimal": 2,
         "legal_suboptimal": 6,
@@ -47484,7 +47484,7 @@
         "illegal_rate": 94.0
       },
       {
-        "model": "llama3.1-8b",
+        "model": "Llama-3.1-8B",
         "total_puzzles": 150,
         "legal_optimal": 4,
         "legal_suboptimal": 3,
@@ -47497,7 +47497,7 @@
         "illegal_rate": 94.66666666666667
       },
       {
-        "model": "qwen7b",
+        "model": "Qwen2.5-7B",
         "total_puzzles": 150,
         "legal_optimal": 0,
         "legal_suboptimal": 4,
@@ -47512,7 +47512,7 @@
     ],
     "5x5": [
       {
-        "model": "gpt5",
+        "model": "GPT-5",
         "total_puzzles": 150,
         "legal_optimal": 67,
         "legal_suboptimal": 47,
@@ -47525,7 +47525,7 @@
         "illegal_rate": 24.0
       },
       {
-        "model": "deepseekv3",
+        "model": "DeepSeek-V3",
         "total_puzzles": 150,
         "legal_optimal": 51,
         "legal_suboptimal": 24,
@@ -47538,7 +47538,7 @@
         "illegal_rate": 37.333333333333336
       },
       {
-        "model": "gemini",
+        "model": "Gemini-2.5-Pro",
         "total_puzzles": 150,
         "legal_optimal": 42,
         "legal_suboptimal": 26,

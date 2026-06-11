@@ -186,6 +186,7 @@ function renderPerformanceTables() {
     const rows = state.performance[size] || [];
     const block = document.createElement("section");
     block.className = "tableBlock";
+    const rankClass = (i) => i === 0 ? " rank-1" : i === 1 ? " rank-2" : i === 2 ? " rank-3" : "";
     block.innerHTML = `
       <h3>${size} Dataset Benchmark Results</h3>
       <table>
@@ -205,8 +206,8 @@ function renderPerformanceTables() {
         <tbody>
           ${rows
             .map(
-              (row) => `
-                <tr>
+              (row, i) => `
+                <tr class="${rankClass(i).trim()}">
                   <td><strong>${row.model}</strong></td>
                   <td>${formatPercent(row.target_rate)}</td>
                   <td>${formatPercent(row.optimal_rate)}</td>
@@ -227,16 +228,36 @@ function renderPerformanceTables() {
   }
 }
 
+function openLightbox(src, label) {
+  let overlay = document.getElementById("plotLightbox");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "plotLightbox";
+    overlay.className = "lightbox";
+    overlay.innerHTML = `<div class="lightboxInner"><img id="lightboxImg" alt=""><p id="lightboxLabel"></p><button id="lightboxClose">Close ×</button></div>`;
+    document.body.appendChild(overlay);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.classList.remove("open"); });
+    document.getElementById("lightboxClose").addEventListener("click", () => overlay.classList.remove("open"));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") overlay.classList.remove("open"); });
+  }
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightboxImg").alt = label;
+  document.getElementById("lightboxLabel").textContent = label;
+  overlay.classList.add("open");
+}
+
 function renderPlots() {
   els.plotGrid.innerHTML = "";
   for (const size of ["3x3", "4x4", "5x5"]) {
     for (const plot of state.plots[size] || []) {
       const card = document.createElement("figure");
       card.className = "plotCard";
+      card.title = "Click to enlarge";
       card.innerHTML = `
         <img src="${plot.src}" alt="${plot.label}" loading="lazy">
         <p>${plot.label}</p>
       `;
+      card.addEventListener("click", () => openLightbox(plot.src, plot.label));
       els.plotGrid.appendChild(card);
     }
   }

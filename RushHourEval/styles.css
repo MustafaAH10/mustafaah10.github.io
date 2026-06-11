@@ -572,19 +572,29 @@ pre {
 
 .plotGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
 .plotCard {
   border: 1px solid var(--line);
   background: #ffffff;
+  cursor: zoom-in;
+  transition: box-shadow 0.15s;
+}
+
+.plotCard:hover {
+  border-color: var(--line-dark);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .plotCard img {
   width: 100%;
   display: block;
   border-bottom: 1px solid var(--line);
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  background: #fafaf7;
 }
 
 .plotCard p {
@@ -594,6 +604,73 @@ pre {
   font-family: var(--mono);
   font-size: 11px;
   text-transform: uppercase;
+}
+
+tr.rank-1 {
+  background: #dcfce7;
+}
+
+tr.rank-2 {
+  background: #f0fdf4;
+}
+
+tr.rank-3 {
+  background: #f7fef9;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightboxInner {
+  position: relative;
+  max-width: min(94vw, 1100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.lightboxInner img {
+  width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid #444;
+}
+
+.lightboxInner p {
+  margin: 0;
+  color: #cccccc;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.lightboxInner button {
+  margin-top: 4px;
+  min-height: 34px;
+  border: 1px solid #888;
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lightboxInner button:hover {
+  background: #ffffff;
+  color: #111111;
 }
 
 @media (max-width: 1100px) {
@@ -620,6 +697,12 @@ pre {
   }
 }
 
+@media (max-width: 900px) {
+  .plotGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 720px) {
   .hero,
   .leaderboard,
@@ -637,5 +720,9 @@ pre {
   .viewerHeader {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .plotGrid {
+    grid-template-columns: 1fr;
   }
 }

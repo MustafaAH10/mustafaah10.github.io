@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DecomposeR</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="../">DecomposeR</a>
+      <nav class="topnav" aria-label="Primary">
+        <a class="active" href="#paper">Paper</a>
+        <a href="https://arxiv.org/abs/2605.30824" target="_blank" rel="noopener">arXiv</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="directory">
+        <div class="directoryHeader">
+          <span>Directory</span>
+          <span>Paper</span>
+        </div>
+        <nav class="tree" aria-label="Directory">
+          <a class="open" href="#paper"><span>+</span><strong>DecomposeR</strong></a>
+          <a class="indent active" href="#abstract"><span>-</span><span>Abstract</span></a>
+          <a class="indent" href="#method"><span>-</span><span>Method</span></a>
+          <a class="indent" href="#plan-repr"><span>-</span><span>Plan Representation</span></a>
+          <a class="indent" href="#training"><span>-</span><span>Training</span></a>
+          <a class="indent" href="#results"><span>-</span><span>Results</span></a>
+          <a class="indent" href="#figures"><span>-</span><span>Figures</span></a>
+        </nav>
+      </aside>
+
+      <main class="page" id="paper">
+        <div class="pathbar">
+          <div class="pathText">~/Papers/DecomposeR</div>
+          <span class="tag">Deep Research</span>
+          <span class="tag muted">arXiv 2025</span>
+        </div>
+
+        <section class="hero" id="abstract">
+          <h1>DecomposeR: Planner-Centric Reinforcement Learning for Deep Research with Structure-Aware Reward</h1>
+          <p class="authors">
+            Mustafa Anis Hussain &nbsp;·&nbsp; Xinle Wu &nbsp;·&nbsp; Yao Lu
+          </p>
+          <p class="affiliation">
+            National University of Singapore &nbsp;·&nbsp; Scalable AI Lab
+          </p>
+          <div class="badges">
+            <span>Deep Research</span>
+            <span>Reinforcement Learning</span>
+            <span>Typed DAG Planning</span>
+            <span>Qwen3-8B</span>
+          </div>
+          <nav class="tabs" aria-label="Paper sections">
+            <a class="tabButton" href="https://arxiv.org/abs/2605.30824" target="_blank" rel="noopener">arXiv Paper</a>
+            <button type="button" onclick="document.getElementById('method').scrollIntoView({behavior:'smooth'})">Method</button>
+            <button type="button" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">Results</button>
+            <button type="button" onclick="document.getElementById('figures').scrollIntoView({behavior:'smooth'})">Figures</button>
+          </nav>
+        </section>
+
+        <section class="summaryBand">
+          <div><span>Backbone</span><strong>Qwen3-8B</strong></div>
+          <div><span>Improvement</span><strong>+5.1–8.0 pts</strong></div>
+          <div><span>Benchmarks</span><strong>3</strong></div>
+          <div><span>Training Stages</span><strong>SFT + 2× RL</strong></div>
+        </section>
+
+        <section class="contentSection" id="abstract-text">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Abstract</p>
+              <h2>Overview</h2>
+            </div>
+          </div>
+          <p class="bodyText">
+            Deep research tasks require LLMs to plan what to investigate, retrieve evidence, and synthesize long-form answers across multiple branches of inquiry. Existing training paradigms either rely on short-form verifiable QA as a proxy or optimize monolithic long trajectories, which makes planning and execution difficult to disentangle and yields weak credit assignment for the planning process.
+          </p>
+          <p class="bodyText">
+            We propose <strong>DecomposeR</strong>, a planner-centric deep research framework that represents research plans as <em>typed directed acyclic graphs (DAGs)</em>, allowing planning to be made explicit, structured, and rewardable. We train a Qwen3-8B model in two stages: <strong>planner RL</strong> first learns graph structure and query decomposition to improve research planning, and <strong>answerer RL</strong> then learns branch-level execution and final synthesis conditioned on the learned plan.
+          </p>
+          <p class="bodyText">
+            By assigning rewards to explicit planner tokens and structured components rather than to a flat trajectory, DecomposeR enables finer-grained optimization of planning while reducing the ambiguity of end-to-end training. Experiments show that DecomposeR-8B improves over strong comparable open baselines by <strong>5.1–8.0 points</strong> on popular long-form benchmarks due to improved planning and answering capabilities.
+          </p>
+        </section>
+
+        <section class="figureSection">
+          <figure class="mainFigure">
+            <img src="assets/figures/system_overview.png" alt="DecomposeR system overview: rollout structure showing planner emitting typed DAG, search execution, plan revision, and answerer topological synthesis" loading="lazy" />
+            <figcaption><strong>Figure 1 — DecomposeR Rollout Structure.</strong> The planner emits an initial typed DAG from the query, the environment executes all search nodes and returns observations, the planner revises the graph and fetch set using retrieved evidence, and the answerer executes the revised graph in topological waves before writing the final citation-grounded report.</figcaption>
+          </figure>
+        </section>
+
+        <section class="contentSection" id="method">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Method</p>
+              <h2>DecomposeR Framework</h2>
+            </div>
+          </div>
+          <p class="bodyText">
+            The core motivation behind DecomposeR is that current RL-trained deep research systems suffer from two limitations: <em>ambiguous credit assignment</em> — reasoning, search, evidence selection, and synthesis are interleaved in a flat ReAct-style trajectory, so a single scalar reward propagated across every action cannot identify which failure point to correct — and <em>sparse rewards</em> — intermediate planning and search decisions receive no direct supervision.
+          </p>
+          <p class="bodyText">
+            DecomposeR addresses both by materializing the research plan as an explicit typed DAG in which search nodes issue web queries, aggregate nodes synthesize branch-level conclusions, and a terminal answer node integrates branches into the final report. Because every plan component is individually addressable, reward can be assigned to the specific part of the research process responsible for each decision.
+          </p>
+
+          <h3 class="subheading">Rollout Structure</h3>
+          <p class="bodyText">The DecomposeR rollout proceeds in five steps at both training and inference time:</p>
+          <ol class="styledList">
+            <li><strong>Initial Planning:</strong> Given a query, the planner emits an initial plan G₀ as a typed DAG.</li>
+            <li><strong>Initial Search:</strong> The environment executes every search node in G₀ and returns retrieved observations.</li>
+            <li><strong>Plan Revision:</strong> The planner consumes the search results and emits a revised plan G₁ together with a small fetch set of high-value URLs.</li>
+            <li><strong>Conditional Search:</strong> The environment runs only newly added or modified search nodes in G₁, reusing observations from unchanged nodes.</li>
+            <li><strong>Answer Generation:</strong> The answerer fills aggregate nodes of G₁ in topological waves and produces the final citation-grounded report at the answer node.</li>
+          </ol>
+        </section>
+
+        <section class="figureSection twoCol">
+          <figure class="subFigure">
+            <img src="assets/figures/typed_dag_example.png" alt="Example of a typed directed acyclic graph (DAG) research plan with search, aggregate and answer nodes" loading="lazy" />
+            <figcaption><strong>Figure 2 — Typed DAG Plan.</strong> A research plan represented as a typed DAG. Search nodes (s) carry a query string and key points; aggregate nodes (a) carry synthesis briefs; the single answer node (v_ans) integrates all branches into the final report. Directed edges declare evidence flow between components.</figcaption>
+          </figure>
+          <figure class="subFigure">
+            <img src="assets/figures/example_rollout_graph.png" alt="Example rollout graph showing the full research workflow through graph revision and answerer execution" loading="lazy" />
+            <figcaption><strong>Figure 3 — Example Rollout Graph.</strong> An instantiated rollout showing a planner graph being revised after initial search, with the answerer then executing branch-level synthesis in topological order before producing the final report.</figcaption>
+          </figure>
+        </section>
+
+        <section class="contentSection" id="plan-repr">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Plan Representation</p>
+              <h2>Typed DAG Structure</h2>
+            </div>
+          </div>
+          <p class="bodyText">
+            The research plan G is a typed DAG with three node types. <strong>Search nodes</strong> carry a query string and a list of key points specifying what evidence the query should return. <strong>Aggregate nodes</strong> carry a synthesis brief — a need statement and key points to be covered in output. The single <strong>answer node</strong> v_ans carries the final synthesis brief and has no outgoing edges. A directed edge u→v declares that the output of u is consumed by v.
+          </p>
+          <p class="bodyText">
+            A validator enforces that G is a connected DAG with valid JSON syntax, valid node IDs, allowed node types, no cycles, and exactly one v_ans. Invalid graphs are rejected at a validity gate before reward computation — this ensures protocol correctness is established before quality signals take effect.
+          </p>
+          <p class="bodyText">
+            Given a valid G₁, the answerer executes it wave by wave. A wave contains all aggregate nodes whose parents have already been completed; all nodes in a wave are generated in a single model turn, exploiting conditional independence of same-wave aggregates given their parents. This topological-wave execution preserves dependency order while minimizing model turns.
+          </p>
+
+          <h3 class="subheading">Why a Typed DAG?</h3>
+          <p class="bodyText">
+            A typed DAG with search-, aggregate-, and answer-type nodes makes cross-source evidence reuse and hierarchical synthesis explicit at the structural level — both of which linear lists and tree-structured plans cannot natively express. The structure exposes well-defined properties (branch breadth, cross-branch integration, query distinctness) as addressable units that planner reward can target directly.
+          </p>
+        </section>
+
+        <section class="figureSection">
+          <figure class="mainFigure">
+            <img src="assets/figures/credit_assignment.png" alt="Credit assignment diagram showing how rewards are distributed to planner tokens and answerer components separately" loading="lazy" />
+            <figcaption><strong>Figure 4 — Structure-Aware Credit Assignment.</strong> DecomposeR assigns reward to explicit graph components — rubric coverage, search quality, and graph expressiveness for the planner; execution fidelity and synthesis quality for the answerer — rather than propagating a single scalar from the trajectory end. This isolates each component's failure mode and enables targeted optimization.</figcaption>
+          </figure>
+        </section>
+
+        <section class="contentSection" id="training">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Training</p>
+              <h2>Staged RL Training</h2>
+            </div>
+          </div>
+          <p class="bodyText">
+            The planner and answerer are trained sequentially atop a shared Qwen3-8B backbone with role-conditioned prompts and role-specific LoRA adapters. Training proceeds in three phases.
+          </p>
+
+          <div class="phaseGrid">
+            <div class="phaseCard">
+              <div class="phaseLabel">Phase 1</div>
+              <h3>Cold-Start SFT</h3>
+              <p>A frontier teacher model generates complete planner-answerer trajectories for training queries. Only trajectories passing the graph validator and answerer parser are retained. Both adapters are jointly initialized on these curated turn-level examples.</p>
+            </div>
+            <div class="phaseCard">
+              <div class="phaseLabel">Phase 2</div>
+              <h3>Planner RL</h3>
+              <p>The planner adapter is refined with a reward over three dimensions: <strong>Rubric Coverage</strong> (plan nodes semantically anticipate query-specific criteria), <strong>Search Quality</strong> (search nodes target right aspects and avoid redundancy), and <strong>Graph Expressiveness</strong> (synthesis breadth, cross-branch integration, search breadth). A hard validity gate ensures zero reward for invalid graphs regardless of semantic content.</p>
+            </div>
+            <div class="phaseCard">
+              <div class="phaseLabel">Phase 3</div>
+              <h3>Answerer RL</h3>
+              <p>With the planner adapter fixed, the answerer adapter is refined to execute plans faithfully and synthesize high-quality reports. Answerer reward combines <strong>Branch-Level Execution Fidelity</strong> (whether each aggregate node covers declared key points) and <strong>Global Synthesis Quality</strong> (whether the final answer integrates branches and satisfies rubric). Both phases use GRPO with token-level masking.</p>
+            </div>
+          </div>
+
+          <h3 class="subheading">Why Decouple Planner and Answerer?</h3>
+          <p class="bodyText">
+            Collapsing planning and answering into one policy under a single trajectory-level reward conflates their failure modes. By training the two roles sequentially, Planner RL optimizes rewards that depend only on the revised plan G₁ and never on answerer output, so plan quality is isolated from execution noise. Answerer RL then trains against a fixed planner, so answerer credit is not confounded by drifting plan quality. Staging also reduces the non-stationarity inherent to jointly training two policies.
+          </p>
+        </section>
+
+        <section class="figureSection twoCol">
+          <figure class="subFigure">
+            <img src="assets/figures/planner_overall_reward.png" alt="Planner RL overall reward curve over training" loading="lazy" />
+            <figcaption><strong>Planner RL Reward.</strong> Smoothed planner reward (black) and raw rollout means (grey) over training. The planner shows strong gains in validity, search breadth, aggregate branching, and cross-branch structure.</figcaption>
+          </figure>
+          <figure class="subFigure">
+            <img src="assets/figures/planner_graph_sizes.png" alt="Planner graph size and typed component counts over RL training" loading="lazy" />
+            <figcaption><strong>Planner Graph Sizes.</strong> Graph complexity and component distribution evolving during planner RL training — tracking how the planner learns to grow more expressive and well-structured DAGs over time.</figcaption>
+          </figure>
+        </section>
+
+        <section class="figureSection twoCol">
+          <figure class="subFigure">
+            <img src="assets/figures/answerer_reward_components.png" alt="Answerer RL reward and its execution and synthesis components over training" loading="lazy" />
+            <figcaption><strong>Answerer RL Reward Components.</strong> Overall answerer reward together with its execution fidelity and synthesis quality contributions. The two components confirm that branch-level execution and final synthesis are separable learning objectives.</figcaption>
+          </figure>
+          <figure class="subFigure">
+            <img src="assets/figures/answerer_response_length.png" alt="Answerer response length in tokens over RL training" loading="lazy" />
+            <figcaption><strong>Answerer Response Length.</strong> Mean response length in tokens during answerer RL training. Shows how synthesis behavior and output verbosity evolve as the answerer learns to fill plan nodes faithfully.</figcaption>
+          </figure>
+        </section>
+
+        <section class="contentSection" id="results">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Results</p>
+              <h2>Benchmark Performance</h2>
+            </div>
+            <a href="https://arxiv.org/abs/2605.30824" class="outlineLink" target="_blank" rel="noopener">Full Paper</a>
+          </div>
+          <p class="bodyText">
+            DecomposeR-8B (SFT + Planner RL + Answerer RL) is evaluated on three long-form deep research benchmarks: <strong>DeepResearchBench (DRBench)</strong>, <strong>HealthBench</strong>, and <strong>ResearchQA-Mini</strong>. All benchmarks evaluate long-form research responses requiring multi-step retrieval, evidence synthesis, and citation grounding.
+          </p>
+
+          <div class="tableBlock">
+            <h3>DecomposeR-8B vs. Open Baselines</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>DRBench</th>
+                  <th>HealthBench</th>
+                  <th>ResQA-Mini</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rank-1">
+                  <td><strong>DecomposeR-8B (SFT + RL)</strong></td>
+                  <td>41.8</td>
+                  <td>42.0</td>
+                  <td>71.4</td>
+                  <td><strong>51.7</strong></td>
+                </tr>
+                <tr class="rank-2">
+                  <td>DecomposeR-8B (SFT only)</td>
+                  <td>36.3</td>
+                  <td>39.1</td>
+                  <td>63.8</td>
+                  <td>46.4</td>
+                </tr>
+                <tr>
+                  <td>Qwen3-8B + Search</td>
+                  <td>34.4</td>
+                  <td>19.8</td>
+                  <td>57.0</td>
+                  <td>37.1</td>
+                </tr>
+                <tr>
+                  <td>WebThinker-32B-DPO</td>
+                  <td>37.7</td>
+                  <td>38.5</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td>Tongyi DeepResearch-30B</td>
+                  <td>38.6</td>
+                  <td>—</td>
+                  <td>67.2</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="calloutGrid">
+            <div class="callout">
+              <div class="calloutValue">+7.4</div>
+              <div class="calloutLabel">DRBench gain vs. Qwen3-8B+Search</div>
+            </div>
+            <div class="callout">
+              <div class="calloutValue">+22.2</div>
+              <div class="calloutLabel">HealthBench gain vs. Qwen3-8B+Search</div>
+            </div>
+            <div class="callout">
+              <div class="calloutValue">+14.4</div>
+              <div class="calloutLabel">ResQA-Mini gain vs. Qwen3-8B+Search</div>
+            </div>
+            <div class="callout">
+              <div class="calloutValue">8B</div>
+              <div class="calloutLabel">Parameter scale — competitive with 30B+ models</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contentSection" id="figures">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Conclusion</p>
+              <h2>Key Takeaways</h2>
+            </div>
+          </div>
+          <div class="takeawayGrid">
+            <div class="takeaway">
+              <div class="takeawayNum">01</div>
+              <h3>Structured plans are optimizable</h3>
+              <p>Representing research plans as typed DAGs creates addressable units that reward can target directly, confirming that explicit structure is a useful optimization target for deep research systems.</p>
+            </div>
+            <div class="takeaway">
+              <div class="takeawayNum">02</div>
+              <h3>Staged training isolates failure modes</h3>
+              <p>Separating planner RL and answerer RL prevents confounding: planner credit is never polluted by execution noise, and answerer credit is not confounded by drifting plan quality.</p>
+            </div>
+            <div class="takeaway">
+              <div class="takeawayNum">03</div>
+              <h3>Efficient at 8B scale</h3>
+              <p>DecomposeR-8B achieves competitive or superior performance to models 3–4× larger (WebThinker-32B, Tongyi DeepResearch-30B), demonstrating that improved training methodology can compensate for smaller model scale.</p>
+            </div>
+            <div class="takeaway">
+              <div class="takeawayNum">04</div>
+              <h3>Structure-aware reward reduces sparsity</h3>
+              <p>Distributing reward signals across plan components rather than relying on a single trajectory-end scalar reduces reward sparsity and stabilizes credit propagation across long deep-research trajectories.</p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="pageFooter">
+          <p>DecomposeR — Hussain, Wu, Lu — National University of Singapore · <a href="https://arxiv.org/abs/2605.30824" target="_blank" rel="noopener">arXiv:2605.30824</a></p>
+        </footer>
+      </main>
+    </div>
+
+    <div id="imgLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Figure preview">
+      <div class="lightboxInner">
+        <img id="lightboxImg" alt="" />
+        <p id="lightboxCaption"></p>
+        <button id="lightboxClose">Close ×</button>
+      </div>
+    </div>
+
+    <script>
+      const lightbox = document.getElementById("imgLightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+
+      document.querySelectorAll(".mainFigure img, .subFigure img").forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          const fig = img.closest("figure");
+          lightboxCaption.textContent = fig ? fig.querySelector("figcaption")?.textContent || "" : "";
+          lightbox.classList.add("open");
+        });
+      });
+
+      document.getElementById("lightboxClose").addEventListener("click", () => lightbox.classList.remove("open"));
+      lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.classList.remove("open"); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") lightbox.classList.remove("open"); });
+    </script>
+  </body>
+</html>
