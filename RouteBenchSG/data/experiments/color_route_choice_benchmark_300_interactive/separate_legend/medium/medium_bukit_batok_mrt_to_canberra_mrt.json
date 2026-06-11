@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#0891b2",
+  "answer_color_id": "cyan",
+  "answer_distance_m": 18554.3,
+  "answer_route_index": 1,
+  "base_route_name": "medium_bukit_batok_mrt_to_canberra_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 18554.3,
+      "osm_node_count": 128,
+      "route_index": 1,
+      "travel_time_s": 1235.6
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29588.7,
+      "osm_node_count": 187,
+      "route_index": 2,
+      "travel_time_s": 2473.5
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 22357.4,
+      "osm_node_count": 135,
+      "route_index": 3,
+      "travel_time_s": 1474.3
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 27858.0,
+      "osm_node_count": 146,
+      "route_index": 4,
+      "travel_time_s": 1737.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 32265.2,
+      "osm_node_count": 157,
+      "route_index": 5,
+      "travel_time_s": 2050.7
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 21733.0,
+      "osm_node_count": 170,
+      "route_index": 6,
+      "travel_time_s": 1859.7
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 23641.0,
+      "osm_node_count": 170,
+      "route_index": 7,
+      "travel_time_s": 1851.6
+    }
+  ],
+  "destination": {
+    "lat": 1.4431,
+    "lon": 103.8297,
+    "name": "Canberra MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 13.74,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_bukit_batok_mrt_to_canberra_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_bukit_batok_mrt_to_canberra_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_bukit_batok_mrt_to_canberra_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.349,
+    "lon": 103.7496,
+    "name": "Bukit Batok MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_bukit_batok_mrt_to_canberra_mrt",
+  "variant_index": 1
+}

@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#dc2626",
+  "answer_color_id": "red",
+  "answer_distance_m": 21138.0,
+  "answer_route_index": 10,
+  "base_route_name": "hard_woodlands_mrt_to_chinatown_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 31570.9,
+      "osm_node_count": 196,
+      "route_index": 1,
+      "travel_time_s": 2175.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 28506.7,
+      "osm_node_count": 169,
+      "route_index": 2,
+      "travel_time_s": 2022.1
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 27097.6,
+      "osm_node_count": 208,
+      "route_index": 3,
+      "travel_time_s": 1772.0
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 26097.5,
+      "osm_node_count": 169,
+      "route_index": 4,
+      "travel_time_s": 1743.8
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 26184.9,
+      "osm_node_count": 223,
+      "route_index": 5,
+      "travel_time_s": 1755.2
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 23395.2,
+      "osm_node_count": 106,
+      "route_index": 6,
+      "travel_time_s": 1246.2
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 28088.8,
+      "osm_node_count": 181,
+      "route_index": 7,
+      "travel_time_s": 1922.7
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 29881.5,
+      "osm_node_count": 161,
+      "route_index": 8,
+      "travel_time_s": 2043.1
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 28952.5,
+      "osm_node_count": 217,
+      "route_index": 9,
+      "travel_time_s": 2238.9
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 21138.0,
+      "osm_node_count": 152,
+      "route_index": 10,
+      "travel_time_s": 1360.8
+    }
+  ],
+  "destination": {
+    "lat": 1.2844,
+    "lon": 103.8434,
+    "name": "Chinatown MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 18.1,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_woodlands_mrt_to_chinatown_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_chinatown_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_chinatown_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4369,
+    "lon": 103.7865,
+    "name": "Woodlands MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_woodlands_mrt_to_chinatown_mrt",
+  "variant_index": 1
+}

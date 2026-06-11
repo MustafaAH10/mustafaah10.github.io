@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#2563eb",
+  "answer_color_id": "blue",
+  "answer_distance_m": 12310.7,
+  "answer_route_index": 3,
+  "base_route_name": "easy_expo_mrt_to_kovan_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 13816.6,
+      "osm_node_count": 115,
+      "route_index": 1,
+      "travel_time_s": 1197.2
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 15554.0,
+      "osm_node_count": 120,
+      "route_index": 2,
+      "travel_time_s": 1062.1
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 12310.7,
+      "osm_node_count": 91,
+      "route_index": 3,
+      "travel_time_s": 907.2
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 13861.2,
+      "osm_node_count": 80,
+      "route_index": 4,
+      "travel_time_s": 958.4
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 14209.3,
+      "osm_node_count": 107,
+      "route_index": 5,
+      "travel_time_s": 1160.6
+    }
+  ],
+  "destination": {
+    "lat": 1.3602,
+    "lon": 103.8851,
+    "name": "Kovan MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 8.93,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_expo_mrt_to_kovan_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_expo_mrt_to_kovan_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_expo_mrt_to_kovan_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 3,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3353,
+    "lon": 103.9615,
+    "name": "Expo MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_expo_mrt_to_kovan_mrt",
+  "variant_index": 1
+}

@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#7c3aed",
+  "answer_color_id": "purple",
+  "answer_distance_m": 14427.7,
+  "answer_route_index": 1,
+  "base_route_name": "medium_choa_chu_kang_mrt_to_marymount_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 14427.7,
+      "osm_node_count": 66,
+      "route_index": 1,
+      "travel_time_s": 872.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 16683.6,
+      "osm_node_count": 72,
+      "route_index": 2,
+      "travel_time_s": 922.2
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 18836.1,
+      "osm_node_count": 129,
+      "route_index": 3,
+      "travel_time_s": 1353.0
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 22314.5,
+      "osm_node_count": 87,
+      "route_index": 4,
+      "travel_time_s": 1187.4
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 18783.3,
+      "osm_node_count": 142,
+      "route_index": 5,
+      "travel_time_s": 1138.1
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 18927.1,
+      "osm_node_count": 118,
+      "route_index": 6,
+      "travel_time_s": 1444.1
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 17456.7,
+      "osm_node_count": 149,
+      "route_index": 7,
+      "travel_time_s": 1441.5
+    }
+  ],
+  "destination": {
+    "lat": 1.349,
+    "lon": 103.8391,
+    "name": "Marymount MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 11.29,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_choa_chu_kang_mrt_to_marymount_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_choa_chu_kang_mrt_to_marymount_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_choa_chu_kang_mrt_to_marymount_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3854,
+    "lon": 103.7443,
+    "name": "Choa Chu Kang MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_choa_chu_kang_mrt_to_marymount_mrt",
+  "variant_index": 1
+}

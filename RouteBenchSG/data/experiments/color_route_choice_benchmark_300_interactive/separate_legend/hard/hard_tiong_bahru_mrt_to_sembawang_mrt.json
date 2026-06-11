@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#db2777",
+  "answer_color_id": "pink",
+  "answer_distance_m": 21711.2,
+  "answer_route_index": 9,
+  "base_route_name": "hard_tiong_bahru_mrt_to_sembawang_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 26379.0,
+      "osm_node_count": 97,
+      "route_index": 1,
+      "travel_time_s": 1637.6
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 29139.3,
+      "osm_node_count": 200,
+      "route_index": 2,
+      "travel_time_s": 2320.4
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 29481.4,
+      "osm_node_count": 243,
+      "route_index": 3,
+      "travel_time_s": 2180.1
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 23417.6,
+      "osm_node_count": 176,
+      "route_index": 4,
+      "travel_time_s": 1794.2
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 31158.1,
+      "osm_node_count": 239,
+      "route_index": 5,
+      "travel_time_s": 2418.6
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 34780.4,
+      "osm_node_count": 175,
+      "route_index": 6,
+      "travel_time_s": 2175.1
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 31427.1,
+      "osm_node_count": 236,
+      "route_index": 7,
+      "travel_time_s": 2363.0
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 26249.4,
+      "osm_node_count": 133,
+      "route_index": 8,
+      "travel_time_s": 1684.0
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 21711.2,
+      "osm_node_count": 193,
+      "route_index": 9,
+      "travel_time_s": 1455.9
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29175.9,
+      "osm_node_count": 213,
+      "route_index": 10,
+      "travel_time_s": 2143.6
+    }
+  ],
+  "destination": {
+    "lat": 1.4491,
+    "lon": 103.8201,
+    "name": "Sembawang MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 18.13,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_tiong_bahru_mrt_to_sembawang_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_tiong_bahru_mrt_to_sembawang_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_tiong_bahru_mrt_to_sembawang_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.2862,
+    "lon": 103.8271,
+    "name": "Tiong Bahru MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_tiong_bahru_mrt_to_sembawang_mrt",
+  "variant_index": 1
+}

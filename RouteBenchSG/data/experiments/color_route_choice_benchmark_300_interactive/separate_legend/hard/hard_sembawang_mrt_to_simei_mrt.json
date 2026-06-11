@@ -1,0 +1,103 @@
+{
+  "answer_color_hex": "#65a30d",
+  "answer_color_id": "lime",
+  "answer_distance_m": 23272.9,
+  "answer_route_index": 5,
+  "base_route_name": "hard_sembawang_mrt_to_simei_mrt",
+  "candidate_count": 9,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 28962.0,
+      "osm_node_count": 178,
+      "route_index": 1,
+      "travel_time_s": 2157.8
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 29064.1,
+      "osm_node_count": 157,
+      "route_index": 2,
+      "travel_time_s": 1953.5
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 25833.5,
+      "osm_node_count": 119,
+      "route_index": 3,
+      "travel_time_s": 1732.5
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 24818.2,
+      "osm_node_count": 174,
+      "route_index": 4,
+      "travel_time_s": 1793.9
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 23272.9,
+      "osm_node_count": 136,
+      "route_index": 5,
+      "travel_time_s": 1792.8
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 30758.3,
+      "osm_node_count": 195,
+      "route_index": 6,
+      "travel_time_s": 2150.5
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 30487.4,
+      "osm_node_count": 178,
+      "route_index": 7,
+      "travel_time_s": 2543.2
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 28193.2,
+      "osm_node_count": 135,
+      "route_index": 8,
+      "travel_time_s": 1598.3
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 35757.0,
+      "osm_node_count": 243,
+      "route_index": 9,
+      "travel_time_s": 2897.6
+    }
+  ],
+  "destination": {
+    "lat": 1.3432,
+    "lon": 103.9534,
+    "name": "Simei MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 18.93,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_sembawang_mrt_to_simei_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_sembawang_mrt_to_simei_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_sembawang_mrt_to_simei_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 6,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4491,
+    "lon": 103.8201,
+    "name": "Sembawang MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_sembawang_mrt_to_simei_mrt",
+  "variant_index": 1
+}

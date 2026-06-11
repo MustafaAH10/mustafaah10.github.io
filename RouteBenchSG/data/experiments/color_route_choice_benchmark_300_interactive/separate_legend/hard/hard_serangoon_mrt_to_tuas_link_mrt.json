@@ -1,0 +1,103 @@
+{
+  "answer_color_hex": "#16a34a",
+  "answer_color_id": "green",
+  "answer_distance_m": 31259.3,
+  "answer_route_index": 7,
+  "base_route_name": "hard_serangoon_mrt_to_tuas_link_mrt",
+  "candidate_count": 9,
+  "candidates": [
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 40635.5,
+      "osm_node_count": 175,
+      "route_index": 1,
+      "travel_time_s": 2612.9
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 39005.9,
+      "osm_node_count": 113,
+      "route_index": 2,
+      "travel_time_s": 1858.4
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 35491.6,
+      "osm_node_count": 235,
+      "route_index": 3,
+      "travel_time_s": 2522.5
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 33767.1,
+      "osm_node_count": 181,
+      "route_index": 4,
+      "travel_time_s": 2341.5
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 44517.6,
+      "osm_node_count": 346,
+      "route_index": 5,
+      "travel_time_s": 3089.5
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 34923.1,
+      "osm_node_count": 179,
+      "route_index": 6,
+      "travel_time_s": 2358.1
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 31259.3,
+      "osm_node_count": 150,
+      "route_index": 7,
+      "travel_time_s": 1851.5
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 41757.0,
+      "osm_node_count": 253,
+      "route_index": 8,
+      "travel_time_s": 3003.4
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 44989.2,
+      "osm_node_count": 263,
+      "route_index": 9,
+      "travel_time_s": 3187.3
+    }
+  ],
+  "destination": {
+    "lat": 1.3405,
+    "lon": 103.6368,
+    "name": "Tuas Link MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 26.21,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_serangoon_mrt_to_tuas_link_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_serangoon_mrt_to_tuas_link_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_serangoon_mrt_to_tuas_link_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 9,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3506,
+    "lon": 103.8724,
+    "name": "Serangoon MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_serangoon_mrt_to_tuas_link_mrt",
+  "variant_index": 1
+}

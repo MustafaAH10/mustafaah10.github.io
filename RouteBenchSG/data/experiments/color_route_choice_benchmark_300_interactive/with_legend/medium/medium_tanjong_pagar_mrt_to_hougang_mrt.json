@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#7c3aed",
+  "answer_color_id": "purple",
+  "answer_distance_m": 13452.8,
+  "answer_route_index": 6,
+  "base_route_name": "medium_tanjong_pagar_mrt_to_hougang_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 16607.6,
+      "osm_node_count": 135,
+      "route_index": 1,
+      "travel_time_s": 1252.8
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 14680.0,
+      "osm_node_count": 114,
+      "route_index": 2,
+      "travel_time_s": 923.9
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 19780.4,
+      "osm_node_count": 184,
+      "route_index": 3,
+      "travel_time_s": 1491.9
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 16793.7,
+      "osm_node_count": 86,
+      "route_index": 4,
+      "travel_time_s": 1063.5
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 15744.4,
+      "osm_node_count": 114,
+      "route_index": 5,
+      "travel_time_s": 990.1
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 13452.8,
+      "osm_node_count": 124,
+      "route_index": 6,
+      "travel_time_s": 860.6
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 17594.2,
+      "osm_node_count": 168,
+      "route_index": 7,
+      "travel_time_s": 1444.7
+    }
+  ],
+  "destination": {
+    "lat": 1.3713,
+    "lon": 103.8926,
+    "name": "Hougang MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 11.75,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_tanjong_pagar_mrt_to_hougang_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_tanjong_pagar_mrt_to_hougang_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_tanjong_pagar_mrt_to_hougang_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.2765,
+    "lon": 103.8459,
+    "name": "Tanjong Pagar MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_tanjong_pagar_mrt_to_hougang_mrt",
+  "variant_index": 1
+}

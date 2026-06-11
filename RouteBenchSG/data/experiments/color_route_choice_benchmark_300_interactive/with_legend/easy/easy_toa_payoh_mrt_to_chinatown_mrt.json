@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#16a34a",
+  "answer_color_id": "green",
+  "answer_distance_m": 6640.2,
+  "answer_route_index": 1,
+  "base_route_name": "easy_toa_payoh_mrt_to_chinatown_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 6640.2,
+      "osm_node_count": 74,
+      "route_index": 1,
+      "travel_time_s": 515.6
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 10242.4,
+      "osm_node_count": 101,
+      "route_index": 2,
+      "travel_time_s": 839.6
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 7734.5,
+      "osm_node_count": 96,
+      "route_index": 3,
+      "travel_time_s": 620.9
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 10619.1,
+      "osm_node_count": 48,
+      "route_index": 4,
+      "travel_time_s": 576.9
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 9052.1,
+      "osm_node_count": 92,
+      "route_index": 5,
+      "travel_time_s": 674.0
+    }
+  ],
+  "destination": {
+    "lat": 1.2844,
+    "lon": 103.8434,
+    "name": "Chinatown MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 5.38,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_toa_payoh_mrt_to_chinatown_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_toa_payoh_mrt_to_chinatown_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_toa_payoh_mrt_to_chinatown_mrt_map.png",
+  "max_checked_edge_overlap": 1,
+  "max_directed_edge_overlap": 4,
+  "max_visible_edge_overlap": 1,
+  "origin": {
+    "lat": 1.3326,
+    "lon": 103.8475,
+    "name": "Toa Payoh MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_toa_payoh_mrt_to_chinatown_mrt",
+  "variant_index": 1
+}

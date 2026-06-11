@@ -1,0 +1,103 @@
+{
+  "answer_color_hex": "#92400e",
+  "answer_color_id": "brown",
+  "answer_distance_m": 28127.6,
+  "answer_route_index": 2,
+  "base_route_name": "hard_tuas_link_mrt_to_bugis_mrt",
+  "candidate_count": 9,
+  "candidates": [
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 33518.7,
+      "osm_node_count": 249,
+      "route_index": 1,
+      "travel_time_s": 2870.2
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 28127.6,
+      "osm_node_count": 140,
+      "route_index": 2,
+      "travel_time_s": 1607.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 30676.6,
+      "osm_node_count": 134,
+      "route_index": 3,
+      "travel_time_s": 1919.5
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 39503.9,
+      "osm_node_count": 245,
+      "route_index": 4,
+      "travel_time_s": 2879.4
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 36227.7,
+      "osm_node_count": 278,
+      "route_index": 5,
+      "travel_time_s": 2660.2
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 36655.4,
+      "osm_node_count": 197,
+      "route_index": 6,
+      "travel_time_s": 2397.8
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 34395.5,
+      "osm_node_count": 210,
+      "route_index": 7,
+      "travel_time_s": 2638.1
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 36405.3,
+      "osm_node_count": 201,
+      "route_index": 8,
+      "travel_time_s": 2372.8
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 29861.9,
+      "osm_node_count": 211,
+      "route_index": 9,
+      "travel_time_s": 1884.3
+    }
+  ],
+  "destination": {
+    "lat": 1.3005,
+    "lon": 103.8566,
+    "name": "Bugis MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 24.84,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_tuas_link_mrt_to_bugis_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_tuas_link_mrt_to_bugis_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_tuas_link_mrt_to_bugis_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3405,
+    "lon": 103.6368,
+    "name": "Tuas Link MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_tuas_link_mrt_to_bugis_mrt",
+  "variant_index": 1
+}

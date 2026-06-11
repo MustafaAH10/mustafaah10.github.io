@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#92400e",
+  "answer_color_id": "brown",
+  "answer_distance_m": 20707.6,
+  "answer_route_index": 2,
+  "base_route_name": "hard_woodlands_mrt_to_paya_lebar_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 30281.2,
+      "osm_node_count": 220,
+      "route_index": 1,
+      "travel_time_s": 1861.4
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 20707.6,
+      "osm_node_count": 124,
+      "route_index": 2,
+      "travel_time_s": 1262.4
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 24127.6,
+      "osm_node_count": 134,
+      "route_index": 3,
+      "travel_time_s": 1727.9
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 27907.7,
+      "osm_node_count": 161,
+      "route_index": 4,
+      "travel_time_s": 1879.3
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 34109.8,
+      "osm_node_count": 161,
+      "route_index": 5,
+      "travel_time_s": 2139.2
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 30112.5,
+      "osm_node_count": 177,
+      "route_index": 6,
+      "travel_time_s": 2283.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 27453.3,
+      "osm_node_count": 182,
+      "route_index": 7,
+      "travel_time_s": 1860.4
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 29026.9,
+      "osm_node_count": 202,
+      "route_index": 8,
+      "travel_time_s": 1994.7
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 25346.7,
+      "osm_node_count": 95,
+      "route_index": 9,
+      "travel_time_s": 1384.4
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 28704.7,
+      "osm_node_count": 177,
+      "route_index": 10,
+      "travel_time_s": 2026.5
+    }
+  ],
+  "destination": {
+    "lat": 1.3182,
+    "lon": 103.8923,
+    "name": "Paya Lebar MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 17.68,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_woodlands_mrt_to_paya_lebar_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_paya_lebar_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_paya_lebar_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4369,
+    "lon": 103.7865,
+    "name": "Woodlands MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_woodlands_mrt_to_paya_lebar_mrt",
+  "variant_index": 1
+}

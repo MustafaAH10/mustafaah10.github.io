@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#475569",
+  "answer_color_id": "slate",
+  "answer_distance_m": 21723.3,
+  "answer_route_index": 6,
+  "base_route_name": "hard_yew_tee_mrt_to_punggol_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 24825.4,
+      "osm_node_count": 127,
+      "route_index": 1,
+      "travel_time_s": 1725.6
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 29047.9,
+      "osm_node_count": 183,
+      "route_index": 2,
+      "travel_time_s": 2158.5
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 29977.6,
+      "osm_node_count": 175,
+      "route_index": 3,
+      "travel_time_s": 2175.0
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29227.7,
+      "osm_node_count": 227,
+      "route_index": 4,
+      "travel_time_s": 1946.9
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 32241.9,
+      "osm_node_count": 166,
+      "route_index": 5,
+      "travel_time_s": 1951.2
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 21723.3,
+      "osm_node_count": 96,
+      "route_index": 6,
+      "travel_time_s": 1349.3
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 26202.9,
+      "osm_node_count": 85,
+      "route_index": 7,
+      "travel_time_s": 1414.7
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 27408.2,
+      "osm_node_count": 183,
+      "route_index": 8,
+      "travel_time_s": 1798.0
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 31817.9,
+      "osm_node_count": 224,
+      "route_index": 9,
+      "travel_time_s": 2334.3
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 26208.5,
+      "osm_node_count": 166,
+      "route_index": 10,
+      "travel_time_s": 2057.0
+    }
+  ],
+  "destination": {
+    "lat": 1.4052,
+    "lon": 103.9023,
+    "name": "Punggol MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 17.24,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_yew_tee_mrt_to_punggol_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yew_tee_mrt_to_punggol_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yew_tee_mrt_to_punggol_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3975,
+    "lon": 103.7474,
+    "name": "Yew Tee MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_yew_tee_mrt_to_punggol_mrt",
+  "variant_index": 1
+}

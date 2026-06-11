@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#7c3aed",
+  "answer_color_id": "purple",
+  "answer_distance_m": 6566.9,
+  "answer_route_index": 3,
+  "base_route_name": "easy_aljunied_mrt_to_newton_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 9897.9,
+      "osm_node_count": 58,
+      "route_index": 1,
+      "travel_time_s": 612.1
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 8627.0,
+      "osm_node_count": 70,
+      "route_index": 2,
+      "travel_time_s": 536.6
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 6566.9,
+      "osm_node_count": 89,
+      "route_index": 3,
+      "travel_time_s": 487.2
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 8947.8,
+      "osm_node_count": 63,
+      "route_index": 4,
+      "travel_time_s": 763.7
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 10198.6,
+      "osm_node_count": 100,
+      "route_index": 5,
+      "travel_time_s": 977.1
+    }
+  ],
+  "destination": {
+    "lat": 1.3138,
+    "lon": 103.8387,
+    "name": "Newton MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 4.92,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_aljunied_mrt_to_newton_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_aljunied_mrt_to_newton_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_aljunied_mrt_to_newton_mrt_map.png",
+  "max_checked_edge_overlap": 1,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 1,
+  "origin": {
+    "lat": 1.3164,
+    "lon": 103.8829,
+    "name": "Aljunied MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_aljunied_mrt_to_newton_mrt",
+  "variant_index": 1
+}

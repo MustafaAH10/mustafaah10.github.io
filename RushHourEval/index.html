@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RushHourEval</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="../">RushHourEval</a>
+      <nav class="topnav" aria-label="Primary">
+        <a class="active" href="#benchmark">Benchmark</a>
+        <a href="https://github.com/MustafaAH10/rushhoureval">Code</a>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <aside class="directory">
+        <div class="directoryHeader">
+          <span>Directory</span>
+          <span>Bench</span>
+        </div>
+        <nav class="tree" aria-label="Directory">
+          <a class="open" href="#benchmark"><span>+</span><strong>RushHourEval</strong></a>
+          <a class="indent active" href="#viewer"><span>-</span><span>Data Viewer</span></a>
+          <a class="indent" href="#leaderboard"><span>-</span><span>Model Tables</span></a>
+          <a class="indent" href="#prompt"><span>-</span><span>Prompt Format</span></a>
+          <a class="indent" href="#plots"><span>-</span><span>Plots</span></a>
+        </nav>
+      </aside>
+
+      <main class="page">
+        <div class="pathbar">
+          <div class="pathText">~/Benchmarks/RushHourEval</div>
+          <span class="tag">LLM Planning</span>
+          <span class="tag muted">Last Updated: <span id="lastUpdated">August 2025</span></span>
+        </div>
+
+        <section class="hero" id="benchmark">
+          <h1>RushHourEval: Rush Hour Puzzle Benchmark for LLM Planning</h1>
+          <p class="authors">
+            450 text-grounded Rush Hour puzzles across 3x3, 4x4, and 5x5 boards.
+          </p>
+          <p class="affiliation">
+            The benchmark tests whether language models can produce legal, target-reaching, and optimal move sequences under strict spatial constraints.
+          </p>
+          <div class="badges">
+            <span>3x3 / 4x4 / 5x5</span>
+            <span>Prompt + Image Viewer</span>
+            <span>Validation Tables</span>
+          </div>
+          <nav class="tabs" aria-label="Benchmark sections">
+            <button class="active" type="button" onclick="document.getElementById('viewer').scrollIntoView({behavior: 'smooth'})">Data Viewer</button>
+            <button type="button" onclick="document.getElementById('leaderboard').scrollIntoView({behavior: 'smooth'})">Model Tables</button>
+            <button type="button" onclick="document.getElementById('prompt').scrollIntoView({behavior: 'smooth'})">Prompt</button>
+            <button type="button" onclick="document.getElementById('plots').scrollIntoView({behavior: 'smooth'})">Plots</button>
+          </nav>
+        </section>
+
+        <section class="summaryBand">
+          <div><span>Total puzzles</span><strong id="totalCount">450</strong></div>
+          <div><span>3x3</span><strong id="count3">150</strong></div>
+          <div><span>4x4</span><strong id="count4">150</strong></div>
+          <div><span>5x5</span><strong id="count5">150</strong></div>
+        </section>
+
+        <section class="workbench" id="viewer" aria-live="polite">
+          <aside class="controlPanel">
+            <div class="panelTitle">
+              <span>Filters</span>
+              <strong id="visibleCount">0</strong>
+            </div>
+
+            <label class="field">
+              <span>Grid size</span>
+              <select id="gridFilter">
+                <option value="all">All grids</option>
+                <option value="3x3">3x3</option>
+                <option value="4x4">4x4</option>
+                <option value="5x5">5x5</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Difficulty</span>
+              <select id="difficultyFilter">
+                <option value="all">All difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Optimal moves</span>
+              <select id="movesFilter">
+                <option value="all">All lengths</option>
+                <option value="short">1-5 moves</option>
+                <option value="medium">6-10 moves</option>
+                <option value="long">11+ moves</option>
+              </select>
+            </label>
+
+            <div class="stats" id="stats"></div>
+          </aside>
+
+          <section class="viewer">
+            <header class="viewerHeader">
+              <div>
+                <p id="eyebrow">Loading benchmark</p>
+                <h2 id="puzzleTitle">Puzzle sample</h2>
+              </div>
+              <button id="solutionButton" type="button">Reveal solution</button>
+            </header>
+
+            <div class="viewerBody">
+              <div class="puzzleStage">
+                <img id="mainImage" alt="Rush Hour initial puzzle state" />
+              </div>
+              <aside class="inspector">
+                <div class="metaGrid" id="metaGrid"></div>
+                <div class="gridPreview" id="gridPreview"></div>
+              </aside>
+            </div>
+
+            <section class="promptPanel" id="prompt">
+              <div class="panelHeader">
+                <span>Prompt sent to the model</span>
+              </div>
+              <pre id="promptText"></pre>
+              <div class="solutionBox" id="solutionBox"></div>
+            </section>
+          </section>
+
+          <section class="dataSection">
+            <div class="panelHeader">
+              <span>Dataset Viewer</span>
+              <span id="sampleSummary">Loading samples...</span>
+            </div>
+            <div id="sampleGrid" class="sampleGrid"></div>
+          </section>
+        </section>
+
+        <section class="leaderboard" id="leaderboard">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Validated Model Performance</p>
+              <h2>Leaderboard Tables</h2>
+            </div>
+            <a href="https://github.com/MustafaAH10/rushhoureval" class="outlineLink">GitHub Repository</a>
+          </div>
+          <div id="performanceTables" class="tables"></div>
+        </section>
+
+        <section class="plotSection" id="plots">
+          <div class="sectionHeader">
+            <div>
+              <p class="sectionLabel">Validation Plots</p>
+              <h2>Performance Visuals</h2>
+            </div>
+          </div>
+          <div id="plotGrid" class="plotGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

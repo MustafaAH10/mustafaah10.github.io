@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#dc2626",
+  "answer_color_id": "red",
+  "answer_distance_m": 22930.9,
+  "answer_route_index": 10,
+  "base_route_name": "hard_yio_chu_kang_mrt_to_pioneer_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 32749.5,
+      "osm_node_count": 236,
+      "route_index": 1,
+      "travel_time_s": 2549.1
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 26916.6,
+      "osm_node_count": 142,
+      "route_index": 2,
+      "travel_time_s": 1849.9
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 27744.5,
+      "osm_node_count": 181,
+      "route_index": 3,
+      "travel_time_s": 2147.5
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 30230.8,
+      "osm_node_count": 164,
+      "route_index": 4,
+      "travel_time_s": 2026.5
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 30227.2,
+      "osm_node_count": 142,
+      "route_index": 5,
+      "travel_time_s": 2109.0
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 35797.6,
+      "osm_node_count": 183,
+      "route_index": 6,
+      "travel_time_s": 2814.0
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 28120.0,
+      "osm_node_count": 99,
+      "route_index": 7,
+      "travel_time_s": 1484.5
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 32333.2,
+      "osm_node_count": 197,
+      "route_index": 8,
+      "travel_time_s": 2173.7
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 25052.4,
+      "osm_node_count": 82,
+      "route_index": 9,
+      "travel_time_s": 1398.5
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 22930.9,
+      "osm_node_count": 145,
+      "route_index": 10,
+      "travel_time_s": 1449.9
+    }
+  ],
+  "destination": {
+    "lat": 1.3376,
+    "lon": 103.6974,
+    "name": "Pioneer MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 17.11,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_yio_chu_kang_mrt_to_pioneer_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yio_chu_kang_mrt_to_pioneer_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yio_chu_kang_mrt_to_pioneer_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3818,
+    "lon": 103.8448,
+    "name": "Yio Chu Kang MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_yio_chu_kang_mrt_to_pioneer_mrt",
+  "variant_index": 1
+}

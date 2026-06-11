@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#7c3aed",
+  "answer_color_id": "purple",
+  "answer_distance_m": 12034.8,
+  "answer_route_index": 5,
+  "base_route_name": "medium_orchard_mrt_to_jurong_east_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 14423.9,
+      "osm_node_count": 93,
+      "route_index": 1,
+      "travel_time_s": 918.9
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 17808.9,
+      "osm_node_count": 120,
+      "route_index": 2,
+      "travel_time_s": 1105.3
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 14055.8,
+      "osm_node_count": 113,
+      "route_index": 3,
+      "travel_time_s": 960.1
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 18213.1,
+      "osm_node_count": 165,
+      "route_index": 4,
+      "travel_time_s": 1545.4
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 12034.8,
+      "osm_node_count": 108,
+      "route_index": 5,
+      "travel_time_s": 844.9
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 17028.1,
+      "osm_node_count": 75,
+      "route_index": 6,
+      "travel_time_s": 1195.4
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 13683.0,
+      "osm_node_count": 123,
+      "route_index": 7,
+      "travel_time_s": 1104.4
+    }
+  ],
+  "destination": {
+    "lat": 1.3331,
+    "lon": 103.742,
+    "name": "Jurong East MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 10.49,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_orchard_mrt_to_jurong_east_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_orchard_mrt_to_jurong_east_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_orchard_mrt_to_jurong_east_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.304,
+    "lon": 103.8318,
+    "name": "Orchard MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_orchard_mrt_to_jurong_east_mrt",
+  "variant_index": 1
+}

@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#2563eb",
+  "answer_color_id": "blue",
+  "answer_distance_m": 14263.8,
+  "answer_route_index": 2,
+  "base_route_name": "medium_yew_tee_mrt_to_kent_ridge_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 16379.3,
+      "osm_node_count": 117,
+      "route_index": 1,
+      "travel_time_s": 1275.4
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 14263.8,
+      "osm_node_count": 94,
+      "route_index": 2,
+      "travel_time_s": 972.7
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 19955.4,
+      "osm_node_count": 143,
+      "route_index": 3,
+      "travel_time_s": 1732.7
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 19945.2,
+      "osm_node_count": 76,
+      "route_index": 4,
+      "travel_time_s": 1067.5
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 20089.4,
+      "osm_node_count": 110,
+      "route_index": 5,
+      "travel_time_s": 1295.6
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 18251.5,
+      "osm_node_count": 136,
+      "route_index": 6,
+      "travel_time_s": 1515.9
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 15239.0,
+      "osm_node_count": 135,
+      "route_index": 7,
+      "travel_time_s": 1402.6
+    }
+  ],
+  "destination": {
+    "lat": 1.2937,
+    "lon": 103.7846,
+    "name": "Kent Ridge MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 12.26,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_yew_tee_mrt_to_kent_ridge_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_yew_tee_mrt_to_kent_ridge_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_yew_tee_mrt_to_kent_ridge_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 4,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3975,
+    "lon": 103.7474,
+    "name": "Yew Tee MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_yew_tee_mrt_to_kent_ridge_mrt",
+  "variant_index": 1
+}

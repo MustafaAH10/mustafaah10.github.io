@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#0891b2",
+  "answer_color_id": "cyan",
+  "answer_distance_m": 19390.4,
+  "answer_route_index": 3,
+  "base_route_name": "medium_pasir_ris_mrt_to_farrer_road_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 24071.8,
+      "osm_node_count": 181,
+      "route_index": 1,
+      "travel_time_s": 1880.6
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 23109.0,
+      "osm_node_count": 185,
+      "route_index": 2,
+      "travel_time_s": 1490.4
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 19390.4,
+      "osm_node_count": 132,
+      "route_index": 3,
+      "travel_time_s": 1267.4
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 22110.2,
+      "osm_node_count": 113,
+      "route_index": 4,
+      "travel_time_s": 1207.0
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 30029.1,
+      "osm_node_count": 244,
+      "route_index": 5,
+      "travel_time_s": 2433.2
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 27442.5,
+      "osm_node_count": 264,
+      "route_index": 6,
+      "travel_time_s": 2081.8
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 27225.0,
+      "osm_node_count": 194,
+      "route_index": 7,
+      "travel_time_s": 1860.3
+    }
+  ],
+  "destination": {
+    "lat": 1.3176,
+    "lon": 103.8074,
+    "name": "Farrer Road MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 16.93,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_pasir_ris_mrt_to_farrer_road_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_pasir_ris_mrt_to_farrer_road_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_pasir_ris_mrt_to_farrer_road_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.373,
+    "lon": 103.9493,
+    "name": "Pasir Ris MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_pasir_ris_mrt_to_farrer_road_mrt",
+  "variant_index": 1
+}

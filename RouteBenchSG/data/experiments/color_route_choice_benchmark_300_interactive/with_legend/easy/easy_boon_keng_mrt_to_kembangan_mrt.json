@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#ea580c",
+  "answer_color_id": "orange",
+  "answer_distance_m": 6159.5,
+  "answer_route_index": 5,
+  "base_route_name": "easy_boon_keng_mrt_to_kembangan_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 8616.9,
+      "osm_node_count": 81,
+      "route_index": 1,
+      "travel_time_s": 745.1
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 7825.5,
+      "osm_node_count": 53,
+      "route_index": 2,
+      "travel_time_s": 514.8
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 8011.3,
+      "osm_node_count": 92,
+      "route_index": 3,
+      "travel_time_s": 492.7
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 9014.6,
+      "osm_node_count": 82,
+      "route_index": 4,
+      "travel_time_s": 825.5
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 6159.5,
+      "osm_node_count": 75,
+      "route_index": 5,
+      "travel_time_s": 439.6
+    }
+  ],
+  "destination": {
+    "lat": 1.321,
+    "lon": 103.9129,
+    "name": "Kembangan MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 5.71,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_boon_keng_mrt_to_kembangan_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_boon_keng_mrt_to_kembangan_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_boon_keng_mrt_to_kembangan_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3193,
+    "lon": 103.8616,
+    "name": "Boon Keng MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_boon_keng_mrt_to_kembangan_mrt",
+  "variant_index": 1
+}

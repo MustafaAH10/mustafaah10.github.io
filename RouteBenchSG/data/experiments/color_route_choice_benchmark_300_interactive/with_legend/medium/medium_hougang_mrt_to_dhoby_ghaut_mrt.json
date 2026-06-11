@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#7c3aed",
+  "answer_color_id": "purple",
+  "answer_distance_m": 10904.8,
+  "answer_route_index": 4,
+  "base_route_name": "medium_hougang_mrt_to_dhoby_ghaut_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 13098.7,
+      "osm_node_count": 46,
+      "route_index": 1,
+      "travel_time_s": 625.2
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 12647.4,
+      "osm_node_count": 87,
+      "route_index": 2,
+      "travel_time_s": 851.1
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 20026.4,
+      "osm_node_count": 106,
+      "route_index": 3,
+      "travel_time_s": 1245.1
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 10904.8,
+      "osm_node_count": 100,
+      "route_index": 4,
+      "travel_time_s": 764.1
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 16218.0,
+      "osm_node_count": 132,
+      "route_index": 5,
+      "travel_time_s": 1137.8
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 14930.1,
+      "osm_node_count": 133,
+      "route_index": 6,
+      "travel_time_s": 1162.3
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 13750.5,
+      "osm_node_count": 85,
+      "route_index": 7,
+      "travel_time_s": 801.4
+    }
+  ],
+  "destination": {
+    "lat": 1.299,
+    "lon": 103.8458,
+    "name": "Dhoby Ghaut MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 9.58,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_hougang_mrt_to_dhoby_ghaut_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_hougang_mrt_to_dhoby_ghaut_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_hougang_mrt_to_dhoby_ghaut_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3713,
+    "lon": 103.8926,
+    "name": "Hougang MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_hougang_mrt_to_dhoby_ghaut_mrt",
+  "variant_index": 1
+}

@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#ea580c",
+  "answer_color_id": "orange",
+  "answer_distance_m": 29665.0,
+  "answer_route_index": 9,
+  "base_route_name": "hard_pasir_ris_mrt_to_lakeside_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 42455.7,
+      "osm_node_count": 262,
+      "route_index": 1,
+      "travel_time_s": 3138.2
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 33337.2,
+      "osm_node_count": 218,
+      "route_index": 2,
+      "travel_time_s": 2268.0
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 36651.6,
+      "osm_node_count": 186,
+      "route_index": 3,
+      "travel_time_s": 2593.8
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 41101.1,
+      "osm_node_count": 285,
+      "route_index": 4,
+      "travel_time_s": 3081.2
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 37163.5,
+      "osm_node_count": 108,
+      "route_index": 5,
+      "travel_time_s": 1919.2
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 37993.5,
+      "osm_node_count": 241,
+      "route_index": 6,
+      "travel_time_s": 2203.4
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 39824.1,
+      "osm_node_count": 285,
+      "route_index": 7,
+      "travel_time_s": 3248.7
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 36579.1,
+      "osm_node_count": 203,
+      "route_index": 8,
+      "travel_time_s": 2149.6
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29665.0,
+      "osm_node_count": 136,
+      "route_index": 9,
+      "travel_time_s": 1694.2
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 41946.8,
+      "osm_node_count": 349,
+      "route_index": 10,
+      "travel_time_s": 3081.0
+    }
+  ],
+  "destination": {
+    "lat": 1.3443,
+    "lon": 103.7209,
+    "name": "Lakeside MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 25.59,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_pasir_ris_mrt_to_lakeside_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_pasir_ris_mrt_to_lakeside_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_pasir_ris_mrt_to_lakeside_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.373,
+    "lon": 103.9493,
+    "name": "Pasir Ris MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_pasir_ris_mrt_to_lakeside_mrt",
+  "variant_index": 1
+}

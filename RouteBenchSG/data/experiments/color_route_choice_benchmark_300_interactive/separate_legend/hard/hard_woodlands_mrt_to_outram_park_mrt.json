@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#2563eb",
+  "answer_color_id": "blue",
+  "answer_distance_m": 21653.3,
+  "answer_route_index": 4,
+  "base_route_name": "hard_woodlands_mrt_to_outram_park_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 31483.3,
+      "osm_node_count": 213,
+      "route_index": 1,
+      "travel_time_s": 2096.7
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 41291.5,
+      "osm_node_count": 181,
+      "route_index": 2,
+      "travel_time_s": 2410.8
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 31367.7,
+      "osm_node_count": 215,
+      "route_index": 3,
+      "travel_time_s": 2481.5
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 21653.3,
+      "osm_node_count": 149,
+      "route_index": 4,
+      "travel_time_s": 1395.2
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 28622.4,
+      "osm_node_count": 197,
+      "route_index": 5,
+      "travel_time_s": 1968.3
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 24197.7,
+      "osm_node_count": 121,
+      "route_index": 6,
+      "travel_time_s": 1353.4
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 29054.8,
+      "osm_node_count": 255,
+      "route_index": 7,
+      "travel_time_s": 1931.1
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 27216.5,
+      "osm_node_count": 143,
+      "route_index": 8,
+      "travel_time_s": 1663.0
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 28542.6,
+      "osm_node_count": 154,
+      "route_index": 9,
+      "travel_time_s": 1676.8
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 25335.9,
+      "osm_node_count": 124,
+      "route_index": 10,
+      "travel_time_s": 1319.2
+    }
+  ],
+  "destination": {
+    "lat": 1.2803,
+    "lon": 103.8396,
+    "name": "Outram Park MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 18.39,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_woodlands_mrt_to_outram_park_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_outram_park_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_woodlands_mrt_to_outram_park_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4369,
+    "lon": 103.7865,
+    "name": "Woodlands MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_woodlands_mrt_to_outram_park_mrt",
+  "variant_index": 1
+}

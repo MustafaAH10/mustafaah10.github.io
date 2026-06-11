@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#16a34a",
+  "answer_color_id": "green",
+  "answer_distance_m": 6444.0,
+  "answer_route_index": 1,
+  "base_route_name": "easy_toa_payoh_mrt_to_ubi_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 6444.0,
+      "osm_node_count": 49,
+      "route_index": 1,
+      "travel_time_s": 556.8
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 7691.5,
+      "osm_node_count": 31,
+      "route_index": 2,
+      "travel_time_s": 398.0
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 10013.2,
+      "osm_node_count": 79,
+      "route_index": 3,
+      "travel_time_s": 576.7
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 7934.0,
+      "osm_node_count": 59,
+      "route_index": 4,
+      "travel_time_s": 683.4
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 6842.1,
+      "osm_node_count": 55,
+      "route_index": 5,
+      "travel_time_s": 433.2
+    }
+  ],
+  "destination": {
+    "lat": 1.3299,
+    "lon": 103.8992,
+    "name": "Ubi MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 5.76,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_toa_payoh_mrt_to_ubi_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_toa_payoh_mrt_to_ubi_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_toa_payoh_mrt_to_ubi_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 4,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3326,
+    "lon": 103.8475,
+    "name": "Toa Payoh MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_toa_payoh_mrt_to_ubi_mrt",
+  "variant_index": 1
+}

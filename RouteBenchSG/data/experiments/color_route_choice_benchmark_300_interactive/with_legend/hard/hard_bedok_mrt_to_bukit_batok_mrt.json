@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#475569",
+  "answer_color_id": "slate",
+  "answer_distance_m": 22883.6,
+  "answer_route_index": 10,
+  "base_route_name": "hard_bedok_mrt_to_bukit_batok_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 35417.7,
+      "osm_node_count": 193,
+      "route_index": 1,
+      "travel_time_s": 2317.4
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 29525.2,
+      "osm_node_count": 252,
+      "route_index": 2,
+      "travel_time_s": 2321.8
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 30579.6,
+      "osm_node_count": 175,
+      "route_index": 3,
+      "travel_time_s": 1921.6
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 42595.3,
+      "osm_node_count": 149,
+      "route_index": 4,
+      "travel_time_s": 2207.8
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 24476.7,
+      "osm_node_count": 97,
+      "route_index": 5,
+      "travel_time_s": 1399.5
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 25614.1,
+      "osm_node_count": 142,
+      "route_index": 6,
+      "travel_time_s": 1466.0
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 32522.4,
+      "osm_node_count": 135,
+      "route_index": 7,
+      "travel_time_s": 1695.7
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 29749.5,
+      "osm_node_count": 258,
+      "route_index": 8,
+      "travel_time_s": 2425.1
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29153.1,
+      "osm_node_count": 220,
+      "route_index": 9,
+      "travel_time_s": 2494.3
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 22883.6,
+      "osm_node_count": 239,
+      "route_index": 10,
+      "travel_time_s": 1455.4
+    }
+  ],
+  "destination": {
+    "lat": 1.349,
+    "lon": 103.7496,
+    "name": "Bukit Batok MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 20.27,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_bedok_mrt_to_bukit_batok_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_bedok_mrt_to_bukit_batok_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_bedok_mrt_to_bukit_batok_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3239,
+    "lon": 103.9302,
+    "name": "Bedok MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_bedok_mrt_to_bukit_batok_mrt",
+  "variant_index": 1
+}

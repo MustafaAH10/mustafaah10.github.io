@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#0891b2",
+  "answer_color_id": "cyan",
+  "answer_distance_m": 17958.3,
+  "answer_route_index": 5,
+  "base_route_name": "medium_jurong_east_mrt_to_yio_chu_kang_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 27294.0,
+      "osm_node_count": 186,
+      "route_index": 1,
+      "travel_time_s": 1907.7
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 20228.6,
+      "osm_node_count": 172,
+      "route_index": 2,
+      "travel_time_s": 1679.7
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 28614.5,
+      "osm_node_count": 209,
+      "route_index": 3,
+      "travel_time_s": 2047.1
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 21949.5,
+      "osm_node_count": 135,
+      "route_index": 4,
+      "travel_time_s": 1520.7
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 17958.3,
+      "osm_node_count": 119,
+      "route_index": 5,
+      "travel_time_s": 1234.2
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 25404.2,
+      "osm_node_count": 96,
+      "route_index": 6,
+      "travel_time_s": 1514.9
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 22579.0,
+      "osm_node_count": 178,
+      "route_index": 7,
+      "travel_time_s": 1639.7
+    }
+  ],
+  "destination": {
+    "lat": 1.3818,
+    "lon": 103.8448,
+    "name": "Yio Chu Kang MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 12.65,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_jurong_east_mrt_to_yio_chu_kang_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_jurong_east_mrt_to_yio_chu_kang_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_jurong_east_mrt_to_yio_chu_kang_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3331,
+    "lon": 103.742,
+    "name": "Jurong East MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_jurong_east_mrt_to_yio_chu_kang_mrt",
+  "variant_index": 1
+}

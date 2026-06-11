@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#dc2626",
+  "answer_color_id": "red",
+  "answer_distance_m": 21757.0,
+  "answer_route_index": 8,
+  "base_route_name": "hard_yishun_mrt_to_harbourfront_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 25439.5,
+      "osm_node_count": 108,
+      "route_index": 1,
+      "travel_time_s": 1549.7
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 33213.3,
+      "osm_node_count": 165,
+      "route_index": 2,
+      "travel_time_s": 2034.0
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 28777.4,
+      "osm_node_count": 159,
+      "route_index": 3,
+      "travel_time_s": 1897.7
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 28921.1,
+      "osm_node_count": 227,
+      "route_index": 4,
+      "travel_time_s": 2244.7
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 25232.7,
+      "osm_node_count": 160,
+      "route_index": 5,
+      "travel_time_s": 1583.2
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 32284.2,
+      "osm_node_count": 152,
+      "route_index": 6,
+      "travel_time_s": 2039.9
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 26840.8,
+      "osm_node_count": 243,
+      "route_index": 7,
+      "travel_time_s": 2091.0
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 21757.0,
+      "osm_node_count": 170,
+      "route_index": 8,
+      "travel_time_s": 1465.3
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 40679.0,
+      "osm_node_count": 267,
+      "route_index": 9,
+      "travel_time_s": 2554.9
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 27102.4,
+      "osm_node_count": 219,
+      "route_index": 10,
+      "travel_time_s": 2243.1
+    }
+  ],
+  "destination": {
+    "lat": 1.2654,
+    "lon": 103.8215,
+    "name": "HarbourFront MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 18.31,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_yishun_mrt_to_harbourfront_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yishun_mrt_to_harbourfront_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_yishun_mrt_to_harbourfront_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 10,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4295,
+    "lon": 103.835,
+    "name": "Yishun MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_yishun_mrt_to_harbourfront_mrt",
+  "variant_index": 1
+}

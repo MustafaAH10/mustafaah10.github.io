@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RouteBench</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="../">RouteBench</a>
+      <nav class="topnav" aria-label="Primary">
+        <a class="active" href="#">Benchmark</a>
+      </nav>
+      <div class="topicons" aria-label="Links">
+        <span>◐</span>
+        <span>□</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="directory">
+        <div class="directoryHeader">
+          <span>Directory</span>
+          <span>▣</span>
+        </div>
+        <nav class="tree" aria-label="Directory">
+          <a class="open" href="#"><span>⌄</span><strong>Benchmarks</strong></a>
+          <a class="indent" href="#"><span>›</span><span>Route Choice</span></a>
+          <a class="indent open" href="#"><span>⌄</span><strong>RouteBench Singapore</strong></a>
+          <a class="indent2 active" href="#"><span>⌂</span><span>Home</span></a>
+          <a class="indent2" href="#"><span>▥</span><span>Data Viewer</span></a>
+          <a class="indent2" href="#leaderboard"><span>◫</span><span>Leaderboard</span></a>
+          <a class="indent2" href="#"><span>◉</span><span>Code</span></a>
+        </nav>
+      </aside>
+
+      <main class="page">
+        <div class="pathbar">
+          <div class="pathText">⌁ ~/Benchmarks/RouteBench Singapore</div>
+          <span class="tag">Benchmark</span>
+          <span class="tag muted">Route Choice</span>
+        </div>
+
+        <section class="hero">
+          <h1>RouteBench Singapore: Visual Route-Choice Benchmark for Map-Native Navigation</h1>
+          <p class="authors">
+            Singapore OSM drive graph · candidate-route visual reasoning · color-choice evaluation
+          </p>
+          <p class="affiliation">
+            300 route-choice tasks across easy, medium, and hard Singapore origin-destination pairs.
+          </p>
+          <div class="badges">
+            <span>Benchmark</span>
+            <span>Driving</span>
+            <span>Singapore OSM</span>
+          </div>
+          <nav class="tabs" aria-label="Benchmark sections">
+            <button class="active" type="button">⌂ Home</button>
+            <button type="button">▥ Data Viewer</button>
+            <button type="button" onclick="document.getElementById('leaderboard').scrollIntoView({behavior: 'smooth'})">◫ Leaderboard</button>
+            <button type="button">◉ Code</button>
+          </nav>
+        </section>
+
+        <section class="comingSoonPanel" id="leaderboard">
+          <div>
+            <p class="sectionLabel">Leaderboard</p>
+            <h2>Coming Soon</h2>
+          </div>
+          <p>
+            Public submissions and model comparison tables will be added after the first evaluation run.
+          </p>
+        </section>
+
+        <section class="workbench" aria-live="polite">
+          <aside class="controlPanel">
+            <div class="panelTitle">
+              <span>Filters</span>
+              <strong id="visibleCount">0</strong>
+            </div>
+
+            <label class="field">
+              <span>Difficulty</span>
+              <select id="difficultyFilter">
+                <option value="all">All difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Distance band</span>
+              <select id="distanceFilter">
+                <option value="all">All distances</option>
+                <option value="short">Short · under 8 km</option>
+                <option value="medium">Medium · 8-18 km</option>
+                <option value="long">Long · over 18 km</option>
+              </select>
+            </label>
+
+            <div class="originMapBlock">
+              <div class="sectionLabel">Starting Points</div>
+              <svg id="originMap" viewBox="0 0 280 150" role="img" aria-label="Interactive map of route origins"></svg>
+              <div class="originMeta" id="originMeta">All origins selected</div>
+            </div>
+
+            <button id="clearOriginButton" class="outlineButton" type="button">Clear origin</button>
+            <div class="stats" id="stats"></div>
+          </aside>
+
+          <section class="viewer">
+            <header class="viewerHeader">
+              <div>
+                <p id="eyebrow">Loading benchmark</p>
+                <h2 id="routeTitle">Route sample</h2>
+              </div>
+              <button id="revealButton" type="button">Reveal answer</button>
+            </header>
+
+            <div class="viewerBody">
+              <div class="mapShell">
+                <div class="mapToolbar">
+                  <span id="mapStatus">Rendered benchmark map</span>
+                </div>
+                <div class="mapStage">
+                  <img id="mainImage" alt="Route benchmark map" />
+                </div>
+              </div>
+
+              <aside class="routePanel">
+                <div class="panelHeader">
+                  <span>Candidate Routes</span>
+                  <strong id="candidateCount">0</strong>
+                </div>
+                <div id="candidateList" class="candidateList"></div>
+              </aside>
+            </div>
+
+            <div class="answerBar" id="answerBar"></div>
+          </section>
+        </section>
+
+        <section class="dataSection">
+          <div class="sectionHeader">
+            <h2>Data Viewer</h2>
+            <p id="sampleSummary">Select a sample to inspect its rendered candidate routes.</p>
+          </div>
+          <div class="sampleStrip" id="sampleGrid" aria-label="Benchmark samples"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

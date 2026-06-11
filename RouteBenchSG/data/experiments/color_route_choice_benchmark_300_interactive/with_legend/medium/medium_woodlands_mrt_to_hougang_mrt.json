@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#db2777",
+  "answer_color_id": "pink",
+  "answer_distance_m": 16814.6,
+  "answer_route_index": 2,
+  "base_route_name": "medium_woodlands_mrt_to_hougang_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 24877.2,
+      "osm_node_count": 128,
+      "route_index": 1,
+      "travel_time_s": 1691.3
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 16814.6,
+      "osm_node_count": 80,
+      "route_index": 2,
+      "travel_time_s": 997.7
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 26127.3,
+      "osm_node_count": 109,
+      "route_index": 3,
+      "travel_time_s": 1435.8
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 19699.9,
+      "osm_node_count": 127,
+      "route_index": 4,
+      "travel_time_s": 1519.4
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 20483.5,
+      "osm_node_count": 136,
+      "route_index": 5,
+      "travel_time_s": 1482.3
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 21695.1,
+      "osm_node_count": 160,
+      "route_index": 6,
+      "travel_time_s": 1748.4
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 21416.0,
+      "osm_node_count": 172,
+      "route_index": 7,
+      "travel_time_s": 1657.7
+    }
+  ],
+  "destination": {
+    "lat": 1.3713,
+    "lon": 103.8926,
+    "name": "Hougang MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 13.87,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_woodlands_mrt_to_hougang_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_woodlands_mrt_to_hougang_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_woodlands_mrt_to_hougang_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 7,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.4369,
+    "lon": 103.7865,
+    "name": "Woodlands MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_woodlands_mrt_to_hougang_mrt",
+  "variant_index": 1
+}

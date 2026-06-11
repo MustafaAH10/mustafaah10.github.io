@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#16a34a",
+  "answer_color_id": "green",
+  "answer_distance_m": 15718.2,
+  "answer_route_index": 1,
+  "base_route_name": "medium_expo_mrt_to_tanjong_pagar_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 15718.2,
+      "osm_node_count": 127,
+      "route_index": 1,
+      "travel_time_s": 973.2
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 21297.3,
+      "osm_node_count": 175,
+      "route_index": 2,
+      "travel_time_s": 1492.2
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 18731.4,
+      "osm_node_count": 147,
+      "route_index": 3,
+      "travel_time_s": 1552.0
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 18593.0,
+      "osm_node_count": 52,
+      "route_index": 4,
+      "travel_time_s": 954.1
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 17679.0,
+      "osm_node_count": 133,
+      "route_index": 5,
+      "travel_time_s": 1337.1
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 19874.3,
+      "osm_node_count": 140,
+      "route_index": 6,
+      "travel_time_s": 1585.7
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 17653.7,
+      "osm_node_count": 159,
+      "route_index": 7,
+      "travel_time_s": 1367.3
+    }
+  ],
+  "destination": {
+    "lat": 1.2765,
+    "lon": 103.8459,
+    "name": "Tanjong Pagar MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 14.42,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_expo_mrt_to_tanjong_pagar_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_expo_mrt_to_tanjong_pagar_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_expo_mrt_to_tanjong_pagar_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 4,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3353,
+    "lon": 103.9615,
+    "name": "Expo MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_expo_mrt_to_tanjong_pagar_mrt",
+  "variant_index": 1
+}

@@ -1,0 +1,111 @@
+{
+  "answer_color_hex": "#dc2626",
+  "answer_color_id": "red",
+  "answer_distance_m": 20994.3,
+  "answer_route_index": 5,
+  "base_route_name": "hard_joo_koon_mrt_to_tanjong_pagar_mrt",
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 29181.2,
+      "osm_node_count": 225,
+      "route_index": 1,
+      "travel_time_s": 1980.1
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 23586.3,
+      "osm_node_count": 197,
+      "route_index": 2,
+      "travel_time_s": 1577.4
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 23851.3,
+      "osm_node_count": 171,
+      "route_index": 3,
+      "travel_time_s": 1569.1
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 24250.6,
+      "osm_node_count": 85,
+      "route_index": 4,
+      "travel_time_s": 1228.0
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 20994.3,
+      "osm_node_count": 78,
+      "route_index": 5,
+      "travel_time_s": 1195.3
+    },
+    {
+      "color_hex": "#92400e",
+      "color_id": "brown",
+      "distance_m": 23719.3,
+      "osm_node_count": 98,
+      "route_index": 6,
+      "travel_time_s": 1492.3
+    },
+    {
+      "color_hex": "#65a30d",
+      "color_id": "lime",
+      "distance_m": 32230.6,
+      "osm_node_count": 156,
+      "route_index": 7,
+      "travel_time_s": 1989.7
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 26751.8,
+      "osm_node_count": 180,
+      "route_index": 8,
+      "travel_time_s": 2009.1
+    },
+    {
+      "color_hex": "#475569",
+      "color_id": "slate",
+      "distance_m": 25395.7,
+      "osm_node_count": 187,
+      "route_index": 9,
+      "travel_time_s": 1773.6
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 30608.4,
+      "osm_node_count": 106,
+      "route_index": 10,
+      "travel_time_s": 1453.3
+    }
+  ],
+  "destination": {
+    "lat": 1.2765,
+    "lon": 103.8459,
+    "name": "Tanjong Pagar MRT"
+  },
+  "difficulty": "hard",
+  "direct_distance_km": 19.44,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/hard/hard_joo_koon_mrt_to_tanjong_pagar_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_joo_koon_mrt_to_tanjong_pagar_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/hard/hard_joo_koon_mrt_to_tanjong_pagar_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 6,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.327,
+    "lon": 103.6785,
+    "name": "Joo Koon MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "hard_joo_koon_mrt_to_tanjong_pagar_mrt",
+  "variant_index": 1
+}

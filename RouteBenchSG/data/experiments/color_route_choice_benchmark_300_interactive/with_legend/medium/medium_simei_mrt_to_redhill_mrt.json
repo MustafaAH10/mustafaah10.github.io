@@ -1,0 +1,87 @@
+{
+  "answer_color_hex": "#2563eb",
+  "answer_color_id": "blue",
+  "answer_distance_m": 18547.7,
+  "answer_route_index": 4,
+  "base_route_name": "medium_simei_mrt_to_redhill_mrt",
+  "candidate_count": 7,
+  "candidates": [
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 24115.2,
+      "osm_node_count": 199,
+      "route_index": 1,
+      "travel_time_s": 1913.0
+    },
+    {
+      "color_hex": "#0891b2",
+      "color_id": "cyan",
+      "distance_m": 20595.8,
+      "osm_node_count": 184,
+      "route_index": 2,
+      "travel_time_s": 1631.0
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 21135.7,
+      "osm_node_count": 165,
+      "route_index": 3,
+      "travel_time_s": 1551.9
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 18547.7,
+      "osm_node_count": 106,
+      "route_index": 4,
+      "travel_time_s": 1105.6
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 19801.3,
+      "osm_node_count": 221,
+      "route_index": 5,
+      "travel_time_s": 1407.1
+    },
+    {
+      "color_hex": "#db2777",
+      "color_id": "pink",
+      "distance_m": 26045.5,
+      "osm_node_count": 186,
+      "route_index": 6,
+      "travel_time_s": 2148.4
+    },
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 24215.1,
+      "osm_node_count": 155,
+      "route_index": 7,
+      "travel_time_s": 1637.3
+    }
+  ],
+  "destination": {
+    "lat": 1.2896,
+    "lon": 103.8168,
+    "name": "Redhill MRT"
+  },
+  "difficulty": "medium",
+  "direct_distance_km": 16.31,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/medium/medium_simei_mrt_to_redhill_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_simei_mrt_to_redhill_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/medium/medium_simei_mrt_to_redhill_mrt_map.png",
+  "max_checked_edge_overlap": 3,
+  "max_directed_edge_overlap": 4,
+  "max_visible_edge_overlap": 3,
+  "origin": {
+    "lat": 1.3432,
+    "lon": 103.9534,
+    "name": "Simei MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "medium_simei_mrt_to_redhill_mrt",
+  "variant_index": 1
+}

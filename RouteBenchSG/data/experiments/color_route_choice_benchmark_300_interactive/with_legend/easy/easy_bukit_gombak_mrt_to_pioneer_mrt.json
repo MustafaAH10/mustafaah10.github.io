@@ -1,0 +1,71 @@
+{
+  "answer_color_hex": "#16a34a",
+  "answer_color_id": "green",
+  "answer_distance_m": 7870.2,
+  "answer_route_index": 3,
+  "base_route_name": "easy_bukit_gombak_mrt_to_pioneer_mrt",
+  "candidate_count": 5,
+  "candidates": [
+    {
+      "color_hex": "#dc2626",
+      "color_id": "red",
+      "distance_m": 9330.0,
+      "osm_node_count": 56,
+      "route_index": 1,
+      "travel_time_s": 728.7
+    },
+    {
+      "color_hex": "#7c3aed",
+      "color_id": "purple",
+      "distance_m": 9868.8,
+      "osm_node_count": 64,
+      "route_index": 2,
+      "travel_time_s": 900.3
+    },
+    {
+      "color_hex": "#16a34a",
+      "color_id": "green",
+      "distance_m": 7870.2,
+      "osm_node_count": 66,
+      "route_index": 3,
+      "travel_time_s": 728.4
+    },
+    {
+      "color_hex": "#ea580c",
+      "color_id": "orange",
+      "distance_m": 11068.9,
+      "osm_node_count": 49,
+      "route_index": 4,
+      "travel_time_s": 660.8
+    },
+    {
+      "color_hex": "#2563eb",
+      "color_id": "blue",
+      "distance_m": 11062.1,
+      "osm_node_count": 75,
+      "route_index": 5,
+      "travel_time_s": 1029.1
+    }
+  ],
+  "destination": {
+    "lat": 1.3376,
+    "lon": 103.6974,
+    "name": "Pioneer MRT"
+  },
+  "difficulty": "easy",
+  "direct_distance_km": 6.49,
+  "image_with_legend": "data/experiments/color_route_choice_benchmark_300_interactive/with_legend/easy/easy_bukit_gombak_mrt_to_pioneer_mrt.png",
+  "legend_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_bukit_gombak_mrt_to_pioneer_mrt_legend.png",
+  "map_image": "data/experiments/color_route_choice_benchmark_300_interactive/separate_legend/easy/easy_bukit_gombak_mrt_to_pioneer_mrt_map.png",
+  "max_checked_edge_overlap": 2,
+  "max_directed_edge_overlap": 5,
+  "max_visible_edge_overlap": 2,
+  "origin": {
+    "lat": 1.3587,
+    "lon": 103.7518,
+    "name": "Bukit Gombak MRT"
+  },
+  "overlap_check_min_length_m": 320.0,
+  "route_name": "easy_bukit_gombak_mrt_to_pioneer_mrt",
+  "variant_index": 1
+}
