@@ -276,6 +276,13 @@ button:hover {
   padding-right: 80px;
 }
 
+.figureSection.compact .subFigure img {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+  background: #fafaf7;
+}
+
 .mainFigure,
 .subFigure {
   margin: 0;
