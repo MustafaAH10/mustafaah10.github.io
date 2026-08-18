@@ -349,8 +349,7 @@ mask_reward = np.mean(
 
         <h3>How the writer and decoder learn</h3>
         <div class="algorithm-callout">
-          <strong>Writer RL algorithm: GRPO-style group-relative policy gradient using Tinker <code>importance_sampling</code>.</strong>
-          <p>It is <em>not DPO</em>: there is no fixed preference dataset, reference-policy comparison, or pairwise logistic loss. It is <em>not PPO</em>: the probability ratio is not clipped and we do not take several epochs over stale rollouts. The configured <code>advantage_clip=5</code> clips unusually large centered advantages only; it is not PPO ratio clipping. The closest concise description is an on-policy, REINFORCE-style update with group-relative advantages and an importance-sampling correction.</p>
+          <strong>Writer RL algorithm: group-relative REINFORCE with two candidates, using Tinker <code>importance_sampling</code>.</strong>
         </div>
         <p>For each document the writer samples two candidate recovery notes. Both candidates face the same four deletion masks, but the two runs convert those mask rewards into writer advantages differently.</p>
 
@@ -487,7 +486,7 @@ decoder_step = await decoder_client.optim_step_async(
       <section id="factorial">
         <h2>What training added</h2>
         <p>The end-to-end result is strong. <strong>Moving from an untouched writer and untouched decoder to the trained writer–decoder pair sharply reduced missing-token NLL.</strong> The complete system became much better at the reconstruction task, while its short redundancy continued to provide an additional benefit within the same trained decoder.</p>
-        <p>The writer-only benchmark below compares the prompted base writer with the writer trained by the <strong>GRPO-style, group-relative importance-sampling update described above</strong>. It is not a DPO or PPO benchmark.</p>
+        <p>The writer-only benchmark below compares the prompted base writer with the writer trained by the <strong>two-candidate, group-relative REINFORCE update described above</strong>.</p>
         <div id="factorial-summary"></div>
         <p>The decoder learned the reconstruction format through supervised cross-entropy, which accounts for most of the end-to-end NLL drop. Alongside that large gain, the learned redundancy helped <em>surface-uncovered</em> target tokens by \(+0.0158\) ΔNLL at 512/24 and \(+0.0122\) at 1024/48. Even after excluding answers written recognizably in the message, the remaining correct tokens became about 1–2% more probable per token.</p>
         <p>A prompted base writer was already a strong competitor: with the trained decoder held fixed, writer fine-tuning changed redundancy benefit by \(+0.0031\) at 512/24 and \(-0.0014\) at 1024/48. This is an encouraging practical result as well as a useful research boundary. <strong>Qwen3.5-4B can produce useful pre-committed redundancy from the prompt alone, while the full training procedure makes the overall reconstruction system substantially stronger.</strong></p>
