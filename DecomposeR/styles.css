@@ -161,6 +161,16 @@ a {
   font-size: clamp(1.6rem, 3.2vw, 3.2rem);
   line-height: 1.05;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.authors,
+.affiliation {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.55em;
+  row-gap: 0.2em;
 }
 
 .authors {
@@ -175,6 +185,11 @@ a {
   color: var(--muted);
   font-family: var(--mono);
   font-size: 12px;
+}
+
+.authors span,
+.affiliation span {
+  white-space: nowrap;
 }
 
 .badges,
@@ -247,6 +262,7 @@ button:hover {
   margin-top: 5px;
   font-size: 1.6rem;
   line-height: 1.1;
+  text-wrap: balance;
 }
 
 .contentSection {
@@ -319,6 +335,8 @@ figcaption {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 figcaption strong {
@@ -345,6 +363,8 @@ figcaption strong {
 .sectionHeader h2 {
   margin: 0;
   font-size: 1.7rem;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .bodyText {
@@ -352,12 +372,16 @@ figcaption strong {
   margin: 0 0 16px;
   line-height: 1.7;
   font-size: 15px;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .subheading {
   margin: 24px 0 10px;
   font-size: 1.05rem;
   color: var(--ink);
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .styledList {
@@ -370,6 +394,8 @@ figcaption strong {
 
 .styledList li {
   margin-bottom: 8px;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .phaseGrid {
@@ -404,6 +430,8 @@ figcaption strong {
   color: var(--muted);
   font-size: 13.5px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .tableBlock {
@@ -509,6 +537,8 @@ tr.rank-2 {
   color: var(--muted);
   font-size: 13.5px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .pageFooter {
@@ -611,6 +641,11 @@ tr.rank-2 {
     padding-right: 16px;
   }
 
+  .hero h1 {
+    font-size: clamp(1.35rem, 6.2vw, 1.5rem);
+    line-height: 1.08;
+  }
+
   .figureSection.compact {
     padding-left: 16px;
     padding-right: 16px;
@@ -618,6 +653,16 @@ tr.rank-2 {
 
   .summaryBand {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summaryBand div {
+    min-width: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .summaryBand strong {
+    font-size: clamp(1.2rem, 6.5vw, 1.6rem);
   }
 
   .calloutGrid {
