@@ -297,7 +297,7 @@ MISSING SECTION:</code></pre>
           -
           \lambda\frac{|Z_i|}{Z_{\max}}.
         \]
-        <p>The length term makes longer messages pay for their extra bandwidth. In the two final fixed-budget runs, \(\lambda=0\), because all candidates were already constrained to the same maximum length and the scientific question had shifted to helping genuinely uncovered tokens.</p>
+        <p>The length term makes longer messages pay for their extra bandwidth. In the two final fixed-budget runs, \(\lambda=0\), because all candidates were already constrained to the same maximum length and the scientific question had shifted to helping genuinely uncovered tokens. The 512/24 run used this scalar \(R_i\) directly to form the writer advantage. The 1024/48 run still logged \(R_i\), but formed its writer advantage from the four mask-specific rewards instead, as described below.</p>
 
         <details class="code-details">
           <summary>Code: filtering covered tokens and calculating the reward</summary>
@@ -336,7 +336,7 @@ mask_reward = np.mean(
             <div class="reward-buttons" role="group" aria-label="Choose reward stage">
               <button type="button" data-reward-stage="all" class="active">1. All target tokens</button>
               <button type="button" data-reward-stage="uncovered">2. Exclude recognizable copies</button>
-              <button type="button" data-reward-stage="quarters">3. Balance deletion quarters</button>
+              <button type="button" data-reward-stage="quarters">3. 1024/48: balance quarters</button>
             </div>
           </div>
           <p class="reward-example"><span>Target</span> The launch code is <mark>ZX-41</mark> at noon.</p>
@@ -352,9 +352,18 @@ mask_reward = np.mean(
           <strong>Writer RL algorithm: GRPO-style group-relative policy gradient using Tinker <code>importance_sampling</code>.</strong>
           <p>It is <em>not DPO</em>: there is no fixed preference dataset, reference-policy comparison, or pairwise logistic loss. It is <em>not PPO</em>: the probability ratio is not clipped and we do not take several epochs over stale rollouts. The configured <code>advantage_clip=5</code> clips unusually large centered advantages only; it is not PPO ratio clipping. The closest concise description is an on-policy, REINFORCE-style update with group-relative advantages and an importance-sampling correction.</p>
         </div>
-        <p>For each document the writer samples two candidate recovery notes. Both candidates face the same four deletion masks. In the 512/24 run, each candidate’s four mask rewards were averaged and the two candidate rewards were centered. In the later 1024/48 run, candidates were compared separately inside each document quarter and the four centered comparisons were averaged. Ties produce no writer update.</p>
+        <p>For each document the writer samples two candidate recovery notes. Both candidates face the same four deletion masks, but the two runs convert those mask rewards into writer advantages differently.</p>
 
-        <p>More precisely, candidates are centered separately for every deletion mask:</p>
+        <p><strong>512/24 was not position-aware.</strong> Its four deletion locations were sampled without a quarter constraint. Each candidate’s four mask rewards were averaged first, and the resulting candidate rewards were then centered across the two candidates:</p>
+        \[
+          A_i^{512}
+          =
+          \frac{R_i-\operatorname{mean}_{j}(R_j)}
+               {\operatorname{std}_{j}(R_j)+\varepsilon}.
+        \]
+        <p>Deletion position therefore entered only indirectly through which random masks happened to be sampled. It was not used as a feature, stratum, or weight in the 512/24 reward. A strong result on one mask could offset a weak result elsewhere.</p>
+
+        <p><strong>1024/48 was position-aware.</strong> It sampled one deletion from each document quarter, centered the two candidates separately for every mask, and then averaged the four equal-weight comparisons:</p>
         \[
           \widetilde A_{i,m}
           =
@@ -363,7 +372,7 @@ mask_reward = np.mean(
           \qquad
           A_i=\frac{1}{M}\sum_{m=1}^{M}\widetilde A_{i,m}.
         \]
-        <p>This mask-relative version gives every document quarter an equal vote. One excellent deletion cannot conceal three poor ones. With two candidates, a non-tied mask usually contributes approximately \(+1\) to its winner and \(-1\) to its loser.</p>
+        <p>This mask-relative 1024/48 objective gives every document quarter an equal vote. One excellent deletion cannot conceal three poor ones. With two candidates, a non-tied mask usually contributes approximately \(+1\) to its winner and \(-1\) to its loser. Ties produce no writer update.</p>
 
         <p>The writer tokens were sampled by a rollout policy. During the update, importance sampling corrects for any difference between that rollout distribution and the current training policy:</p>
         \[
