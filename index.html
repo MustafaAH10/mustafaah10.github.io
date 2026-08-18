@@ -260,18 +260,6 @@
         margin-bottom: 7px;
       }
 
-      .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 12px;
-      }
-
-      .skillCard {
-        border: 1px solid var(--line);
-        background: #ffffff;
-        padding: 16px;
-      }
-
       .projects {
         display: grid;
         gap: 14px;
@@ -467,6 +455,18 @@
               <span class="projectArrow">open</span>
             </a>
 
+            <a class="projectCard" href="/redundancylm/">
+              <div>
+                <div class="projectMeta">Technical Essay · Language Model Recovery</div>
+                <h3>LLMs Can Write Their Own Recovery Hints</h3>
+                <p class="muted">
+                  A Qwen model learns to write a short textual backup before an unknown passage is deleted, improving
+                  recovery across held-out documents with interactive training, evaluation, and policy visualizations.
+                </p>
+              </div>
+              <span class="projectArrow">open</span>
+            </a>
+
             <a class="projectCard" href="/RouteBenchSG/">
               <div>
                 <div class="projectMeta">Benchmark · Visual Route Choice</div>
@@ -595,29 +595,6 @@
           </div>
         </section>
 
-        <section class="section" id="skills">
-          <p class="sectionLabel">Skills</p>
-          <h2>Technical Toolkit</h2>
-          <div class="skills">
-            <div class="skillCard">
-              <h3>Programming</h3>
-              <p class="muted">Python, C/C++, JavaScript, SQL</p>
-            </div>
-            <div class="skillCard">
-              <h3>Machine Learning</h3>
-              <p class="muted">PyTorch, TensorFlow, deep RL, transformers, model evaluation</p>
-            </div>
-            <div class="skillCard">
-              <h3>Web and Visualization</h3>
-              <p class="muted">React, Django, Flask, Three.js, GraphQL, static benchmark viewers</p>
-            </div>
-            <div class="skillCard">
-              <h3>Systems and Tools</h3>
-              <p class="muted">AWS, Docker, Git, ROS, Linux</p>
-            </div>
-          </div>
-        </section>
-
         <section class="section" id="contact">
           <p class="sectionLabel">Contact</p>
           <h2>Reach Out</h2>
@@ -646,6 +623,10 @@
           <a class="sidebarProject" href="https://arxiv.org/abs/2602.22406">
             <h4>Towards Autonomous Memory Agents</h4>
             <p>U-Mem actively acquires and curates agent memories with cost-aware verification.</p>
+          </a>
+          <a class="sidebarProject" href="/redundancylm/">
+            <h4>LLMs Can Write Their Own Recovery Hints</h4>
+            <p>Pre-committed textual redundancy for recovering unknown deleted spans.</p>
           </a>
           <a class="sidebarProject" href="/RouteBenchSG/">
             <h4>RouteBenchSG</h4>
