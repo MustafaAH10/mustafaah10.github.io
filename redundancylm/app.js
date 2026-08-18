@@ -291,7 +291,7 @@ function initRewardExplorer() {
       explanation: "<strong>Strict reward:</strong> crossed-out tokens remain in the decoder loss but do not count toward writer reward. The writer is graded only on tokens whose recognizable surface form is absent.",
     },
     quarters: {
-      explanation: "<strong>Quarter-balanced comparison:</strong> the same strict calculation is made independently for Q1–Q4, candidates are ranked inside each quarter, and the four relative results are averaged. One spectacular early-document mask cannot conceal failure elsewhere.",
+      explanation: "<strong>1024/48 only — quarter-balanced comparison:</strong> the same strict calculation is made independently for Q1–Q4, candidates are ranked inside each quarter, and the four relative results are averaged. The earlier 512/24 run did not use this position-aware step.",
     },
   };
 
