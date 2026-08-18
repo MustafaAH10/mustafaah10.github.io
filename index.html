@@ -138,7 +138,7 @@
 
       h1 {
         margin: 0 0 10px;
-        font-size: clamp(2.3rem, 5vw, 5rem);
+        font-size: clamp(2rem, 4vw, 3.8rem);
         line-height: 0.98;
         letter-spacing: 0;
       }
@@ -443,6 +443,18 @@
               <span class="projectArrow">open</span>
             </a>
 
+            <a class="projectCard" href="/redundancylm/">
+              <div>
+                <div class="projectMeta">Technical Essay · Language Model Recovery</div>
+                <h3>LLMs Can Write Their Own Recovery Hints</h3>
+                <p class="muted">
+                  A Qwen3.5-4B model learns to write a short textual backup before an unknown passage is deleted, improving
+                  recovery across held-out documents with interactive training, evaluation, and policy visualizations.
+                </p>
+              </div>
+              <span class="projectArrow">open</span>
+            </a>
+
             <a class="projectCard" href="https://arxiv.org/abs/2602.22406">
               <div>
                 <div class="projectMeta">Paper · Memory Agents</div>
@@ -455,13 +467,13 @@
               <span class="projectArrow">open</span>
             </a>
 
-            <a class="projectCard" href="/redundancylm/">
+            <a class="projectCard" href="/RushHourEval/">
               <div>
-                <div class="projectMeta">Technical Essay · Language Model Recovery</div>
-                <h3>LLMs Can Write Their Own Recovery Hints</h3>
+                <div class="projectMeta">Benchmark · LLM Spatial Planning</div>
+                <h3>RushHourEval</h3>
                 <p class="muted">
-                  A Qwen model learns to write a short textual backup before an unknown passage is deleted, improving
-                  recovery across held-out documents with interactive training, evaluation, and policy visualizations.
+                  A 450-puzzle Rush Hour benchmark across 3x3, 4x4, and 5x5 grids, with puzzle images, text prompts,
+                  solution validation, and model performance tables.
                 </p>
               </div>
               <span class="projectArrow">open</span>
@@ -474,18 +486,6 @@
                 <p class="muted">
                   A Singapore OSM visual route-choice benchmark where VLMs inspect colored candidate driving routes and
                   identify the shortest route without using a routing API at inference time.
-                </p>
-              </div>
-              <span class="projectArrow">open</span>
-            </a>
-
-            <a class="projectCard" href="/RushHourEval/">
-              <div>
-                <div class="projectMeta">Benchmark · LLM Spatial Planning</div>
-                <h3>RushHourEval</h3>
-                <p class="muted">
-                  A 450-puzzle Rush Hour benchmark across 3x3, 4x4, and 5x5 grids, with puzzle images, text prompts,
-                  solution validation, and model performance tables.
                 </p>
               </div>
               <span class="projectArrow">open</span>
@@ -620,21 +620,21 @@
             <h4>DecomposeR</h4>
             <p>Planner-centric RL with typed DAG plans. +5.1–8.0 pts on long-form benchmarks.</p>
           </a>
-          <a class="sidebarProject" href="https://arxiv.org/abs/2602.22406">
-            <h4>Towards Autonomous Memory Agents</h4>
-            <p>U-Mem actively acquires and curates agent memories with cost-aware verification.</p>
-          </a>
           <a class="sidebarProject" href="/redundancylm/">
             <h4>LLMs Can Write Their Own Recovery Hints</h4>
             <p>Pre-committed textual redundancy for recovering unknown deleted spans.</p>
           </a>
-          <a class="sidebarProject" href="/RouteBenchSG/">
-            <h4>RouteBenchSG</h4>
-            <p>Singapore visual route-choice benchmark with a full dataset viewer.</p>
+          <a class="sidebarProject" href="https://arxiv.org/abs/2602.22406">
+            <h4>Towards Autonomous Memory Agents</h4>
+            <p>U-Mem actively acquires and curates agent memories with cost-aware verification.</p>
           </a>
           <a class="sidebarProject" href="/RushHourEval/">
             <h4>RushHourEval</h4>
             <p>Rush Hour LLM planning benchmark with prompts, images, and model tables.</p>
+          </a>
+          <a class="sidebarProject" href="/RouteBenchSG/">
+            <h4>RouteBenchSG</h4>
+            <p>Singapore visual route-choice benchmark with a full dataset viewer.</p>
           </a>
         </div>
       </aside>

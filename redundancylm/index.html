@@ -33,7 +33,7 @@
         <p class="subtitle">Can a model write useful redundancy before it knows which part of a document will be deleted?</p>
         <p class="byline">Mustafa Anis Hussain · Qwen/Qwen3.5-4B · FineWeb-Edu · Tinker</p>
         <div class="abstract">
-          <strong>TL;DR.</strong> A Qwen model learned to write a short, readable backup before it knew which passage would be deleted. Across 400 held-out documents, that pre-committed redundancy made the correct missing tokens more likely at both tested scales, helped tokens that were not copied into the backup, and remained useful to an untouched decoder. The experiment shows that ordinary vocabulary tokens can serve as a practical recovery aid for damaged text.
+          <strong>TL;DR.</strong> A Qwen3.5-4B model learned to write a short, readable backup before it knew which passage would be deleted. Across 400 held-out documents, that pre-committed redundancy made the correct missing tokens more likely at both tested scales, helped tokens that were not copied into the backup, and remained useful to an untouched decoder. The experiment shows that ordinary vocabulary tokens can serve as a practical recovery aid for damaged text.
         </div>
         <div class="links">
           <a href="https://github.com/mustafaah/parity">code</a>
@@ -54,7 +54,7 @@
         </div>
 
         <p>The redundancy above would be useful for that deletion, but the writer was not told that this particular phrase would disappear. It had to decide in advance that the person, place, date, and subject were worth protecting. <strong>That pre-commitment is what separates error correction from ordinary repair.</strong> If the writer saw the hole first, it could simply copy the missing sentence.</p>
-        <p>The communication channel is deliberately restricted. The writer may output only tokens already present in Qwen’s vocabulary. It cannot invent new embeddings, pass hidden activations, or attach a binary file. The resulting message can be printed, inspected, and given to an entirely separate model through an ordinary text prompt.</p>
+        <p>The communication channel is deliberately restricted. The writer may output only tokens already present in Qwen3.5-4B’s vocabulary. It cannot invent new embeddings, pass hidden activations, or attach a binary file. The resulting message can be printed, inspected, and given to an entirely separate model through an ordinary text prompt.</p>
 
         <h3>The claim we actually test</h3>
         <p>The basic question is whether the same decoder considers the true missing text more likely when redundancy is present than when it sees only the damaged document. Stronger tests ask whether the benefit survives when copied words are excluded, whether an untouched decoder can use the message, and whether reinforcement learning improves the writer beyond simply prompting the base model.</p>
@@ -436,7 +436,7 @@ decoder_step = await decoder_client.optim_step_async(
         <div class="result-summary">
           <div><strong>Redundancy helped at both scales</strong><span>+0.0638 / +0.0551 overall ΔNLL</span></div>
           <div><strong>It helped beyond copied words</strong><span>+0.0158 / +0.0122 strict ΔNLL</span></div>
-          <div><strong>It transferred to untouched Qwen</strong><span>+0.0633 / +0.0673 overall ΔNLL</span></div>
+          <div><strong>It transferred to untouched Qwen3.5-4B</strong><span>+0.0633 / +0.0673 overall ΔNLL</span></div>
           <div><strong>It beat Top-K at the larger scale</strong><span>+0.0551 vs +0.0471 ΔNLL</span></div>
         </div>
 
@@ -470,7 +470,7 @@ decoder_step = await decoder_client.optim_step_async(
         <div id="surface-coverage-plot" class="embedded-chart"></div>
         <p class="chart-explanation"><strong>This curve measures recognizable overlap between the generated redundancy and the later deleted span.</strong> The writer did not know the deletion location, so coverage reflects information that it elected to preserve in advance. It also motivated the stricter uncovered-token reward: otherwise direct copying could dominate the writer’s score.</p>
 
-        <p>Second, we periodically gave learned redundancy to the untouched base decoder. This asks whether the message remains useful to an ordinary Qwen reader, rather than only to the decoder LoRA that trained beside it.</p>
+        <p>Second, we periodically gave learned redundancy to the untouched base decoder. This asks whether the message remains useful to an ordinary Qwen3.5-4B reader, rather than only to the decoder LoRA that trained beside it.</p>
         <div id="frozen-heldout-plot" class="embedded-chart"></div>
         <p class="chart-explanation"><strong>Positive values mean learned redundancy helped an untouched decoder predict uncopied target tokens.</strong> The probe is volatile, but it remains evidence against a purely private code between the two LoRAs.</p>
       </section>
@@ -481,7 +481,7 @@ decoder_step = await decoder_client.optim_step_async(
         <p>The writer-only benchmark below compares the prompted base writer with the writer trained by the <strong>GRPO-style, group-relative importance-sampling update described above</strong>. It is not a DPO or PPO benchmark.</p>
         <div id="factorial-summary"></div>
         <p>The decoder learned the reconstruction format through supervised cross-entropy, which accounts for most of the end-to-end NLL drop. Alongside that large gain, the learned redundancy helped <em>surface-uncovered</em> target tokens by \(+0.0158\) ΔNLL at 512/24 and \(+0.0122\) at 1024/48. Even after excluding answers written recognizably in the message, the remaining correct tokens became about 1–2% more probable per token.</p>
-        <p>A prompted base writer was already a strong competitor: with the trained decoder held fixed, writer fine-tuning changed redundancy benefit by \(+0.0031\) at 512/24 and \(-0.0014\) at 1024/48. This is an encouraging practical result as well as a useful research boundary. <strong>Qwen can produce useful pre-committed redundancy from the prompt alone, while the full training procedure makes the overall reconstruction system substantially stronger.</strong></p>
+        <p>A prompted base writer was already a strong competitor: with the trained decoder held fixed, writer fine-tuning changed redundancy benefit by \(+0.0031\) at 512/24 and \(-0.0014\) at 1024/48. This is an encouraging practical result as well as a useful research boundary. <strong>Qwen3.5-4B can produce useful pre-committed redundancy from the prompt alone, while the full training procedure makes the overall reconstruction system substantially stronger.</strong></p>
         <p>Learned redundancy also transferred to the untouched decoder. The messages therefore remained broadly readable instead of depending on an opaque protocol shared only by the two trained LoRAs.</p>
 
         <h3>Three moments from the rollouts</h3>
