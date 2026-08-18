@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A technical report on pre-committed textual redundancy for language-model span recovery.">
+  <title>LLMs Can Write Their Own Recovery Hints</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true
+      },
+      svg: { fontCache: "global" }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="../" aria-label="Back to MustafaAH10 homepage">Mustafa Anis Hussain</a>
+    <nav><a href="#method">Architecture</a><a href="#objective">Measurement</a><a href="#results">Results</a><a href="#rollouts">Rollouts</a></nav>
+  </header>
+
+  <main>
+    <article>
+      <header class="article-header">
+        <p class="kicker">Technical essay · July 2026</p>
+        <h1>LLMs Can Write Their Own Recovery Hints</h1>
+        <p class="subtitle">Can a model write useful redundancy before it knows which part of a document will be deleted?</p>
+        <p class="byline">Mustafa Anis Hussain · Qwen/Qwen3.5-4B · FineWeb-Edu · Tinker</p>
+        <div class="abstract">
+          <strong>TL;DR.</strong> A Qwen model learned to write a short, readable backup before it knew which passage would be deleted. Across 400 held-out documents, that pre-committed redundancy made the correct missing tokens more likely at both tested scales, helped tokens that were not copied into the backup, and remained useful to an untouched decoder. The experiment shows that ordinary vocabulary tokens can serve as a practical recovery aid for damaged text.
+        </div>
+        <div class="links">
+          <a href="https://github.com/mustafaah/parity">code</a>
+          <a href="https://huggingface.co/mustafaah/redundancylm-final-1024x48-surface-balanced-seed47-writer">writer adapter</a>
+          <a href="https://huggingface.co/mustafaah/redundancylm-final-1024x48-surface-balanced-seed47-decoder">decoder adapter</a>
+        </div>
+      </header>
+
+      <section id="problem">
+        <h2>The idea</h2>
+        <p>Imagine saving a long document together with one very short note. You do not know what will go wrong later. A paragraph may disappear from the beginning, middle, or end. Your note must therefore preserve information that is useful across many possible future losses.</p>
+        <p>That is the task in this project. A <em>writer</em> language model reads an intact document and produces a short sequence of ordinary text tokens, which we call <em>redundancy</em>. Only after the writer has finished do we choose a contiguous span to delete. A <em>decoder</em> then sees the damaged document and the redundancy and tries to recover the missing text.</p>
+
+        <div class="worked-example">
+          <p><span class="example-label">Original</span><span class="example-content">Marie Curie moved to Paris in 1891 to study physics.</span></p>
+          <p><span class="example-label">Redundancy</span><span class="example-content">Curie · Paris · 1891 · physics</span></p>
+          <p><span class="example-label">Later damage</span><span class="example-content">Marie Curie <mark>moved to Paris in 1891</mark> to study physics.</span></p>
+        </div>
+
+        <p>The redundancy above would be useful for that deletion, but the writer was not told that this particular phrase would disappear. It had to decide in advance that the person, place, date, and subject were worth protecting. <strong>That pre-commitment is what separates error correction from ordinary repair.</strong> If the writer saw the hole first, it could simply copy the missing sentence.</p>
+        <p>The communication channel is deliberately restricted. The writer may output only tokens already present in Qwen’s vocabulary. It cannot invent new embeddings, pass hidden activations, or attach a binary file. The resulting message can be printed, inspected, and given to an entirely separate model through an ordinary text prompt.</p>
+
+        <h3>The claim we actually test</h3>
+        <p>The basic question is whether the same decoder considers the true missing text more likely when redundancy is present than when it sees only the damaged document. Stronger tests ask whether the benefit survives when copied words are excluded, whether an untouched decoder can use the message, and whether reinforcement learning improves the writer beyond simply prompting the base model.</p>
+      </section>
+
+      <section id="method">
+        <h2>Architecture and training</h2>
+        <p>We ran the same idea at two text scales. Throughout the article, <strong>512/24</strong> means a 512-token document with a 24-token deletion and a redundancy budget of at most 24 tokens. <strong>1024/48</strong> doubles all three lengths. Both preserve the same ratio: the deleted span and redundancy each occupy about 4.7% of the document.</p>
+
+        <div class="experiment-key">
+          <div><strong>512 / 24</strong><span>512-token document</span><span>24-token redundancy</span><span>24-token hole</span><span>four future deletions</span></div>
+          <div><strong>1024 / 48</strong><span>1,024-token document</span><span>48-token redundancy</span><span>48-token hole</span><span>four future deletions</span></div>
+        </div>
+
+        <p>Both roles use LoRA adapters on the same Qwen3.5-4B base model and exactly the same tokenizer. The writer is trained with reinforcement learning because its output is sampled text. The decoder is trained with ordinary supervised cross-entropy because the exact deleted tokens are known.</p>
+
+        <figure class="wide architecture-figure">
+          <svg class="architecture-svg" viewBox="0 0 1040 575" role="img" aria-labelledby="architecture-title architecture-description">
+            <title id="architecture-title">RedundancyLM training architecture</title>
+            <desc id="architecture-description">The writer reads the intact document and commits redundancy before deletion. The same decoder scores the deleted target with and without that redundancy. The score difference trains the writer, while exact-target cross-entropy trains the decoder.</desc>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+              </marker>
+            </defs>
+
+            <text x="35" y="22" class="lane-label">1 · WRITE REDUNDANCY</text>
+            <g class="stage" data-stage="document" tabindex="0" role="button">
+              <rect x="35" y="38" width="190" height="72"></rect>
+              <text x="130" y="67" text-anchor="middle" class="box-title">Intact document</text>
+              <text x="130" y="91" text-anchor="middle">X = (x₁, …, xₙ)</text>
+            </g>
+            <path class="flow" d="M225 74 H300"></path>
+            <g class="stage writer-stage" data-stage="writer" tabindex="0" role="button">
+              <rect x="300" y="38" width="190" height="72"></rect>
+              <text x="395" y="67" text-anchor="middle" class="box-title">Writer LoRA</text>
+              <text x="395" y="91" text-anchor="middle">πθ(Z | X)</text>
+            </g>
+            <path class="flow" d="M490 74 H565"></path>
+            <g class="stage writer-stage" data-stage="redundancy" tabindex="0" role="button">
+              <rect x="565" y="38" width="210" height="72"></rect>
+              <text x="670" y="67" text-anchor="middle" class="box-title">Redundancy committed</text>
+              <text x="670" y="91" text-anchor="middle">Z = (z₁, …, zₖ)</text>
+            </g>
+
+            <line class="commit-line" x1="35" x2="1005" y1="145" y2="145"></line>
+            <rect class="commit-label-bg" x="344" y="130" width="352" height="30"></rect>
+            <text x="520" y="150" text-anchor="middle" class="commit-label">deletion does not exist until this point</text>
+
+            <text x="35" y="184" class="lane-label">2 · DELETE AFTER COMMITMENT</text>
+            <g class="stage" data-stage="corruption" tabindex="0" role="button">
+              <rect x="35" y="198" width="190" height="76"></rect>
+              <text x="130" y="227" text-anchor="middle" class="box-title">Sample four holes</text>
+              <text x="130" y="251" text-anchor="middle">from the intact X</text>
+            </g>
+            <path class="flow chronology-flow" d="M130 110 V198"></path>
+            <path class="flow" d="M225 236 H300"></path>
+            <g class="stage" data-stage="corruption" tabindex="0" role="button">
+              <rect x="300" y="198" width="190" height="76"></rect>
+              <text x="395" y="227" text-anchor="middle" class="box-title">Damaged document</text>
+              <text x="395" y="251" text-anchor="middle">one visible hole X⁻ₘ</text>
+            </g>
+
+            <text x="35" y="320" class="lane-label">3 · SCORE THE SAME TARGET TWICE</text>
+            <g class="stage input-stage" data-stage="with" tabindex="0" role="button">
+              <rect x="300" y="334" width="200" height="72"></rect>
+              <text x="400" y="362" text-anchor="middle" class="box-title">Assisted prompt</text>
+              <text x="400" y="386" text-anchor="middle">X⁻ₘ + Z + true prefix</text>
+            </g>
+            <g class="stage input-stage" data-stage="without" tabindex="0" role="button">
+              <rect x="300" y="438" width="200" height="72"></rect>
+              <text x="400" y="466" text-anchor="middle" class="box-title">Control prompt</text>
+              <text x="400" y="490" text-anchor="middle">X⁻ₘ + true prefix</text>
+            </g>
+            <path class="flow" d="M395 274 V304 H270 V370 H300"></path>
+            <path class="flow" d="M270 304 V474 H300"></path>
+            <path class="redundancy-flow" d="M670 110 V304 H470 V334"></path>
+
+            <g class="stage decoder-stage" data-stage="decoder" tabindex="0" role="button">
+              <rect x="565" y="363" width="210" height="118"></rect>
+              <text x="670" y="395" text-anchor="middle" class="box-title">Shared Decoder LoRA</text>
+              <text x="670" y="421" text-anchor="middle">same weights</text>
+              <text x="670" y="445" text-anchor="middle">two forward passes</text>
+            </g>
+            <path class="flow" d="M500 370 H535 V399 H565"></path>
+            <path class="flow" d="M500 474 H535 V445 H565"></path>
+
+            <g class="stage score-stage" data-stage="comparison" tabindex="0" role="button">
+              <rect x="830" y="363" width="175" height="118"></rect>
+              <text x="917" y="395" text-anchor="middle" class="box-title">Paired scores</text>
+              <text x="917" y="423" text-anchor="middle">with Z: NLL⁺</text>
+              <text x="917" y="449" text-anchor="middle">without Z: NLL⁻</text>
+            </g>
+            <path class="flow" d="M775 422 H830"></path>
+
+            <path class="decoder-signal-flow" d="M670 481 V516"></path>
+            <g class="stage update-terminal decoder-update-terminal" data-stage="decoder-update" tabindex="0" role="button">
+              <rect x="565" y="516" width="210" height="50"></rect>
+              <text x="670" y="538" text-anchor="middle" class="box-title">Decoder CE update</text>
+              <text x="670" y="557" text-anchor="middle">exact missing tokens</text>
+            </g>
+
+            <path class="writer-signal-flow" d="M917 481 V516"></path>
+            <g class="stage update-terminal writer-update-terminal" data-stage="comparison" tabindex="0" role="button">
+              <rect x="830" y="516" width="175" height="50"></rect>
+              <text x="917" y="538" text-anchor="middle" class="box-title">Writer RL update</text>
+              <text x="917" y="557" text-anchor="middle">ΔNLL → advantage</text>
+            </g>
+          </svg>
+          <p id="architecture-note" class="architecture-note"><strong>Follow the numbered lanes.</strong> The writer commits (Z) first. Only then is a hole sampled. The same decoder scores the exact missing text twice, once with (Z) and once without it.</p>
+          <figcaption><strong>Architecture.</strong> The paired NLL difference supplies the writer reward. Cross-entropy on the known missing tokens trains the decoder. Select any box for a short explanation.</figcaption>
+        </figure>
+
+        <p>The decoder never sees four holes simultaneously. For each document we create four separate single-hole examples. Every writer candidate faces the same four locations, so candidates are compared on identical damage rather than luck.</p>
+        <p class="code-caption">Abridged from <code>run_train.py</code>, the causal constraint is visible in the ordering of sampling and mask construction:</p>
+        <pre><code># First: finish every writer rollout.
+sampled_candidates = await asyncio.gather(
+    *candidate_sampling_calls
+)
+
+# Only after the await above: choose future corruptions.
+masks_by_document = [
+    _sample_configured_masks(
+        config,
+        len(document.tokens),
+        config.num_corruptions,
+        seed=config.seed + step * 1_000_003 + doc_index,
+    )
+    for doc_index, document in enumerate(batch)
+]</code></pre>
+        <p>It helps to think of this as an insurance problem. The writer has a tiny budget and must insure the whole document against an accident whose location has not yet been announced. The decoder is the claims adjuster: it sees what survived and uses the pre-committed redundancy to infer what was lost. A summary is one possible insurance policy, but not necessarily the best one. Predictable prose needs little protection; an isolated date, surname, negation, or identifier may be impossible to recover unless the writer spends some of its budget on it.</p>
+
+        <details class="prompt-details">
+          <summary>Exact writer and decoder prompts</summary>
+          <h3>Writer prompt</h3>
+          <pre><code>You are an error-correcting encoder.
+
+Read the document and produce a short sequence of ordinary vocabulary
+tokens containing redundancy that helps another language model recover
+an unknown section if part of the document is later deleted.
+
+You do not know which section will be deleted.
+Output only the redundancy tokens.
+
+DOCUMENT:
+{intact_document}</code></pre>
+
+          <h3>Decoder prompt</h3>
+          <pre><code>A contiguous section of the document below was deleted.
+
+Use the redundancy tokens and the surviving document to reconstruct
+the missing section exactly.
+
+REDUNDANCY:
+{redundancy}
+
+DAMAGED DOCUMENT:
+{document_with_one_visible_hole}
+
+MISSING SECTION:</code></pre>
+        </details>
+
+        <h3>One optimization step</h3>
+        <ol>
+          <li>Sample two redundancy candidates for each intact document.</li>
+          <li>After sampling finishes, select four deletions. The 1024/48 run assigns one to each document quarter; the earlier 512/24 run samples four positions without that constraint.</li>
+          <li>Score every exact target token with and without each candidate.</li>
+          <li>Construct a group-relative advantage for each writer candidate.</li>
+          <li>Update the writer LoRA with Tinker importance sampling.</li>
+          <li>Update the decoder LoRA with weighted cross-entropy.</li>
+          <li>Refresh the writer sampling client from current weights.</li>
+        </ol>
+      </section>
+
+      <section id="objective">
+        <h2>How success is measured</h2>
+
+        <h3>NLL means negative log-likelihood</h3>
+        <p>A language model does not merely output one next token. It assigns a probability to every token in its vocabulary. If the correct next token receives probability 0.20, the model considers it twice as plausible as when it receives probability 0.10. We need a score that captures these probability changes even when the model’s top choice remains wrong.</p>
+        <p><strong>Negative log-likelihood</strong>, or <strong>NLL</strong>, does exactly that. For a deleted span \(Y=(y_1,\ldots,y_T)\), we average the negative logarithm of the probability assigned to each correct token:</p>
+        \[
+          \operatorname{NLL}(Y)
+          =-\frac{1}{T}\sum_{t=1}^{T}
+          \log p(y_t\mid \text{context},y_{&lt;t}).
+        \]
+        <p>Lower NLL is better. For one correct token, probability \(0.10\) gives NLL \(-\log 0.10=2.30\); raising that probability to \(0.20\) lowers NLL to \(1.61\). A perfect probability of \(1\) would have NLL \(0\). The logarithm turns a product of token probabilities into a sum, and averaging over \(T\) lets us compare 24-token and 48-token holes on the same per-token scale.</p>
+
+        <h3>Why compare NLL with and without redundancy?</h3>
+        <p>Every damaged example is scored twice by the <em>same decoder</em>. First it sees the damaged document alone. Then it sees the identical document and target with redundancy added. We report</p>
+        \[
+          \Delta\operatorname{NLL}
+          =
+          \operatorname{NLL}_{\text{without}}
+          -
+          \operatorname{NLL}_{\text{with}}.
+        \]
+        <p>A positive value means the redundancy helped. Because this difference is measured in natural-log units per target token, it has a direct probability interpretation:</p>
+        <div class="metric-interpretation">
+          <div><strong>+0.01 ΔNLL</strong><span>\(e^{0.01}=1.010\)</span><p>about 1% more probability per correct token</p></div>
+          <div><strong>+0.05 ΔNLL</strong><span>\(e^{0.05}=1.051\)</span><p>about 5% more probability per correct token</p></div>
+          <div><strong>+0.08 ΔNLL</strong><span>\(e^{0.08}=1.083\)</span><p>about 8% more probability per correct token</p></div>
+        </div>
+        <p><strong>What does a full-span ΔNLL of \(+0.05\) mean?</strong> For one 24-token target, the improvement in teacher-forced log likelihood is \(24\times0.05=1.2\) nats. Therefore:</p>
+        \[
+          \frac{P_{\mathrm{with}}(Y)}{P_{\mathrm{without}}(Y)}
+          = e^{1.2}
+          \approx 3.3.
+        \]
+        <p>This is a ratio between the two models’ <em>teacher-forced likelihoods of the known target sequence</em>. It does not say that free generation reconstructs the span 3.3 times as often. When \(+0.05\) is an average across many examples, \(3.3\) is the corresponding geometric-mean likelihood ratio; individual spans can benefit by more, by less, or not at all.</p>
+
+        <h3>Why not use exact reconstruction as the reward?</h3>
+        <p>Exact span recovery is extremely sparse. A 24-token answer is marked wrong if 23 tokens are correct and one comma differs. Early in training, almost every generated span is wrong, so exact match provides almost no guidance. ΔNLL is dense: every correct token tells us whether the redundancy moved the decoder in the right direction.</p>
+        <p>We calculate this score with <em>teacher forcing</em>. When scoring token \(y_t\), the decoder receives the correct earlier target tokens \(y_{&lt;t}\), not its own previous guesses. This isolates the probability assigned at each position. We separately evaluate free generation, where early mistakes can compound.</p>
+
+        <h3>Separating copying from indirect help</h3>
+        <p>A writer can help by placing an important missing word directly in the redundancy. That is valid backup, but it is different from helping the decoder infer a word that was never copied. We therefore classify target positions as:</p>
+        <ul>
+          <li><strong>covered</strong>: the token ID or normalized surface text appears in the redundancy;</li>
+          <li><strong>uncovered</strong>: the recognizable token text is absent.</li>
+        </ul>
+        <p><strong>The strict writer reward averages ΔNLL only over uncovered positions. If the target contains <code>height</code> and the writer emits <code>PrinterCheckHeight</code>, that position is treated as covered. The writer may still preserve it, and the decoder still trains on it, but that direct backup cannot masquerade as indirect recovery.</strong></p>
+
+        <p>Let \(U_{i,m}\) be the target positions that are uncovered for writer candidate \(i\) under deletion mask \(m\). For those positions, the mask-specific reward is</p>
+        \[
+          r_{i,m}
+          =
+          \frac{1}{|U_{i,m}|}
+          \sum_{t\in U_{i,m}}
+          \left(
+            \ell^{+}_{i,m,t}
+            -
+            \ell^{-}_{m,t}
+          \right),
+        \]
+        <p>where \(\ell^{+}\) is the correct-token log probability with redundancy and \(\ell^{-}\) is the correct-token log probability without it. A candidate’s scalar reward averages the four future deletions:</p>
+        \[
+          R_i
+          =
+          \frac{1}{M}\sum_{m=1}^{M}r_{i,m}
+          -
+          \lambda\frac{|Z_i|}{Z_{\max}}.
+        \]
+        <p>The length term makes longer messages pay for their extra bandwidth. In the two final fixed-budget runs, \(\lambda=0\), because all candidates were already constrained to the same maximum length and the scientific question had shifted to helping genuinely uncovered tokens.</p>
+
+        <details class="code-details">
+          <summary>Code: filtering covered tokens and calculating the reward</summary>
+          <p>This is abridged from <code>run_train.py</code> and <code>redundancy_utils.py</code>. The complete implementation also checks array shapes, logs each mask separately, and supports clipping and length penalties.</p>
+          <pre><code>coverage_masks = [
+    target_coverage_mask(
+        tokenizer,
+        corruption.target_tokens,
+        candidate.tokens,
+        mode=config.coverage_mode,
+    )
+    for corruption in corruptions[doc_index]
+]
+
+result = compute_reward(
+    with_scores[doc_index][candidate_index],
+    baseline_scores[doc_index],
+    redundancy_length=len(candidate.tokens),
+    max_redundancy_length=config.max_redundancy_len,
+    lambda_coefficient=coefficient,
+    coverage_masks_by_mask=coverage_masks,
+    reward_mode="uncovered_tokens",
+)
+
+# Inside compute_reward, for each deletion mask:
+uncovered = ~np.asarray(coverage_mask)
+mask_reward = np.mean(
+    logp_with_redundancy[uncovered]
+    - logp_without_redundancy[uncovered]
+)</code></pre>
+        </details>
+
+        <div class="reward-explorer" aria-labelledby="reward-explorer-title">
+          <div class="reward-explorer-header">
+            <h3 id="reward-explorer-title">An illustrative reward lens</h3>
+            <div class="reward-buttons" role="group" aria-label="Choose reward stage">
+              <button type="button" data-reward-stage="all" class="active">1. All target tokens</button>
+              <button type="button" data-reward-stage="uncovered">2. Exclude recognizable copies</button>
+              <button type="button" data-reward-stage="quarters">3. Balance deletion quarters</button>
+            </div>
+          </div>
+          <p class="reward-example"><span>Target</span> The launch code is <mark>ZX-41</mark> at noon.</p>
+          <p class="reward-example"><span>Redundancy</span> launch · ZX-41 · noon</p>
+          <div id="reward-token-row" class="reward-token-row" aria-live="polite"></div>
+          <div id="reward-quarter-row" class="reward-quarter-row" hidden></div>
+          <p id="reward-explanation" class="reward-explanation"></p>
+          <p class="illustrative-note">This is a conceptual example, not a row from the evaluation set.</p>
+        </div>
+
+        <h3>How the writer and decoder learn</h3>
+        <div class="algorithm-callout">
+          <strong>Writer RL algorithm: GRPO-style group-relative policy gradient using Tinker <code>importance_sampling</code>.</strong>
+          <p>It is <em>not DPO</em>: there is no fixed preference dataset, reference-policy comparison, or pairwise logistic loss. It is <em>not PPO</em>: the probability ratio is not clipped and we do not take several epochs over stale rollouts. The configured <code>advantage_clip=5</code> clips unusually large centered advantages only; it is not PPO ratio clipping. The closest concise description is an on-policy, REINFORCE-style update with group-relative advantages and an importance-sampling correction.</p>
+        </div>
+        <p>For each document the writer samples two candidate recovery notes. Both candidates face the same four deletion masks. In the 512/24 run, each candidate’s four mask rewards were averaged and the two candidate rewards were centered. In the later 1024/48 run, candidates were compared separately inside each document quarter and the four centered comparisons were averaged. Ties produce no writer update.</p>
+
+        <p>More precisely, candidates are centered separately for every deletion mask:</p>
+        \[
+          \widetilde A_{i,m}
+          =
+          \frac{r_{i,m}-\operatorname{mean}_{j}(r_{j,m})}
+               {\operatorname{std}_{j}(r_{j,m})+\varepsilon},
+          \qquad
+          A_i=\frac{1}{M}\sum_{m=1}^{M}\widetilde A_{i,m}.
+        \]
+        <p>This mask-relative version gives every document quarter an equal vote. One excellent deletion cannot conceal three poor ones. With two candidates, a non-tied mask usually contributes approximately \(+1\) to its winner and \(-1\) to its loser.</p>
+
+        <p>The writer tokens were sampled by a rollout policy. During the update, importance sampling corrects for any difference between that rollout distribution and the current training policy:</p>
+        \[
+          \rho_{i,t}
+          =
+          \exp\left(
+            \log\pi_{\theta}(z_{i,t}\mid X,z_{i,&lt;t})
+            -
+            \log\pi_{\mathrm{rollout}}(z_{i,t}\mid X,z_{i,&lt;t})
+          \right).
+        \]
+        <p>Tinker then minimizes the token-wise objective \(\mathcal L_{\mathrm{writer}}=-\sum_{i,t}\rho_{i,t}A_i\). Conceptually, this increases the probability of sampled tokens when \(A_i&gt;0\) and decreases it when \(A_i&lt;0\), with \(\rho_{i,t}\) correcting any small difference between the rollout and learner policies. Prompt positions receive zero advantage, so only generated recovery-note tokens can update the writer. This follows Tinker’s documented <a href="https://tinker-docs.thinkingmachines.ai/tinker/losses/importance-sampling/">importance-sampling loss</a>.</p>
+
+        <details class="code-details">
+          <summary>Code: one Tinker decoder and writer optimization step</summary>
+          <p>Tinker computes the decoder cross-entropy backward pass first. Our local code converts its target log probabilities into rewards and advantages, then sends rollout log probabilities and advantages back through Tinker’s <code>importance_sampling</code> loss.</p>
+          <pre><code># Score exact deleted tokens and accumulate decoder gradients.
+decoder_future = await decoder_client.forward_backward_async(
+    decoder_datums,
+    loss_fn="cross_entropy",
+)
+decoder_result = await decoder_future.result_async()
+
+# Convert candidate rewards into group-relative advantages.
+advantages, _, _, _ = mask_relative_advantages(
+    [result.reward_mask_deltas for result in group_results],
+    normalize=True,
+)
+
+# Rollout log probabilities and advantages apply only to sampled tokens.
+arrays = build_rl_arrays(
+    candidate.prompt_tokens,
+    candidate.tokens,
+    candidate.logprobs,
+    advantage,
+)
+rl_datums.append(_rl_datum(types, arrays))
+
+# Apply the two independent LoRA updates.
+writer_backward = await redundancy_client.forward_backward_async(
+    rl_datums,
+    loss_fn="importance_sampling",
+)
+writer_step = await redundancy_client.optim_step_async(
+    types.AdamParams(learning_rate=config.redundancy_lr)
+)
+decoder_step = await decoder_client.optim_step_async(
+    types.AdamParams(learning_rate=config.decoder_lr)
+)</code></pre>
+        </details>
+
+        <p>Two numbers that appear similar on a dashboard mean different things here. A candidate’s <em>raw reward</em> is its uncovered-token ΔNLL, measured in natural-log units per missing token; \(+0.05\) is already about a 5% probability increase per correct token. Its <em>advantage</em> asks only whether that candidate was better than the other candidate for the same document. We deliberately center the two advantages, so one might receive \(+1\) and the other \(-1\). Their mean is zero by construction. A zero average advantage is therefore normal; a group in which <em>both</em> candidates tie at zero is the warning sign.</p>
+        <div id="reward-training-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>This is the writer’s raw uncovered-token reward during training, smoothed over nearby steps.</strong> It is noisy because every batch contains different documents and deletion locations. The important scale is hundredths of a nat per token: \(+0.05\), for example, means about 5% more probability on each correct uncovered token. A policy-gradient run is not expected to produce a clean supervised-learning curve here.</p>
+        <p>The decoder has a simpler job. It receives cross-entropy gradients on every correct deleted token:</p>
+        \[
+          \mathcal L_{\mathrm{decoder}}
+          =
+          -\sum_{t} w_t
+          \log p_{\phi}(y_t\mid X^{-},Z,y_{&lt;t}).
+        \]
+        <p>Prompt positions have \(w_t=0\). Deleted target tokens have weight \(1\) in assisted examples and weight \(0.5\) in bare-infilling examples. The latter keeps the no-redundancy baseline competent, so the measured gain cannot rise merely because the decoder forgot how to work without the writer.</p>
+      </section>
+
+      <section id="results">
+        <h2>What we found</h2>
+        <p>With the architecture and measurement defined, we can now ask the central empirical question: did a message committed before corruption make the later missing text easier to recover? Across 400 held-out documents and four deletion locations per document, the answer was yes at both tested scales.</p>
+        <p class="run-links">Raw W&amp;B: <a href="https://wandb.ai/mustafaah-national-university-of-singapore-students-union/redundancylm/runs/9wki8l59">512/24</a> · <a href="https://wandb.ai/mustafaah-national-university-of-singapore-students-union/redundancylm/runs/rcfkm21l">1024/48</a></p>
+
+        <div class="result-summary">
+          <div><strong>Redundancy helped at both scales</strong><span>+0.0638 / +0.0551 overall ΔNLL</span></div>
+          <div><strong>It helped beyond copied words</strong><span>+0.0158 / +0.0122 strict ΔNLL</span></div>
+          <div><strong>It transferred to untouched Qwen</strong><span>+0.0633 / +0.0673 overall ΔNLL</span></div>
+          <div><strong>It beat Top-K at the larger scale</strong><span>+0.0551 vs +0.0471 ΔNLL</span></div>
+        </div>
+
+        <p><strong>A short message written before the deletion made the true missing text less surprising afterward.</strong> The effect survived longer documents, longer deletions, and a decoder that had never participated in co-training. Random vocabulary tokens did not produce the same result.</p>
+
+        <h3>Learned redundancy compared with simple alternatives</h3>
+        <p>Each bar below shows the reduction in NLL relative to receiving no redundancy. Higher is better. Every condition uses the same held-out documents, deletion masks, and decoder state, so the comparison isolates what the added message contributes.</p>
+        <div id="condition-final-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>The learned message was useful at both scales.</strong> At 512/24, Top-K surprisal was the strongest baseline. At 1024/48, learned redundancy surpassed Top-K. The channel therefore remained competitive as the document and missing span doubled in length.</p>
+
+        <h3>The message helped even when it did not contain the answer</h3>
+        <p>Some of the gain comes from direct backup: the writer preserves a name, date, or technical term that later happens to be deleted. That is valid error correction. We also removed deleted tokens whose recognizable text appeared in the redundancy and scored only the remaining positions. Those uncovered tokens still improved by \(+0.0158\) ΔNLL at 512/24 and \(+0.0122\) at 1024/48, or roughly 1–2% more probability per correct token.</p>
+        <div id="mechanism-final-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>Both mechanisms contributed.</strong> The larger covered-token gain shows effective selective backup. The positive uncovered-token gain shows that topic cues and related facts also helped the decoder infer words that were not written directly in the message.</p>
+
+        <h3>The effect appeared during training and survived held-out evaluation</h3>
+        <p>Every 50 steps, we evaluated fixed documents that supplied no gradients. The curve below keeps only uncovered target tokens, making it a stricter test than total redundancy benefit.</p>
+        <div id="heldout-uncovered-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>Values above zero mean that pre-committed redundancy helped uncopied held-out tokens.</strong> The checkpoint signal is noisy because the writer samples text and the decoder changes during co-training. The larger 400-document final evaluation confirms a positive effect at both scales.</p>
+
+        <details class="results-details">
+          <summary>Full held-out metric tables</summary>
+          <div id="final-tables"></div>
+        </details>
+      </section>
+
+      <section id="iterations">
+        <h2>What happened during training</h2>
+        <p>Two diagnostics helped us distinguish a genuinely useful redundancy channel from effects that could arise through direct lexical overlap or co-adaptation between the two LoRAs.</p>
+        <p>First, we tracked how often deleted target text appeared recognizably in the generated redundancy. Rising coverage is not automatically bad because the point of redundancy is to preserve information. It does, however, tell us whether the system is becoming a selective lexical backup rather than learning indirect cues.</p>
+        <div id="surface-coverage-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>This curve measures recognizable overlap between the generated redundancy and the later deleted span.</strong> The writer did not know the deletion location, so coverage reflects information that it elected to preserve in advance. It also motivated the stricter uncovered-token reward: otherwise direct copying could dominate the writer’s score.</p>
+
+        <p>Second, we periodically gave learned redundancy to the untouched base decoder. This asks whether the message remains useful to an ordinary Qwen reader, rather than only to the decoder LoRA that trained beside it.</p>
+        <div id="frozen-heldout-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>Positive values mean learned redundancy helped an untouched decoder predict uncopied target tokens.</strong> The probe is volatile, but it remains evidence against a purely private code between the two LoRAs.</p>
+      </section>
+
+      <section id="factorial">
+        <h2>What training added</h2>
+        <p>The end-to-end result is strong. <strong>Moving from an untouched writer and untouched decoder to the trained writer–decoder pair sharply reduced missing-token NLL.</strong> The complete system became much better at the reconstruction task, while its short redundancy continued to provide an additional benefit within the same trained decoder.</p>
+        <p>The writer-only benchmark below compares the prompted base writer with the writer trained by the <strong>GRPO-style, group-relative importance-sampling update described above</strong>. It is not a DPO or PPO benchmark.</p>
+        <div id="factorial-summary"></div>
+        <p>The decoder learned the reconstruction format through supervised cross-entropy, which accounts for most of the end-to-end NLL drop. Alongside that large gain, the learned redundancy helped <em>surface-uncovered</em> target tokens by \(+0.0158\) ΔNLL at 512/24 and \(+0.0122\) at 1024/48. Even after excluding answers written recognizably in the message, the remaining correct tokens became about 1–2% more probable per token.</p>
+        <p>A prompted base writer was already a strong competitor: with the trained decoder held fixed, writer fine-tuning changed redundancy benefit by \(+0.0031\) at 512/24 and \(-0.0014\) at 1024/48. This is an encouraging practical result as well as a useful research boundary. <strong>Qwen can produce useful pre-committed redundancy from the prompt alone, while the full training procedure makes the overall reconstruction system substantially stronger.</strong></p>
+        <p>Learned redundancy also transferred to the untouched decoder. The messages therefore remained broadly readable instead of depending on an opaque protocol shared only by the two trained LoRAs.</p>
+
+        <h3>Three moments from the rollouts</h3>
+        <p>Aggregate curves tell us whether the channel worked, but the saved writer samples make its behavior easier to recognize. These are illustrative training examples rather than evaluation claims. The quoted changes are mask-specific writer rewards recorded during training. The 512/24 run excluded exact token-ID copies; the later 1024/48 run additionally excluded normalized surface matches.</p>
+        <div class="rollout-anecdotes">
+          <article>
+            <p class="anecdote-meta">512 / 24 · Step 500 · National ID document</p>
+            <h4>A compressed semantic index helped four different holes</h4>
+            <div class="anecdote-context" data-run="512" data-step="500"></div>
+            <p><strong>What happened.</strong> The source repeatedly connected identity cards, legal ownership, government property, and the meaning of “identify.” The writer fused those concepts into an index-like string. All four independently sampled holes improved, while exact token-ID coverage was only 2.1%. The message supplied a useful conceptual frame even where it did not reproduce the missing token IDs.</p>
+          </article>
+          <article>
+            <p class="anecdote-meta">512 / 24 · Step 450 · Peppermint document</p>
+            <h4>A tiny medical mnemonic strongly recovered early facts</h4>
+            <div class="anecdote-context" data-run="512" data-step="450"></div>
+            <p><strong>What happened.</strong> The writer preserved the document’s unusual entities and relationships in a terse mnemonic. For two first-quarter holes concerning peppermint, herpes simplex, and the herbal name Bo He, the mask reward rose by +0.607 and +0.786. Later holes moved by only about +0.007. This is a vivid success, but it also foreshadows the positional bias visible in the full evaluation.</p>
+          </article>
+          <article>
+            <p class="anecdote-meta">1024 / 48 · Step 990 · Dioscoreaceae document</p>
+            <h4>A readable botanical summary helped every quarter</h4>
+            <div class="anecdote-context" data-run="1024" data-step="990"></div>
+            <p><strong>What happened.</strong> Here the longer writer used its budget as a conventional scientific summary. Every quarter received a positive strict reward. This was the behavior we ultimately wanted: one pre-committed message that remained useful for widely separated possible deletions.</p>
+          </article>
+        </div>
+
+        <h3>Limitation: recovery was still concentrated near the beginning</h3>
+        <p>The balanced botanical example was not the dominant pattern. In the final held-out evaluation, almost all strict uncovered-token benefit came from holes in the first quarter of the document. At 512/24, Q1 improved by \(+0.0714\) ΔNLL while Q2–Q4 stayed near zero. At 1024/48, Q1 improved by \(+0.0548\), again with the other quarters near zero.</p>
+        <div id="quartile-final-plot" class="embedded-chart"></div>
+        <p class="chart-explanation"><strong>The system learned useful recovery, but not yet position-uniform recovery.</strong> Document openings often contain titles, definitions, and headline entities, and the writer’s summary-like messages tended to preserve them. The first 512/24 run sampled deletion positions randomly and was not position-aware. The 1024/48 run <em>was</em> position-aware: it sampled one mask per quarter and centered candidate advantages separately in each quarter before averaging them. The Q1 concentration persisted anyway. In a next iteration, we would shape this more directly, for example by optimizing the worst-performing quarter or requiring a positive reward floor in every quarter rather than merely giving each quarter one equal relative vote.</p>
+      </section>
+
+      <section id="rollouts">
+        <h2>Policy over time</h2>
+        <p>Choose a run and move through saved checkpoints. The document shows all four masks used to compare the two candidates. Each mask was scored as a <em>separate single-hole decoder example</em>; the decoder never received a document with four simultaneous holes. Showing all four locations together here makes the writer’s unknown-deletion coverage problem easier to inspect.</p>
+        <div class="controls policy-controls">
+          <label>Run <select id="policy-run"><option value="512">512 / 24</option><option value="1024">1024 / 48</option></select></label>
+          <div class="policy-checkpoint-control">
+            <button id="policy-step-prev" type="button" aria-label="Previous checkpoint">← Previous</button>
+            <label>Checkpoint <input id="policy-step" type="range" min="0" max="0" value="0"><output id="policy-step-label"></output></label>
+            <button id="policy-step-next" type="button" aria-label="Next checkpoint">Next →</button>
+          </div>
+        </div>
+        <div class="policy-viewer">
+          <div class="policy-viewer-heading">
+            <strong id="policy-example-label">Training example</strong>
+            <span id="policy-nll-summary"></span>
+          </div>
+          <div id="policy-mask-legend" class="policy-mask-legend"></div>
+          <div id="policy-highlighted-document" class="policy-highlighted-document" aria-label="Intact document with four deletion masks highlighted"></div>
+          <h3>Four independently scored deletion masks</h3>
+          <div id="policy-mask-grid" class="policy-mask-grid"></div>
+
+          <h3>Candidate comparison</h3>
+          <p class="policy-table-help">The preferred sample is the candidate that received the stronger writer signal for this document. Mask deltas are strict uncovered-token improvements for the four masks above.</p>
+          <div id="policy-candidates" class="policy-candidate-grid"></div>
+        </div>
+      </section>
+
+      <section id="references">
+        <h2>References and artifacts</h2>
+        <ol>
+          <li><a href="https://www.rajan.sh/llm-compression">Rajan Agarwal, “LLMs can invent their own compression.”</a></li>
+          <li><a href="https://github.com/rajansagarwal/compression">Original compression repository.</a></li>
+          <li><a href="https://tinker-docs.thinkingmachines.ai/tutorials/basics/first-rl/">Tinker introductory RL tutorial.</a></li>
+          <li><a href="https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu">FineWeb-Edu dataset card.</a></li>
+          <li><a href="https://github.com/mustafaah/parity">RedundancyLM source code.</a></li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
