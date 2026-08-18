@@ -3,165 +3,165 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RushHourEval</title>
+    <meta name="description" content="RushHourEval is a benchmark for testing legal, goal-reaching, and optimal spatial planning in language models." />
+    <title>RushHourEval — LLM Planning Benchmark</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="wordmark" href="../">RushHourEval</a>
-      <nav class="topnav" aria-label="Primary">
-        <a class="active" href="#benchmark">Benchmark</a>
-        <a href="https://github.com/MustafaAH10/rushhoureval">Code</a>
+      <a class="wordmark" href="#benchmark"><span class="mark">RH</span>RushHourEval</a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a href="#replay">Replay lab</a>
+        <a href="#leaderboard">Results</a>
+        <a href="#dataset">Dataset</a>
+        <a href="https://github.com/MustafaAH10/rushhoureval">GitHub ↗</a>
       </nav>
     </header>
 
-    <div class="layout">
+    <div class="shell">
       <aside class="directory">
-        <div class="directoryHeader">
-          <span>Directory</span>
-          <span>Bench</span>
-        </div>
-        <nav class="tree" aria-label="Directory">
-          <a class="open" href="#benchmark"><span>+</span><strong>RushHourEval</strong></a>
-          <a class="indent active" href="#viewer"><span>-</span><span>Data Viewer</span></a>
-          <a class="indent" href="#leaderboard"><span>-</span><span>Model Tables</span></a>
-          <a class="indent" href="#prompt"><span>-</span><span>Prompt Format</span></a>
-          <a class="indent" href="#plots"><span>-</span><span>Plots</span></a>
+        <p class="directoryLabel">Explore</p>
+        <nav aria-label="Page sections">
+          <a href="#benchmark"><span>01</span>Overview</a>
+          <a class="active" href="#replay"><span>02</span>Replay lab</a>
+          <a href="#leaderboard"><span>03</span>Results</a>
+          <a href="#dataset"><span>04</span>Puzzles</a>
+          <a href="#plots"><span>05</span>Plots</a>
         </nav>
+        <div class="sideNote">
+          <span>Benchmark</span>
+          <strong>450 puzzles</strong>
+          <small>3 board sizes · 8 models</small>
+        </div>
       </aside>
 
-      <main class="page">
-        <div class="pathbar">
-          <div class="pathText">~/Benchmarks/RushHourEval</div>
-          <span class="tag">LLM Planning</span>
-          <span class="tag muted">Last Updated: <span id="lastUpdated">August 2025</span></span>
-        </div>
-
+      <main>
         <section class="hero" id="benchmark">
-          <h1>RushHourEval: Rush Hour Puzzle Benchmark for LLM Planning</h1>
-          <p class="authors">
-            450 text-grounded Rush Hour puzzles across 3x3, 4x4, and 5x5 boards.
-          </p>
-          <p class="affiliation">
-            The benchmark tests whether language models can produce legal, target-reaching, and optimal move sequences under strict spatial constraints.
-          </p>
-          <div class="badges">
-            <span>3x3 / 4x4 / 5x5</span>
-            <span>Prompt + Image Viewer</span>
-            <span>Validation Tables</span>
+          <div class="heroCopy">
+            <p class="kicker">Spatial planning benchmark</p>
+            <h1>Can an LLM plan every move—not just guess the destination?</h1>
+            <p class="lede">RushHourEval tests complete move sequences across 450 text-grounded puzzles. Every answer is checked for legality, goal completion, and optimality.</p>
+            <div class="heroActions">
+              <a class="primaryAction" href="#replay">Replay an answer ↓</a>
+              <a class="textAction" href="https://github.com/MustafaAH10/rushhoureval">View benchmark code ↗</a>
+            </div>
           </div>
-          <nav class="tabs" aria-label="Benchmark sections">
-            <button class="active" type="button" onclick="document.getElementById('viewer').scrollIntoView({behavior: 'smooth'})">Data Viewer</button>
-            <button type="button" onclick="document.getElementById('leaderboard').scrollIntoView({behavior: 'smooth'})">Model Tables</button>
-            <button type="button" onclick="document.getElementById('prompt').scrollIntoView({behavior: 'smooth'})">Prompt</button>
-            <button type="button" onclick="document.getElementById('plots').scrollIntoView({behavior: 'smooth'})">Plots</button>
-          </nav>
+          <div class="heroNumbers" aria-label="Benchmark summary">
+            <div><strong id="totalCount">450</strong><span>puzzles</span></div>
+            <div><strong>3×</strong><span>board sizes</span></div>
+            <div><strong id="answerCount">1,221</strong><span>replayable answers</span></div>
+            <div><strong>Every</strong><span>move validated</span></div>
+          </div>
         </section>
 
-        <section class="summaryBand">
-          <div><span>Total puzzles</span><strong id="totalCount">450</strong></div>
-          <div><span>3x3</span><strong id="count3">150</strong></div>
-          <div><span>4x4</span><strong id="count4">150</strong></div>
-          <div><span>5x5</span><strong id="count5">150</strong></div>
+        <section class="methodStrip" aria-label="How the benchmark works">
+          <article><span>01</span><div><strong>Puzzle in</strong><p>Grid, pieces, target, and strict movement rules.</p></div></article>
+          <i aria-hidden="true">→</i>
+          <article><span>02</span><div><strong>Plan out</strong><p>The model returns a complete, ordered move sequence.</p></div></article>
+          <i aria-hidden="true">→</i>
+          <article><span>03</span><div><strong>Every step checked</strong><p>Optimal, sub-optimal, unsolved, illegal, or unparsed.</p></div></article>
         </section>
 
-        <section class="workbench" id="viewer" aria-live="polite">
-          <aside class="controlPanel">
-            <div class="panelTitle">
-              <span>Filters</span>
-              <strong id="visibleCount">0</strong>
-            </div>
-
-            <label class="field">
-              <span>Grid size</span>
-              <select id="gridFilter">
-                <option value="all">All grids</option>
-                <option value="3x3">3x3</option>
-                <option value="4x4">4x4</option>
-                <option value="5x5">5x5</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Difficulty</span>
-              <select id="difficultyFilter">
-                <option value="all">All difficulties</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Optimal moves</span>
-              <select id="movesFilter">
-                <option value="all">All lengths</option>
-                <option value="short">1-5 moves</option>
-                <option value="medium">6-10 moves</option>
-                <option value="long">11+ moves</option>
-              </select>
-            </label>
-
-            <div class="stats" id="stats"></div>
-          </aside>
-
-          <section class="viewer">
-            <header class="viewerHeader">
-              <div>
-                <p id="eyebrow">Loading benchmark</p>
-                <h2 id="puzzleTitle">Puzzle sample</h2>
-              </div>
-              <button id="solutionButton" type="button">Reveal solution</button>
-            </header>
-
-            <div class="viewerBody">
-              <div class="puzzleStage">
-                <img id="mainImage" alt="Rush Hour initial puzzle state" />
-              </div>
-              <aside class="inspector">
-                <div class="metaGrid" id="metaGrid"></div>
-                <div class="gridPreview" id="gridPreview"></div>
-              </aside>
-            </div>
-
-            <section class="promptPanel" id="prompt">
-              <div class="panelHeader">
-                <span>Prompt sent to the model</span>
-              </div>
-              <pre id="promptText"></pre>
-              <div class="solutionBox" id="solutionBox"></div>
-            </section>
-          </section>
-
-          <section class="dataSection">
-            <div class="panelHeader">
-              <span>Dataset Viewer</span>
-              <span id="sampleSummary">Loading samples...</span>
-            </div>
-            <div id="sampleGrid" class="sampleGrid"></div>
-          </section>
-        </section>
-
-        <section class="leaderboard" id="leaderboard">
-          <div class="sectionHeader">
+        <section class="section replaySection" id="replay">
+          <header class="sectionHeader compactHeader">
             <div>
-              <p class="sectionLabel">Validated Model Performance</p>
-              <h2>Leaderboard Tables</h2>
+              <p class="kicker">Interactive answer viewer</p>
+              <h2>Replay lab</h2>
             </div>
-            <a href="https://github.com/MustafaAH10/rushhoureval" class="outlineLink">GitHub Repository</a>
+            <p>Watch the model’s attempted solution—even when it fails.</p>
+          </header>
+
+          <div class="replayToolbar">
+            <label><span>Board</span><select id="replayGrid"><option>3x3</option><option>4x4</option><option>5x5</option></select></label>
+            <label><span>Puzzle</span><select id="puzzleSelect"></select></label>
+            <div class="modelPicker" id="modelPicker" aria-label="Model answer"></div>
           </div>
+
+          <div class="replayGrid">
+            <article class="boardPanel">
+              <header class="panelHeader">
+                <div><p id="puzzleEyebrow">3x3 · Easy</p><h3 id="puzzleTitle">Puzzle 1</h3></div>
+                <div class="boardLegend"><span><i class="targetDot"></i>Target</span><span><i class="carDot"></i>Car</span></div>
+              </header>
+              <div class="boardWrap">
+                <div id="board" class="board" aria-label="Animated Rush Hour board"></div>
+              </div>
+              <div class="playback">
+                <button id="resetButton" type="button" aria-label="Reset replay">↺</button>
+                <button id="prevButton" type="button" aria-label="Previous move">←</button>
+                <button class="playButton" id="playButton" type="button">Play</button>
+                <button id="nextButton" type="button" aria-label="Next move">→</button>
+                <label><span>Speed</span><select id="speedSelect"><option value="900">1×</option><option value="550">1.5×</option><option value="300">2×</option></select></label>
+                <strong id="stepCounter">Start</strong>
+              </div>
+              <div id="moveTimeline" class="moveTimeline"></div>
+            </article>
+
+            <aside class="attemptPanel">
+              <div class="attemptStatusRow">
+                <span id="outcomeBadge" class="outcomeBadge">Loading</span>
+                <a id="answerSource" class="sourceLink" href="https://github.com/MustafaAH10/rushhoureval">source JSON ↗</a>
+              </div>
+              <h3 id="attemptTitle">Model attempt</h3>
+              <p id="outcomeSummary" class="outcomeSummary">Loading validated model output…</p>
+              <div id="attemptMetrics" class="attemptMetrics"></div>
+              <div id="validationNote" class="validationNote"></div>
+              <div class="moveReadout">
+                <span>Current move</span>
+                <code id="currentMove">Initial state</code>
+              </div>
+              <details class="answerDrawer" open>
+                <summary>Model answer <span>raw output</span></summary>
+                <pre id="answerText"></pre>
+              </details>
+            </aside>
+          </div>
+
+          <div class="referenceRow">
+            <details id="promptDetails"><summary>Prompt sent to the model <span>view</span></summary><pre id="promptText"></pre></details>
+            <details><summary>Reference solution <span id="referenceMoves">optimal</span></summary><pre id="solutionText"></pre></details>
+          </div>
+        </section>
+
+        <section class="section leaderboard" id="leaderboard">
+          <header class="sectionHeader">
+            <div><p class="kicker">Validated model performance</p><h2>One leaderboard, three board sizes</h2></div>
+            <div class="viewToggle" role="group" aria-label="Table layout">
+              <button class="active" data-table-mode="combined" type="button">Combined</button>
+              <button data-table-mode="individual" type="button">Individual</button>
+            </div>
+          </header>
+          <p class="tableHint"><strong>Target / optimal</strong> rates are shown together. Color bars split optimal, sub-optimal, unsolved, and illegal attempts.</p>
           <div id="performanceTables" class="tables"></div>
+          <div class="outcomeLegend" aria-label="Outcome colors">
+            <span><i class="optimal"></i>Optimal</span><span><i class="suboptimal"></i>Sub-optimal</span><span><i class="unsolved"></i>Legal, no target</span><span><i class="illegal"></i>Illegal / parse fail</span>
+          </div>
         </section>
 
-        <section class="plotSection" id="plots">
-          <div class="sectionHeader">
-            <div>
-              <p class="sectionLabel">Validation Plots</p>
-              <h2>Performance Visuals</h2>
-            </div>
+        <section class="section dataset" id="dataset">
+          <header class="sectionHeader compactHeader">
+            <div><p class="kicker">Dataset browser</p><h2>Inspect all 450 puzzles</h2></div>
+            <p id="sampleSummary">Loading puzzles…</p>
+          </header>
+          <div class="datasetToolbar">
+            <label><span>Grid</span><select id="gridFilter"><option value="all">All</option><option value="3x3">3x3</option><option value="4x4">4x4</option><option value="5x5">5x5</option></select></label>
+            <label><span>Difficulty</span><select id="difficultyFilter"><option value="all">All</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label>
+            <label><span>Optimal length</span><select id="movesFilter"><option value="all">All</option><option value="short">1–5</option><option value="medium">6–10</option><option value="long">11+</option></select></label>
+            <label class="searchField"><span>Find puzzle</span><input id="puzzleSearch" type="search" placeholder="e.g. 4x4 puzzle 27" /></label>
           </div>
+          <div id="sampleGrid" class="sampleGrid"></div>
+          <div class="pagination"><button id="prevPage" type="button">← Previous</button><span id="pageLabel">Page 1</span><button id="nextPage" type="button">Next →</button></div>
+        </section>
+
+        <section class="section plotSection" id="plots">
+          <header class="sectionHeader compactHeader">
+            <div><p class="kicker">Original validation plots</p><h2>Performance breakdowns</h2></div>
+            <p>Click any plot to inspect it at full size.</p>
+          </header>
           <div id="plotGrid" class="plotGrid"></div>
         </section>
+
+        <footer><span>RushHourEval</span><span>Last updated <span id="lastUpdated">August 2025</span></span><a href="https://github.com/MustafaAH10/rushhoureval">GitHub ↗</a></footer>
       </main>
     </div>
 
