@@ -195,7 +195,7 @@ function renderFactorialSummary() {
       <td class="${writerGain > 0 ? "positive" : writerGain < 0 ? "negative" : ""}"><strong>${number(writerGain, 4, true)}</strong></td>
     </tr>`;
   }).join("");
-  target.innerHTML = `<div class="key-result"><strong>Three questions, three comparisons.</strong> End-to-end NLL asks whether the complete trained system improved. Strict uncovered ΔNLL asks whether redundancy helped beyond recognizable copying. The writer-only column holds the decoder fixed to isolate what RL added beyond prompting Qwen.</div>
+  target.innerHTML = `<div class="key-result"><strong>Three questions, three comparisons.</strong> End-to-end NLL asks whether the complete trained system improved. Strict uncovered ΔNLL asks whether redundancy helped beyond recognizable copying. The writer-only column holds the decoder fixed to isolate what RL added beyond prompting Qwen3.5-4B.</div>
     <div class="table-scroll" tabindex="0" aria-label="Scroll to view the complete control comparison"><table class="system-control-table">
       <thead><tr><th>Scale</th><th>Whole system: base/base → trained/trained</th><th>Redundancy benefit on uncovered tokens</th><th>Extra benefit from writer RL alone</th></tr></thead>
       <tbody>${rows}</tbody>
