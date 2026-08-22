@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DecomposeR</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+          processEscapes: true,
+          tags: "ams"
+        },
+        svg: { fontCache: "global" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   </head>
   <body>
     <header class="topbar">
@@ -188,6 +200,41 @@
           <p class="bodyText">
             Collapsing planning and answering into one policy under a single trajectory-level reward conflates their failure modes. By training the two roles sequentially, Planner RL optimizes rewards that depend only on the revised plan G₁ and never on answerer output, so plan quality is isolated from execution noise. Answerer RL then trains against a fixed planner, so answerer credit is not confounded by drifting plan quality. Staging also reduces the non-stationarity inherent to jointly training two policies.
           </p>
+
+          <h3 class="subheading">Role-Specific Reward Functions</h3>
+          <p class="bodyText">
+            The separation is made explicit by the two reward functions. Planner RL applies a hard validity gate before combining semantic coverage, retrieval quality, and structural expressiveness:
+          </p>
+          <div class="rewardEquation" aria-label="Planner-stage reward equation">
+            <div class="equationMeta">Planner stage · Eq. 5</div>
+            \[
+              R_{\mathrm{plan}}
+              =
+              \mathbf{1}\!\left[\mathrm{Valid}(\mathcal{G})\right]
+              \left(
+                \lambda_{\mathrm{cov}} C_{\mathrm{rub}}
+                + \lambda_{\mathrm{search}} Q_{\mathrm{search}}
+                + \lambda_{\mathrm{graph}} E_{\mathrm{graph}}
+              \right).
+              \tag{5}
+            \]
+            <p><strong>Rubric coverage</strong> scores whether the plan anticipates query-specific criteria, <strong>search quality</strong> rewards relevant and nonredundant queries, and <strong>graph expressiveness</strong> rewards synthesis breadth, cross-branch integration, and search breadth.</p>
+          </div>
+
+          <p class="bodyText rewardLead">
+            With the planner fixed, Answerer RL combines branch-level execution fidelity with the quality of the final synthesis:
+          </p>
+          <div class="rewardEquation" aria-label="Answerer-stage reward equation">
+            <div class="equationMeta">Answerer stage · Eq. 12</div>
+            \[
+              R_{\mathrm{ans}}
+              =
+              \lambda_{\mathrm{exec}} R_{\mathrm{exec}}
+              + \lambda_{\mathrm{synth}} R_{\mathrm{synth}}.
+              \tag{12}
+            \]
+            <p><strong>Execution reward</strong> scores each aggregate node against its declared key points, while <strong>synthesis reward</strong> evaluates rubric satisfaction and whether the final answer actually uses the completed branches.</p>
+          </div>
         </section>
 
         <section class="figureSection twoCol compact">
