@@ -287,6 +287,30 @@
         text-transform: uppercase;
       }
 
+      .projectMetaRow,
+      .sidebarProjectTitle {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .comingSoon {
+        display: inline-flex;
+        align-items: center;
+        min-height: 22px;
+        padding: 2px 8px;
+        border: 1px solid var(--accent);
+        background: var(--accent-soft);
+        color: #a74200;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
       .projectArrow {
         align-self: center;
         font-family: var(--mono);
@@ -314,6 +338,10 @@
 
       .sidebarProject h4 {
         margin: 0 0 7px;
+      }
+
+      .sidebarProjectTitle h4 {
+        margin: 0;
       }
 
       .sidebarProject p {
@@ -474,6 +502,21 @@
               </div>
               <span class="projectArrow">open</span>
             </a>
+
+            <a class="projectCard" href="https://github.com/MustafaAH10/WeaveCodex">
+              <div>
+                <div class="projectMetaRow">
+                  <div class="projectMeta">Open Source · Agent Interfaces</div>
+                  <span class="comingSoon">Coming Soon</span>
+                </div>
+                <h3>WeaveCodex</h3>
+                <p class="muted">
+                  A visual canvas for drawing reusable, human-authored control loops around Codex,
+                  with explicit checks, calibration points, and inspectable run outputs.
+                </p>
+              </div>
+              <span class="projectArrow">repo</span>
+            </a>
           </div>
         </section>
 
@@ -615,6 +658,13 @@
           <a class="sidebarProject" href="/RouteBenchSG/">
             <h4>RouteBenchSG</h4>
             <p>Singapore visual route-choice benchmark with a full dataset viewer.</p>
+          </a>
+          <a class="sidebarProject" href="https://github.com/MustafaAH10/WeaveCodex">
+            <div class="sidebarProjectTitle">
+              <h4>WeaveCodex</h4>
+              <span class="comingSoon">Coming Soon</span>
+            </div>
+            <p>Visual, reusable control loops for Codex with visible checks and run outputs.</p>
           </a>
         </div>
       </aside>
