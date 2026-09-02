@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="WeaveCodex is a visual workflow builder for Codex. Draw the steps, decisions, and checks that matter, then run them with your Codex account." />
+    <meta property="og:title" content="WeaveCodex | Visual workflows for Codex" />
+    <meta property="og:description" content="Design the path around Codex. Keep the agent flexible while making the workflow yours." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="site.css?v=20260903" />
+    <script src="workflows.js?v=20260903" defer></script>
+    <script src="comparisons.js?v=20260903" defer></script>
+    <script src="site.js?v=20260903" defer></script>
+    <title>WeaveCodex | Visual workflows for Codex</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="WeaveCodex home">
+        <svg aria-hidden="true" viewBox="0 0 32 32"><circle cx="7" cy="8" r="3"/><circle cx="25" cy="8" r="3"/><circle cx="16" cy="24" r="3"/><path d="M10 9.5 14 21M22 9.5 18 21M10 8h12"/></svg>
+        <span>WeaveCodex</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#workflow">Workflows</a>
+        <a href="#difference-title">Why Weave</a>
+        <a href="#install">Install</a>
+      </nav>
+      <a class="source-link" href="https://github.com/MustafaAH10/WeaveCodex" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="launch-status reveal"><span aria-hidden="true"></span>Coming Soon</p>
+        <p class="eyebrow reveal">A visual workflow builder for Codex</p>
+        <h1 id="hero-title" class="reveal">Draw how the work<br />should happen.</h1>
+        <p class="hero-copy reveal">Give Codex room to work. Lock the intent, evidence, and recovery path so the run stays on course.</p>
+        <div class="hero-actions reveal">
+          <a class="button button-dark" href="#workflow">See a workflow</a>
+          <a class="button button-light" href="#install">Install locally</a>
+        </div>
+
+        <div class="workflow-showcase reveal" id="workflow">
+          <div class="showcase-tabs" role="group" aria-label="Choose a workflow example">
+            <button class="showcase-tab active" type="button" data-workflow-key="finance" aria-pressed="true">Finance</button>
+            <button class="showcase-tab" type="button" data-workflow-key="campaign" aria-pressed="false">Campaign</button>
+            <button class="showcase-tab" type="button" data-workflow-key="crm" aria-pressed="false">CRM choice</button>
+            <button class="showcase-tab" type="button" data-workflow-key="frontend" aria-pressed="false">Checkout</button>
+            <span id="workflow-stats">9 steps · 11 connections · branches and merges</span>
+          </div>
+          <div class="showcase-heading">
+            <div><p class="eyebrow" id="workflow-label">Finance workflow</p><h2 id="workflow-title">Publish a board-ready forecast</h2></div>
+            <p id="workflow-description">Inspect source data and assumptions in parallel. Nothing is delivered until the model, dashboard, and reconciliation check agree.</p>
+          </div>
+          <div class="graph-frame">
+            <svg id="workflow-graph" role="img" aria-labelledby="workflow-title workflow-description" viewBox="0 0 1320 520" preserveAspectRatio="xMidYMid meet"></svg>
+          </div>
+          <footer class="showcase-footer">
+            <div class="graph-legend"><span><i class="work-key"></i>Codex work</span><span><i class="human-key"></i>Calibration</span><span><i class="check-key"></i>Exact check</span><span><i class="review-key"></i>Review</span></div>
+            <p><span>Result</span><b id="workflow-result">Forecast pack with locked assumptions and reconciled totals</b></p>
+          </footer>
+        </div>
+      </section>
+
+      <section class="difference" aria-labelledby="difference-title">
+        <div class="execution-heading reveal">
+          <p class="eyebrow">Same Codex, a route you own</p>
+          <h2 id="difference-title">Decide the route<br />before the run.</h2>
+          <p>Codex still chooses how to complete each step. You choose how the work is decomposed, what evidence counts, and where a failed check goes next.</p>
+        </div>
+        <div class="execution-demo reveal" id="execution-demo">
+          <div class="execution-tabs" role="group" aria-label="Choose a workflow comparison">
+            <button class="execution-tab active" type="button" data-comparison-key="finance" aria-pressed="true">Board forecast</button>
+            <button class="execution-tab" type="button" data-comparison-key="campaign" aria-pressed="false">Campaign launch</button>
+            <button class="execution-tab" type="button" data-comparison-key="vendor" aria-pressed="false">Vendor decision</button>
+            <button class="execution-tab" type="button" data-comparison-key="release" aria-pressed="false">Product release</button>
+            <button id="replay-comparison" type="button" aria-label="Replay workflow animation"><span aria-hidden="true">↻</span> Replay</button>
+          </div>
+          <header class="execution-task"><div><small id="comparison-label">Finance review</small><h3 id="comparison-title">Publish a forecast the board can trace</h3></div><p id="comparison-task">Turn actuals, budget, and planning assumptions into a reconciled model and a short variance narrative.</p></header>
+          <div class="execution-columns">
+            <article class="execution-pane codex-pane">
+              <header><span>Codex</span><small>Route chosen during the run</small></header>
+              <div class="adaptive-run">
+                <div class="prompt-card"><small>Your goal</small><strong id="codex-goal">Build the forecast pack from the supplied workbook.</strong></div>
+                <div class="adaptive-route" id="codex-route" aria-label="An adaptive route chosen by Codex"></div>
+                <p id="codex-note">Codex can adapt freely, but the order of analysis, evidence threshold, and retry point are decided inside the run unless the prompt spells them out.</p>
+              </div>
+            </article>
+            <article class="execution-pane weave-pane">
+              <header><span>WeaveCodex</span><small>Route drawn before the run</small></header>
+              <div class="comparison-graph-frame"><svg id="comparison-graph" role="img" aria-labelledby="comparison-title comparison-task" viewBox="0 0 950 380" preserveAspectRatio="xMidYMid meet"></svg></div>
+            </article>
+          </div>
+          <div class="contract-grid" id="comparison-contracts" aria-label="User-authored workflow contracts"></div>
+          <footer><span>What Weave changes</span><p id="comparison-result">The analyst chooses the order, the sign-off point, and exactly where a failed reconciliation returns.</p></footer>
+        </div>
+        <p class="comparison-disclosure reveal">This illustrates the control surfaces, not a claim that Codex fails the unstructured task. Both modes use Codex. Weave moves the route from model-selected execution into a user-authored, replayable graph.</p>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <div class="section-heading reveal"><p class="eyebrow">What you gain</p><h2 id="principles-title">A workflow you can see,<br />change, and reuse.</h2></div>
+        <div class="principle-grid">
+          <article class="reveal"><span>01</span><h3>Calibration</h3><p>Pin the intent and proof while Codex keeps broad freedom to execute.</p></article>
+          <article class="reveal"><span>02</span><h3>Observability</h3><p>See the current step, your decisions, checks, and final evidence.</p></article>
+          <article class="reveal"><span>03</span><h3>Reuse</h3><p>Save a workflow and apply it to the next similar task.</p></article>
+        </div>
+      </section>
+
+      <section class="install" id="install" aria-labelledby="install-title">
+        <div class="install-copy reveal"><p class="eyebrow">Open source</p><h2 id="install-title">Run it with your Codex account.</h2><p>WeaveCodex uses the official local Codex app-server and your existing ChatGPT sign-in.</p><a href="https://github.com/MustafaAH10/WeaveCodex" target="_blank" rel="noreferrer">Read the source <span aria-hidden="true">↗</span></a></div>
+        <div class="install-card reveal">
+          <div><span>1</span><code>git clone https://github.com/MustafaAH10/WeaveCodex.git</code><button class="copy-button" type="button" data-copy="git clone https://github.com/MustafaAH10/WeaveCodex.git" aria-label="Copy clone command"><span class="copy-label" aria-live="polite">Copy</span><span aria-hidden="true">⧉</span></button></div>
+          <div><span>2</span><code>npm install -g @openai/codex &amp;&amp; codex login</code><button class="copy-button" type="button" data-copy="npm install -g @openai/codex&#10;codex login" aria-label="Copy Codex setup command"><span class="copy-label" aria-live="polite">Copy</span><span aria-hidden="true">⧉</span></button></div>
+          <div><span>3</span><code>cd WeaveCodex/weave-control-plane &amp;&amp; uv sync</code><button class="copy-button" type="button" data-copy="cd WeaveCodex/weave-control-plane &amp;&amp; uv sync" aria-label="Copy dependency command"><span class="copy-label" aria-live="polite">Copy</span><span aria-hidden="true">⧉</span></button></div>
+          <div><span>4</span><code>uv run python -m weave_codex.server --codex-bin "$(command -v codex)" --host 127.0.0.1 --port 8790</code><button class="copy-button" type="button" data-copy="uv run python -m weave_codex.server --codex-bin &quot;$(command -v codex)&quot; --host 127.0.0.1 --port 8790" aria-label="Copy start command"><span class="copy-label" aria-live="polite">Copy</span><span aria-hidden="true">⧉</span></button></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><a class="wordmark" href="#top"><svg aria-hidden="true" viewBox="0 0 32 32"><circle cx="7" cy="8" r="3"/><circle cx="25" cy="8" r="3"/><circle cx="16" cy="24" r="3"/><path d="M10 9.5 14 21M22 9.5 18 21M10 8h12"/></svg><span>WeaveCodex</span></a><p>Independent. Open source. Built on Codex.</p><a href="https://github.com/MustafaAH10/WeaveCodex" target="_blank" rel="noreferrer">GitHub</a></footer>
+  </body>
+</html>
