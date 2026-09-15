@@ -1,0 +1,1008 @@
+{
+  "run": "mustafaah-national-university-of-singapore-students-union/screen-highlighter-rl/highlighter-2b-highlight-only-v1-r4-200-20260913-rl",
+  "source": "W&B API scan_history",
+  "smoothing": "Trailing 10-update arithmetic mean; expanding window for updates 1\u20139",
+  "rows": [
+    {
+      "update": 1,
+      "train/reward": 0.2519326084909562,
+      "moving_average": 0.2519326084909562
+    },
+    {
+      "update": 2,
+      "train/reward": 0.22343643841652283,
+      "moving_average": 0.23768452345373953
+    },
+    {
+      "update": 3,
+      "train/reward": 0.21197403045571883,
+      "moving_average": 0.22911435912106595
+    },
+    {
+      "update": 4,
+      "train/reward": 0.21994497578659622,
+      "moving_average": 0.22682201328744853
+    },
+    {
+      "update": 5,
+      "train/reward": 0.20976779132046855,
+      "moving_average": 0.22341116889405255
+    },
+    {
+      "update": 6,
+      "train/reward": 0.22110502996203651,
+      "moving_average": 0.22302681240538322
+    },
+    {
+      "update": 7,
+      "train/reward": 0.3403163472712349,
+      "moving_average": 0.239782460243362
+    },
+    {
+      "update": 8,
+      "train/reward": 0.3406682018331192,
+      "moving_average": 0.25239317794208166
+    },
+    {
+      "update": 9,
+      "train/reward": 0.3284212244142786,
+      "moving_average": 0.26084073866121466
+    },
+    {
+      "update": 10,
+      "train/reward": 0.28234580842426144,
+      "moving_average": 0.2629912456375193
+    },
+    {
+      "update": 11,
+      "train/reward": 0.293710630173095,
+      "moving_average": 0.26716904780573325
+    },
+    {
+      "update": 12,
+      "train/reward": 0.36737392098091737,
+      "moving_average": 0.28156279606217266
+    },
+    {
+      "update": 13,
+      "train/reward": 0.23626183218716285,
+      "moving_average": 0.28399157623531707
+    },
+    {
+      "update": 14,
+      "train/reward": 0.2811376721542251,
+      "moving_average": 0.2901108458720799
+    },
+    {
+      "update": 15,
+      "train/reward": 0.28415426161068863,
+      "moving_average": 0.29754949290110194
+    },
+    {
+      "update": 16,
+      "train/reward": 0.2174782074928587,
+      "moving_average": 0.2971868106541842
+    },
+    {
+      "update": 17,
+      "train/reward": 0.2565757980012064,
+      "moving_average": 0.28881275572718135
+    },
+    {
+      "update": 18,
+      "train/reward": 0.29164163016433,
+      "moving_average": 0.2839100985603024
+    },
+    {
+      "update": 19,
+      "train/reward": 0.3328684710593207,
+      "moving_average": 0.28435482322480665
+    },
+    {
+      "update": 20,
+      "train/reward": 0.40519958917489535,
+      "moving_average": 0.29664020129987
+    },
+    {
+      "update": 21,
+      "train/reward": 0.27577030248183654,
+      "moving_average": 0.29484616853074413
+    },
+    {
+      "update": 22,
+      "train/reward": 0.29042586380728563,
+      "moving_average": 0.287151362813381
+    },
+    {
+      "update": 23,
+      "train/reward": 0.28023752496222704,
+      "moving_average": 0.2915489320908874
+    },
+    {
+      "update": 24,
+      "train/reward": 0.3711018920199374,
+      "moving_average": 0.30054535407745864
+    },
+    {
+      "update": 25,
+      "train/reward": 0.3713788475024277,
+      "moving_average": 0.3092678126666325
+    },
+    {
+      "update": 26,
+      "train/reward": 0.2853991176975281,
+      "moving_average": 0.31605990368709946
+    },
+    {
+      "update": 27,
+      "train/reward": 0.4056563404205972,
+      "moving_average": 0.33096795792903855
+    },
+    {
+      "update": 28,
+      "train/reward": 0.30570161420969216,
+      "moving_average": 0.33237395633357475
+    },
+    {
+      "update": 29,
+      "train/reward": 0.26581071117284827,
+      "moving_average": 0.32566818034492756
+    },
+    {
+      "update": 30,
+      "train/reward": 0.3561408086957229,
+      "moving_average": 0.3207623022970103
+    },
+    {
+      "update": 31,
+      "train/reward": 0.3181395583904024,
+      "moving_average": 0.3249992278878669
+    },
+    {
+      "update": 32,
+      "train/reward": 0.2793883478188255,
+      "moving_average": 0.3238954762890208
+    },
+    {
+      "update": 33,
+      "train/reward": 0.3421670452075007,
+      "moving_average": 0.33008842831354823
+    },
+    {
+      "update": 34,
+      "train/reward": 0.3765098691212062,
+      "moving_average": 0.3306292260236751
+    },
+    {
+      "update": 35,
+      "train/reward": 0.3058521598179107,
+      "moving_average": 0.32407655725522344
+    },
+    {
+      "update": 36,
+      "train/reward": 0.41257437669859554,
+      "moving_average": 0.33679408315533016
+    },
+    {
+      "update": 37,
+      "train/reward": 0.4097583463281465,
+      "moving_average": 0.3372042837460851
+    },
+    {
+      "update": 38,
+      "train/reward": 0.3942447692250402,
+      "moving_average": 0.3460585992476199
+    },
+    {
+      "update": 39,
+      "train/reward": 0.3560101340098712,
+      "moving_average": 0.3550785415313222
+    },
+    {
+      "update": 40,
+      "train/reward": 0.36422431740312644,
+      "moving_average": 0.3558868924020625
+    },
+    {
+      "update": 41,
+      "train/reward": 0.3339019416795943,
+      "moving_average": 0.35746313073098174
+    },
+    {
+      "update": 42,
+      "train/reward": 0.32914892720290095,
+      "moving_average": 0.3624391886693893
+    },
+    {
+      "update": 43,
+      "train/reward": 0.40020380606916034,
+      "moving_average": 0.36824286475555523
+    },
+    {
+      "update": 44,
+      "train/reward": 0.25509437714947236,
+      "moving_average": 0.35610131555838187
+    },
+    {
+      "update": 45,
+      "train/reward": 0.42783244912073637,
+      "moving_average": 0.3682993444886644
+    },
+    {
+      "update": 46,
+      "train/reward": 0.37964186342436224,
+      "moving_average": 0.3650060931612411
+    },
+    {
+      "update": 47,
+      "train/reward": 0.4472163309394592,
+      "moving_average": 0.3687518916223723
+    },
+    {
+      "update": 48,
+      "train/reward": 0.43376442229531664,
+      "moving_average": 0.3727038569294
+    },
+    {
+      "update": 49,
+      "train/reward": 0.4738920222377256,
+      "moving_average": 0.38449204575218543
+    },
+    {
+      "update": 50,
+      "train/reward": 0.35292050485544996,
+      "moving_average": 0.38336166449741776
+    },
+    {
+      "update": 51,
+      "train/reward": 0.397649709438475,
+      "moving_average": 0.38973644127330587
+    },
+    {
+      "update": 52,
+      "train/reward": 0.30777797288150643,
+      "moving_average": 0.3875993458411664
+    },
+    {
+      "update": 53,
+      "train/reward": 0.3992588284153301,
+      "moving_average": 0.3875048480757834
+    },
+    {
+      "update": 54,
+      "train/reward": 0.3172602013902376,
+      "moving_average": 0.3937214304998599
+    },
+    {
+      "update": 55,
+      "train/reward": 0.4368305433726119,
+      "moving_average": 0.39462123992504744
+    },
+    {
+      "update": 56,
+      "train/reward": 0.4081677159393896,
+      "moving_average": 0.3974738251765502
+    },
+    {
+      "update": 57,
+      "train/reward": 0.4345576553639335,
+      "moving_average": 0.39620795761899763
+    },
+    {
+      "update": 58,
+      "train/reward": 0.38944455231716957,
+      "moving_average": 0.3917759706211829
+    },
+    {
+      "update": 59,
+      "train/reward": 0.4804644473314461,
+      "moving_average": 0.39243321313055496
+    },
+    {
+      "update": 60,
+      "train/reward": 0.3868093053375491,
+      "moving_average": 0.3958220931787649
+    },
+    {
+      "update": 61,
+      "train/reward": 0.30096973136401706,
+      "moving_average": 0.38615409537131906
+    },
+    {
+      "update": 62,
+      "train/reward": 0.43642422326102254,
+      "moving_average": 0.39901872040927067
+    },
+    {
+      "update": 63,
+      "train/reward": 0.4656562238872357,
+      "moving_average": 0.4056584599564613
+    },
+    {
+      "update": 64,
+      "train/reward": 0.3744668891397443,
+      "moving_average": 0.4113791287314119
+    },
+    {
+      "update": 65,
+      "train/reward": 0.3867743798615106,
+      "moving_average": 0.4063735123803018
+    },
+    {
+      "update": 66,
+      "train/reward": 0.2978555225525428,
+      "moving_average": 0.39534229304161717
+    },
+    {
+      "update": 67,
+      "train/reward": 0.38569773490027315,
+      "moving_average": 0.3904563009952511
+    },
+    {
+      "update": 68,
+      "train/reward": 0.34105832232549455,
+      "moving_average": 0.3856176779960836
+    },
+    {
+      "update": 69,
+      "train/reward": 0.38483332049946123,
+      "moving_average": 0.3760545653128851
+    },
+    {
+      "update": 70,
+      "train/reward": 0.4129281280160752,
+      "moving_average": 0.3786664475807377
+    },
+    {
+      "update": 71,
+      "train/reward": 0.39187185467290225,
+      "moving_average": 0.3877566599116262
+    },
+    {
+      "update": 72,
+      "train/reward": 0.4438753099606113,
+      "moving_average": 0.38850176858158514
+    },
+    {
+      "update": 73,
+      "train/reward": 0.42652965820213,
+      "moving_average": 0.38458911201307455
+    },
+    {
+      "update": 74,
+      "train/reward": 0.42138543189635974,
+      "moving_average": 0.3892809662887361
+    },
+    {
+      "update": 75,
+      "train/reward": 0.4392615071831929,
+      "moving_average": 0.3945296790209043
+    },
+    {
+      "update": 76,
+      "train/reward": 0.39867989807633225,
+      "moving_average": 0.4046121165732832
+    },
+    {
+      "update": 77,
+      "train/reward": 0.35915601753077814,
+      "moving_average": 0.4019579448363338
+    },
+    {
+      "update": 78,
+      "train/reward": 0.43319358118435386,
+      "moving_average": 0.41117147072221966
+    },
+    {
+      "update": 79,
+      "train/reward": 0.4380537418022074,
+      "moving_average": 0.41649351285249436
+    },
+    {
+      "update": 80,
+      "train/reward": 0.4631298502133514,
+      "moving_average": 0.4215136850722219
+    },
+    {
+      "update": 81,
+      "train/reward": 0.5218092802538443,
+      "moving_average": 0.43450742763031613
+    },
+    {
+      "update": 82,
+      "train/reward": 0.5488143820697927,
+      "moving_average": 0.4450013348412343
+    },
+    {
+      "update": 83,
+      "train/reward": 0.3646931325163311,
+      "moving_average": 0.43881768227265444
+    },
+    {
+      "update": 84,
+      "train/reward": 0.5205913407182787,
+      "moving_average": 0.44873827315484627
+    },
+    {
+      "update": 85,
+      "train/reward": 0.4907954974050588,
+      "moving_average": 0.45389167217703286
+    },
+    {
+      "update": 86,
+      "train/reward": 0.4091247133344437,
+      "moving_average": 0.45493615370284407
+    },
+    {
+      "update": 87,
+      "train/reward": 0.4510139654945863,
+      "moving_average": 0.46412194849922483
+    },
+    {
+      "update": 88,
+      "train/reward": 0.3507143937081614,
+      "moving_average": 0.45587402975160557
+    },
+    {
+      "update": 89,
+      "train/reward": 0.4906224065248443,
+      "moving_average": 0.46113089622386927
+    },
+    {
+      "update": 90,
+      "train/reward": 0.44217167385024475,
+      "moving_average": 0.4590350785875586
+    },
+    {
+      "update": 91,
+      "train/reward": 0.4309962101116712,
+      "moving_average": 0.4499537715733413
+    },
+    {
+      "update": 92,
+      "train/reward": 0.49745752430354434,
+      "moving_average": 0.44481808579671644
+    },
+    {
+      "update": 93,
+      "train/reward": 0.5154764255337689,
+      "moving_average": 0.45989641509846024
+    },
+    {
+      "update": 94,
+      "train/reward": 0.402128894656722,
+      "moving_average": 0.44805017049230456
+    },
+    {
+      "update": 95,
+      "train/reward": 0.520841491115897,
+      "moving_average": 0.4510547698633884
+    },
+    {
+      "update": 96,
+      "train/reward": 0.5038003947644558,
+      "moving_average": 0.46052233800638953
+    },
+    {
+      "update": 97,
+      "train/reward": 0.43220694663477677,
+      "moving_average": 0.4586416361204087
+    },
+    {
+      "update": 98,
+      "train/reward": 0.39710007807950426,
+      "moving_average": 0.46328020455754293
+    },
+    {
+      "update": 99,
+      "train/reward": 0.4740718489503807,
+      "moving_average": 0.4616251488000966
+    },
+    {
+      "update": 100,
+      "train/reward": 0.34740730030502626,
+      "moving_average": 0.4521487114455748
+    },
+    {
+      "update": 101,
+      "train/reward": 0.43764587222150103,
+      "moving_average": 0.4528136776565577
+    },
+    {
+      "update": 102,
+      "train/reward": 0.4726330587603114,
+      "moving_average": 0.4503312311022344
+    },
+    {
+      "update": 103,
+      "train/reward": 0.43967107163106817,
+      "moving_average": 0.44275069571196435
+    },
+    {
+      "update": 104,
+      "train/reward": 0.49744752452921454,
+      "moving_average": 0.4522825586992136
+    },
+    {
+      "update": 105,
+      "train/reward": 0.4620546781138645,
+      "moving_average": 0.44640387739901033
+    },
+    {
+      "update": 106,
+      "train/reward": 0.41188523478555067,
+      "moving_average": 0.43721236140111985
+    },
+    {
+      "update": 107,
+      "train/reward": 0.43369747653056995,
+      "moving_average": 0.4373614143906991
+    },
+    {
+      "update": 108,
+      "train/reward": 0.484877170132042,
+      "moving_average": 0.4461391235959529
+    },
+    {
+      "update": 109,
+      "train/reward": 0.46878698844870825,
+      "moving_average": 0.44561063754578567
+    },
+    {
+      "update": 110,
+      "train/reward": 0.49124147275359714,
+      "moving_average": 0.4599940547906428
+    },
+    {
+      "update": 111,
+      "train/reward": 0.40781183314729635,
+      "moving_average": 0.45701065088322235
+    },
+    {
+      "update": 112,
+      "train/reward": 0.5025010697143981,
+      "moving_average": 0.45999745197863096
+    },
+    {
+      "update": 113,
+      "train/reward": 0.46811728464613345,
+      "moving_average": 0.46284207328013754
+    },
+    {
+      "update": 114,
+      "train/reward": 0.45592504172228027,
+      "moving_average": 0.4586898249994441
+    },
+    {
+      "update": 115,
+      "train/reward": 0.4177263994994023,
+      "moving_average": 0.45425699713799783
+    },
+    {
+      "update": 116,
+      "train/reward": 0.4838519579851909,
+      "moving_average": 0.4614536694579619
+    },
+    {
+      "update": 117,
+      "train/reward": 0.3717560578115206,
+      "moving_average": 0.4552595275860569
+    },
+    {
+      "update": 118,
+      "train/reward": 0.4718029656058145,
+      "moving_average": 0.45395210713343415
+    },
+    {
+      "update": 119,
+      "train/reward": 0.36774161229168667,
+      "moving_average": 0.4438475695177321
+    },
+    {
+      "update": 120,
+      "train/reward": 0.4743304287464912,
+      "moving_average": 0.44215646511702145
+    },
+    {
+      "update": 121,
+      "train/reward": 0.47322713878444705,
+      "moving_average": 0.4486979956807365
+    },
+    {
+      "update": 122,
+      "train/reward": 0.44110485260838206,
+      "moving_average": 0.44255837397013487
+    },
+    {
+      "update": 123,
+      "train/reward": 0.4949924849088924,
+      "moving_average": 0.44524589399641085
+    },
+    {
+      "update": 124,
+      "train/reward": 0.48532779272692217,
+      "moving_average": 0.44818616909687503
+    },
+    {
+      "update": 125,
+      "train/reward": 0.4498700206090161,
+      "moving_average": 0.4514005312078363
+    },
+    {
+      "update": 126,
+      "train/reward": 0.4705837868201281,
+      "moving_average": 0.45007371409133007
+    },
+    {
+      "update": 127,
+      "train/reward": 0.4907179285419385,
+      "moving_average": 0.46196990116437187
+    },
+    {
+      "update": 128,
+      "train/reward": 0.5744906232366066,
+      "moving_average": 0.4722386669274511
+    },
+    {
+      "update": 129,
+      "train/reward": 0.4676089006277965,
+      "moving_average": 0.4822253957610621
+    },
+    {
+      "update": 130,
+      "train/reward": 0.39339925375745954,
+      "moving_average": 0.4741322782621589
+    },
+    {
+      "update": 131,
+      "train/reward": 0.4887192903907207,
+      "moving_average": 0.47568149342278626
+    },
+    {
+      "update": 132,
+      "train/reward": 0.46782151048877973,
+      "moving_average": 0.478353159210826
+    },
+    {
+      "update": 133,
+      "train/reward": 0.5035112943051626,
+      "moving_average": 0.47920504015045307
+    },
+    {
+      "update": 134,
+      "train/reward": 0.5004049089601472,
+      "moving_average": 0.48071275177377554
+    },
+    {
+      "update": 135,
+      "train/reward": 0.4713457379902215,
+      "moving_average": 0.4828603235118961
+    },
+    {
+      "update": 136,
+      "train/reward": 0.5102644277862165,
+      "moving_average": 0.486828387608505
+    },
+    {
+      "update": 137,
+      "train/reward": 0.39432211620856555,
+      "moving_average": 0.47718880637516764
+    },
+    {
+      "update": 138,
+      "train/reward": 0.40482694798909635,
+      "moving_average": 0.46022243885041664
+    },
+    {
+      "update": 139,
+      "train/reward": 0.5509855489635131,
+      "moving_average": 0.4685601036839883
+    },
+    {
+      "update": 140,
+      "train/reward": 0.5500615670740663,
+      "moving_average": 0.48422633501564893
+    },
+    {
+      "update": 141,
+      "train/reward": 0.4539020995176045,
+      "moving_average": 0.4807446159283374
+    },
+    {
+      "update": 142,
+      "train/reward": 0.3723506324530443,
+      "moving_average": 0.47119752812476384
+    },
+    {
+      "update": 143,
+      "train/reward": 0.44392569168748985,
+      "moving_average": 0.4652389678629965
+    },
+    {
+      "update": 144,
+      "train/reward": 0.4261162465282796,
+      "moving_average": 0.45781010161980973
+    },
+    {
+      "update": 145,
+      "train/reward": 0.4662471910401838,
+      "moving_average": 0.457300246924806
+    },
+    {
+      "update": 146,
+      "train/reward": 0.4370325898203845,
+      "moving_average": 0.44997706312822283
+    },
+    {
+      "update": 147,
+      "train/reward": 0.430381063961132,
+      "moving_average": 0.4535829579034794
+    },
+    {
+      "update": 148,
+      "train/reward": 0.589792699871946,
+      "moving_average": 0.4720795330917644
+    },
+    {
+      "update": 149,
+      "train/reward": 0.5231417102112804,
+      "moving_average": 0.46929514921654114
+    },
+    {
+      "update": 150,
+      "train/reward": 0.44325601056653174,
+      "moving_average": 0.45861459356578765
+    },
+    {
+      "update": 151,
+      "train/reward": 0.4758793808582656,
+      "moving_average": 0.4608123216998538
+    },
+    {
+      "update": 152,
+      "train/reward": 0.3960060804459549,
+      "moving_average": 0.46317786649914483
+    },
+    {
+      "update": 153,
+      "train/reward": 0.5067122115666299,
+      "moving_average": 0.4694565184870589
+    },
+    {
+      "update": 154,
+      "train/reward": 0.4667901235775704,
+      "moving_average": 0.4735239061919879
+    },
+    {
+      "update": 155,
+      "train/reward": 0.4192036611632278,
+      "moving_average": 0.46881955320429236
+    },
+    {
+      "update": 156,
+      "train/reward": 0.45070071118970556,
+      "moving_average": 0.4701863653412245
+    },
+    {
+      "update": 157,
+      "train/reward": 0.5314759030336511,
+      "moving_average": 0.48029584924847635
+    },
+    {
+      "update": 158,
+      "train/reward": 0.5138522085796734,
+      "moving_average": 0.47270180011924906
+    },
+    {
+      "update": 159,
+      "train/reward": 0.43128725768663934,
+      "moving_average": 0.463516354866785
+    },
+    {
+      "update": 160,
+      "train/reward": 0.5478045313528306,
+      "moving_average": 0.4739712069454149
+    },
+    {
+      "update": 161,
+      "train/reward": 0.5125512867043819,
+      "moving_average": 0.47763839753002646
+    },
+    {
+      "update": 162,
+      "train/reward": 0.46169534793721245,
+      "moving_average": 0.4842073242791522
+    },
+    {
+      "update": 163,
+      "train/reward": 0.5513865590717166,
+      "moving_average": 0.48867475902966095
+    },
+    {
+      "update": 164,
+      "train/reward": 0.43521168378111696,
+      "moving_average": 0.48551691505001554
+    },
+    {
+      "update": 165,
+      "train/reward": 0.5492764802848357,
+      "moving_average": 0.49852419696217637
+    },
+    {
+      "update": 166,
+      "train/reward": 0.5162700702032629,
+      "moving_average": 0.5050811328635321
+    },
+    {
+      "update": 167,
+      "train/reward": 0.4909327499654192,
+      "moving_average": 0.5010268175567089
+    },
+    {
+      "update": 168,
+      "train/reward": 0.49750011579345577,
+      "moving_average": 0.49939160827808715
+    },
+    {
+      "update": 169,
+      "train/reward": 0.4443748884588516,
+      "moving_average": 0.5007003713553083
+    },
+    {
+      "update": 170,
+      "train/reward": 0.4985831905791413,
+      "moving_average": 0.4957782372779394
+    },
+    {
+      "update": 171,
+      "train/reward": 0.5191923641932491,
+      "moving_average": 0.49644234502682616
+    },
+    {
+      "update": 172,
+      "train/reward": 0.4834633955503955,
+      "moving_average": 0.4986191497881444
+    },
+    {
+      "update": 173,
+      "train/reward": 0.45128300010504474,
+      "moving_average": 0.48860879389147727
+    },
+    {
+      "update": 174,
+      "train/reward": 0.5149545067289819,
+      "moving_average": 0.49658307618626374
+    },
+    {
+      "update": 175,
+      "train/reward": 0.5025368892840513,
+      "moving_average": 0.49190911708618534
+    },
+    {
+      "update": 176,
+      "train/reward": 0.41289173132961654,
+      "moving_average": 0.4815712831988207
+    },
+    {
+      "update": 177,
+      "train/reward": 0.42843365020295093,
+      "moving_average": 0.47532137322257384
+    },
+    {
+      "update": 178,
+      "train/reward": 0.4354132818501487,
+      "moving_average": 0.4691126898282431
+    },
+    {
+      "update": 179,
+      "train/reward": 0.4226150480146742,
+      "moving_average": 0.46693670578382546
+    },
+    {
+      "update": 180,
+      "train/reward": 0.5761200925112596,
+      "moving_average": 0.4746903959770372
+    },
+    {
+      "update": 181,
+      "train/reward": 0.5277316333797047,
+      "moving_average": 0.4755443228956828
+    },
+    {
+      "update": 182,
+      "train/reward": 0.48846374178086727,
+      "moving_average": 0.47604435751873
+    },
+    {
+      "update": 183,
+      "train/reward": 0.5650303296923085,
+      "moving_average": 0.48741909047745635
+    },
+    {
+      "update": 184,
+      "train/reward": 0.39701541402743024,
+      "moving_average": 0.47562518120730124
+    },
+    {
+      "update": 185,
+      "train/reward": 0.47382309591364513,
+      "moving_average": 0.47275380187026056
+    },
+    {
+      "update": 186,
+      "train/reward": 0.5237990681677287,
+      "moving_average": 0.4838445355540718
+    },
+    {
+      "update": 187,
+      "train/reward": 0.4484635588212178,
+      "moving_average": 0.48584752641589846
+    },
+    {
+      "update": 188,
+      "train/reward": 0.5371878077919169,
+      "moving_average": 0.4960249790100753
+    },
+    {
+      "update": 189,
+      "train/reward": 0.49154663043701224,
+      "moving_average": 0.502918137252309
+    },
+    {
+      "update": 190,
+      "train/reward": 0.45207243248865825,
+      "moving_average": 0.490513371250049
+    },
+    {
+      "update": 191,
+      "train/reward": 0.49394671910839943,
+      "moving_average": 0.4871348798229184
+    },
+    {
+      "update": 192,
+      "train/reward": 0.48213230588184003,
+      "moving_average": 0.4865017362330157
+    },
+    {
+      "update": 193,
+      "train/reward": 0.5446896340000162,
+      "moving_average": 0.4844676666637865
+    },
+    {
+      "update": 194,
+      "train/reward": 0.44716549752728435,
+      "moving_average": 0.4894826750137719
+    },
+    {
+      "update": 195,
+      "train/reward": 0.4347029418097002,
+      "moving_average": 0.4855706596033774
+    },
+    {
+      "update": 196,
+      "train/reward": 0.4283194161260107,
+      "moving_average": 0.47602269439920564
+    },
+    {
+      "update": 197,
+      "train/reward": 0.4773234237270643,
+      "moving_average": 0.4789086808897903
+    },
+    {
+      "update": 198,
+      "train/reward": 0.5975723636075168,
+      "moving_average": 0.48494713647135024
+    },
+    {
+      "update": 199,
+      "train/reward": 0.540899345957751,
+      "moving_average": 0.4898824080234242
+    },
+    {
+      "update": 200,
+      "train/reward": 0.5659298643534868,
+      "moving_average": 0.501268151209907
+    }
+  ],
+  "state": "finished"
+}
