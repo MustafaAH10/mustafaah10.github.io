@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DecomposeR</title>
-    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="stylesheet" href="./styles.css?v=3" />
     <script>
       window.MathJax = {
         tex: {
@@ -126,15 +126,9 @@
           </ol>
         </section>
 
-        <section class="figureSection twoCol">
-          <figure class="subFigure">
-            <img src="assets/figures/typed_dag_example.png" alt="Example of a typed directed acyclic graph (DAG) research plan with search, aggregate and answer nodes" loading="lazy" />
-            <figcaption><strong>Figure 2 — Typed DAG Plan.</strong> A research plan represented as a typed DAG. Search nodes (s) carry a query string and key points; aggregate nodes (a) carry synthesis briefs; the single answer node (v_ans) integrates all branches into the final report. Directed edges declare evidence flow between components.</figcaption>
-          </figure>
-          <figure class="subFigure">
-            <img src="assets/figures/example_rollout_graph.png" alt="Example rollout graph showing the full research workflow through graph revision and answerer execution" loading="lazy" />
-            <figcaption><strong>Figure 3 — Example Rollout Graph.</strong> An instantiated rollout showing a planner graph being revised after initial search, with the answerer then executing branch-level synthesis in topological order before producing the final report.</figcaption>
-          </figure>
+        <section class="figureSection researchViewer" id="research-viewer" aria-label="Interactive planner and answerer demonstrations">
+          <iframe id="decomposer-viewer" src="./assets/viewer/index.html" title="DecomposeR: explore 20 research graphs, branch reports and video replays" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+          <noscript><p><a href="./assets/viewer/index.html">Open the interactive research viewer</a> (requires JavaScript).</p></noscript>
         </section>
 
         <section class="contentSection" id="plan-repr">
@@ -479,6 +473,7 @@
       </div>
     </div>
 
+    <script src="./assets/viewer-embed.js" defer></script>
     <script>
       const lightbox = document.getElementById("imgLightbox");
       const lightboxImg = document.getElementById("lightboxImg");

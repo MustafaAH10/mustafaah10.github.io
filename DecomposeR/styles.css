@@ -259,6 +259,12 @@ button:hover {
   gap: 20px;
 }
 
+/* The research explorer replaces the two static plan figures. Its styles and
+   dialogs are isolated so the surrounding paper page keeps its existing theme. */
+.figureSection.researchViewer { display: block; background: #fff; }
+.researchViewer iframe { display: block; width: 100%; height: 850px; border: 0; color-scheme: light; }
+@media (max-width: 760px) { .researchViewer iframe { height: 560px; } }
+
 .figureSection.compact {
   padding-left: 32px;
   padding-right: 32px;
