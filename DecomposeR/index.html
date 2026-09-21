@@ -37,6 +37,7 @@
           <a class="open" href="#paper"><span>+</span><strong>DecomposeR</strong></a>
           <a class="indent active" href="#abstract"><span>-</span><span>Abstract</span></a>
           <a class="indent" href="#method"><span>-</span><span>Method</span></a>
+          <a class="indent" href="#research-viewer"><span>-</span><span>Data Viewer</span></a>
           <a class="indent" href="#plan-repr"><span>-</span><span>Plan Representation</span></a>
           <a class="indent" href="#training"><span>-</span><span>Training</span></a>
           <a class="indent" href="#results"><span>-</span><span>Results</span></a>
@@ -126,7 +127,12 @@
           </ol>
         </section>
 
-        <section class="figureSection researchViewer" id="research-viewer" aria-label="Interactive planner and answerer demonstrations">
+        <section class="figureSection researchViewer" id="research-viewer" aria-labelledby="data-viewer-heading">
+          <div class="sectionHeader">
+            <h2 id="data-viewer-heading">Data Viewer</h2>
+          </div>
+          <p class="bodyText">Follow the workflow from the planner’s initial graph through web search, plan revision, and page fetching to branch reports and the final synthesized answer.</p>
+          <p class="bodyText">Select <strong>Explore graph</strong>, then click any node to inspect its full output.</p>
           <iframe id="decomposer-viewer" src="./assets/viewer/index.html" title="DecomposeR: explore 20 research graphs, branch reports and video replays" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
           <noscript><p><a href="./assets/viewer/index.html">Open the interactive research viewer</a> (requires JavaScript).</p></noscript>
         </section>
